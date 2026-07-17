@@ -48,9 +48,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" />
 
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -203,7 +200,6 @@
             pointer-events: none;
         }
 
-        /* Gradient glow mimicking the silhouette lighting */
         .hero-glow {
             position: absolute;
             top: 10%;
@@ -217,7 +213,6 @@
             border-radius: 50%;
         }
 
-        /* SVG Staircase Silhouette */
         .hero-visual {
             position: absolute;
             right: 0;
@@ -241,7 +236,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 60px;
-            padding-top: 100px; /* Offset for header */
+            padding-top: 100px;
             width: 100%;
         }
 
@@ -463,14 +458,14 @@
         .products-section { background: var(--off-white); max-width: 100%; padding: 100px 0; overflow: hidden; }
         .products-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
 
+        /* Базовые стили для Swiper взамен CDN */
+        .swiper { margin-left: auto; margin-right: auto; position: relative; overflow: hidden; list-style: none; padding: 0; z-index: 1; }
+        .swiper-wrapper { position: relative; width: 100%; height: 100%; z-index: 1; display: flex; transition-property: transform; box-sizing: content-box; }
+        .swiper-slide { flex-shrink: 0; width: 100%; height: auto; position: relative; transition-property: transform; }
+
         .products-slider {
             margin-top: 40px;
             width: 100%;
-            position: relative;
-        }
-
-        .products-slider .swiper-slide {
-            height: auto;
         }
 
         .product-card {
@@ -566,6 +561,9 @@
 
         .swiper-button-prev,
         .swiper-button-next {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: static;
             width: 44px;
             height: 44px;
@@ -574,7 +572,9 @@
             border-radius: 50%;
             color: var(--text-primary);
             margin: 0;
+            cursor: pointer;
             transition: all 0.2s;
+            z-index: 10;
         }
 
         .swiper-button-prev:hover,
@@ -584,10 +584,16 @@
             border-color: var(--text-primary);
         }
 
-        .swiper-button-prev::after,
+        .swiper-button-prev::after {
+            content: '←';
+            font-size: 18px;
+            font-weight: 400;
+        }
+
         .swiper-button-next::after {
-            font-size: 16px;
-            font-weight: bold;
+            content: '→';
+            font-size: 18px;
+            font-weight: 400;
         }
 
         .swiper-pagination {
@@ -599,9 +605,14 @@
         }
 
         .swiper-pagination-bullet {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
             background: var(--border);
             opacity: 1;
             margin: 0 !important;
+            cursor: pointer;
+            transition: background 0.2s;
         }
 
         .swiper-pagination-bullet-active {
@@ -1452,43 +1463,7 @@
     <p class="footer-copy">© 2026 СтепХаус. Лестницы на металлокаркасе, Московская область.</p>
 </footer>
 
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
 <script>
-    // Init Swiper
-    document.addEventListener("DOMContentLoaded", function() {
-        new Swiper('.products-slider', {
-            loop: true,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                320: {
-                    slidesPerView: 1,
-                    spaceBetween: 20
-                },
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 24
-                },
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 24
-                }
-            }
-        });
-    });
-
     // Smooth scroll for nav links
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', e => {
