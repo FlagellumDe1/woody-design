@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SEO: Title & Description -->
-    <title>Лестницы на металлокаркасе с деревянными ступенями | Московская область</title>
+    <title>Лестницы на металлическом каркасе | Московская область</title>
     <meta name="description" content="Изготовление и монтаж лестниц на металлическом каркасе с деревянной обшивкой для частных домов в Московской области. Замер, проект, производство — под ключ. Звоните!" />
-    <meta name="keywords" content="лестницы на металлокаркасе Московская область, лестницы для частных домов МО, лестницы с деревянными ступенями Подмосковье, заказать лестницу на металлокаркасе, изготовление лестниц Москва, металлические лестницы с деревом" />
+    <meta name="keywords" content="Лестницы на металлическом каркасе Московская область, лестницы для частных домов МО, лестницы с деревянными ступенями Подмосковье, заказать лестницу на металлокаркасе, изготовление лестниц Москва, металлические лестницы с деревом" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://stephaus.ru/" />
 
     <!-- OG / Social -->
-    <meta property="og:title" content="Лестницы на металлокаркасе | Подмосковье" />
+    <meta property="og:title" content="Лестницы на металлическом каркасе| Подмосковье" />
     <meta property="og:description" content="Производство и монтаж лестниц на металлическом каркасе с деревянной обшивкой в Московской области. Под ключ от 45 дней." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ru_RU" />
@@ -58,7 +58,11 @@
             --white: #ffffff;
             --off-white: #f8f7f5;
             --light: #f0ede8;
-            --text-primary: #1a1a1a;
+            /* RAL Цветовая Палитра */
+            --text-primary: #3b3332; /* RAL 8019 Серо-коричневый */
+            --heading-color: #384337; /* RAL 6020 Хромовый зеленый */
+            --btn-bg: #006442; /* RAL 6016 Бирюзово-зеленый */
+            /* Остальные цвета */
             --text-secondary: #6b6560;
             --text-muted: #a09990;
             --accent: #8b6f47;
@@ -130,7 +134,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            overflow: hidden; /* Protection against pushing layout outward */
+            overflow: hidden;
         }
 
         .header-nav a {
@@ -213,7 +217,7 @@
         }
 
         .header-cta {
-            background: var(--text-primary) !important;
+            background: var(--btn-bg) !important;
             color: var(--white) !important;
             padding: 10px 20px;
             border-radius: 30px;
@@ -224,12 +228,10 @@
             white-space: nowrap;
             flex-shrink: 0;
         }
-        .header-cta:hover { background: #333 !important; }
+        .header-cta:hover { background: #004b32 !important; }
 
-        /* ── BURGER MENU BUTTON (HIDDEN DEFAULT) ── */
-        .burger-btn {
-            display: none;
-        }
+        /* ── BURGER MENU BUTTON ── */
+        .burger-btn { display: none; }
 
         /* ── MOBILE MENU OVERLAY ── */
         .mobile-menu {
@@ -238,7 +240,7 @@
             background: var(--nav-bg);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            z-index: 99; /* Just below header */
+            z-index: 99;
             display: flex;
             flex-direction: column;
             padding: 100px 32px 40px;
@@ -247,364 +249,121 @@
             overflow-y: auto;
             border-left: 1px solid var(--border);
         }
+        .mobile-menu.active { transform: translateX(0); }
 
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-
-        .mobile-nav-links {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            margin-bottom: auto; /* Push contact details down */
-        }
-
-        .mobile-nav-links a {
-            font-size: 24px;
-            font-weight: 500;
-            font-family: 'Playfair Display', serif;
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
+        .mobile-nav-links { display: flex; flex-direction: column; gap: 24px; margin-bottom: auto; }
+        .mobile-nav-links a { font-size: 24px; font-weight: 500; font-family: 'Playfair Display', serif; color: var(--text-primary); text-decoration: none; transition: color 0.2s; }
         .mobile-nav-links a:hover { color: var(--accent); }
 
-        .mobile-nav-bottom {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            border-top: 1px solid var(--border);
-            padding-top: 32px;
-            margin-top: 40px;
-        }
-
+        .mobile-nav-bottom { display: flex; flex-direction: column; gap: 24px; border-top: 1px solid var(--border); padding-top: 32px; margin-top: 40px; }
         .mobile-nav-bottom .header-phone { font-size: 20px; }
         .mobile-nav-bottom .header-address { font-size: 13px; color: var(--text-secondary); white-space: normal; line-height: 1.5; }
         .mobile-nav-bottom .mobile-cta { justify-content: center; text-align: center; font-size: 14px; padding: 14px 20px; }
 
         /* ── HERO ── */
-        .hero {
-            min-height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            background: var(--white);
-        }
-
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-        }
-
+        .hero { min-height: 100vh; position: relative; display: flex; align-items: center; overflow: hidden; background: var(--white); }
+        .hero-bg { position: absolute; inset: 0; pointer-events: none; }
         .hero-glow {
-            position: absolute;
-            top: 10%;
-            right: 5%;
-            width: 65%;
-            height: 90%;
-            background: radial-gradient(ellipse 60% 80% at 60% 40%,
-            rgba(196,168,130,0.18) 0%,
-            rgba(180,150,100,0.08) 40%,
-            transparent 70%);
+            position: absolute; top: 10%; right: 5%; width: 65%; height: 90%;
+            background: radial-gradient(ellipse 60% 80% at 60% 40%, rgba(196,168,130,0.18) 0%, rgba(180,150,100,0.08) 40%, transparent 70%);
             border-radius: 50%;
         }
 
-        .hero-visual {
-            position: absolute;
-            right: 0;
-            top: 0;
-            width: 58%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+        .hero-visual { position: absolute; right: 0; top: 0; width: 58%; height: 100%; display: flex; align-items: center; justify-content: center; }
+        .stair-silhouette { width: 100%; height: 100%; opacity: 0.88; }
+        .hero-content { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 60px; padding-top: 100px; width: 100%; }
 
-        .stair-silhouette {
-            width: 100%;
-            height: 100%;
-            opacity: 0.88;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 60px;
-            padding-top: 100px;
-            width: 100%;
-        }
-
-        .hero-label {
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
+        .hero-label { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; }
 
         .hero-title {
             font-family: 'Playfair Display', serif;
             font-size: clamp(36px, 5vw, 64px);
             font-weight: 400;
             line-height: 1.15;
-            color: var(--text-primary);
+            color: var(--text-primary); /* Возвращает актуальный RAL 8019 */
             max-width: 500px;
             margin-bottom: 24px;
         }
 
-        .hero-title em {
-            font-style: italic;
-            color: var(--accent);
+        .hero-title em { font-style: italic; color: var(--accent); }
+        .hero-sub { font-size: 14px; color: #00694C; line-height: 1.7; max-width: 340px; }
+        .hero-sub-2 { font-size: 14px; margin-bottom: 40px;  }
+        .hero-sub-1 {
+            font-size: 20px;
+            margin-bottom: 20px;
         }
 
-        .hero-sub {
-            font-size: 14px;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            max-width: 340px;
-            margin-bottom: 40px;
-        }
-
-        .hero-tags {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-
+        .hero-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
         .hero-tag {
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            border: 1px solid var(--border);
-            border-radius: 30px;
-            padding: 5px 14px;
-            color: var(--text-secondary);
-            cursor: pointer;
-            transition: all 0.2s;
-            background: rgba(255,255,255,0.7);
-            text-decoration: none;
+            font-size: 11px; font-weight: 500; letter-spacing: 0.05em; border: 1px solid var(--border); border-radius: 30px;
+            padding: 5px 14px; color: var(--text-secondary); cursor: pointer; transition: all 0.2s; background: rgba(255,255,255,0.7); text-decoration: none;
         }
         .hero-tag:hover { border-color: var(--accent); color: var(--accent); }
 
-        .hero-cta-row {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
+        .hero-cta-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
 
         .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--text-primary);
-            color: var(--white);
-            font-size: 13px;
-            font-weight: 500;
-            padding: 13px 28px;
-            border-radius: 50px;
-            text-decoration: none;
-            transition: all 0.25s;
-            border: none;
-            cursor: pointer;
+            display: inline-flex; align-items: center; gap: 8px; background: var(--btn-bg); color: var(--white);
+            font-size: 13px; font-weight: 500; padding: 13px 28px; border-radius: 50px; text-decoration: none;
+            transition: all 0.25s; border: none; cursor: pointer;
         }
-        .btn-primary:hover { background: #333; transform: translateY(-1px); }
+        .btn-primary:hover { background: #004b32; transform: translateY(-1px); }
 
         .btn-outline {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 13px;
-            color: var(--text-secondary);
-            text-decoration: none;
-            padding: 13px 0;
-            border-bottom: 1px solid transparent;
-            transition: all 0.2s;
+            display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-secondary);
+            text-decoration: none; padding: 13px 0; border-bottom: 1px solid transparent; transition: all 0.2s;
         }
-        .btn-outline:hover { color: var(--text-primary); border-bottom-color: var(--text-primary); }
+        .btn-outline:hover { color: var(--btn-bg); border-bottom-color: var(--btn-bg); }
 
-        .hero-stats {
-            position: absolute;
-            bottom: 50px;
-            right: 60px;
-            z-index: 2;
-            display: flex;
-            gap: 40px;
-        }
-
+        .hero-stats { position: absolute; bottom: 50px; right: 60px; z-index: 2; display: flex; gap: 40px; }
         .stat { text-align: right; }
-        .stat-num {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 400;
-            color: var(--text-primary);
-            display: block;
-        }
-        .stat-label {
-            font-size: 11px;
-            color: var(--text-muted);
-            letter-spacing: 0.05em;
-        }
+        .stat-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 400; color: var(--text-primary); display: block; }
+        .stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.05em; }
 
         /* ── TICKER ── */
-        .ticker-wrap {
-            overflow: hidden;
-            border-bottom: 1px solid var(--border);
-            padding: 14px 0;
-            background: var(--off-white);
-        }
-        .ticker {
-            display: flex;
-            gap: 60px;
-            white-space: nowrap;
-            animation: ticker 22s linear infinite;
-        }
-        .ticker span {
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-        }
+        .ticker-wrap { overflow: hidden; border-bottom: 1px solid var(--border); padding: 14px 0; background: var(--off-white); }
+        .ticker { display: flex; gap: 60px; white-space: nowrap; animation: ticker 22s linear infinite; }
+        .ticker span { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
         .ticker span b { color: var(--accent); font-weight: 500; }
         @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
         /* ── SECTIONS ── */
         section { max-width: 1200px; margin: 0 auto; padding: 100px 60px; }
-
-        .section-label {
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 14px;
-        }
+        .section-label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
 
         .section-title {
             font-family: 'Playfair Display', serif;
             font-size: clamp(28px, 3.5vw, 46px);
             font-weight: 400;
             line-height: 1.2;
-            color: var(--text-primary);
+            color: var(--heading-color);
             margin-bottom: 20px;
         }
 
-        .section-sub {
-            font-size: 14px;
-            color: var(--text-secondary);
-            line-height: 1.8;
-            max-width: 520px;
-        }
+        .section-sub { font-size: 14px; color: var(--text-secondary); line-height: 1.8; max-width: 520px; }
 
         /* ── WHY ── */
-        .why-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2px;
-            margin-top: 60px;
-            border: 1px solid var(--border);
-        }
-
-        .why-item {
-            padding: 40px;
-            background: var(--white);
-            border: 1px solid var(--border);
-            position: relative;
-            transition: background 0.3s;
-        }
+        .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 60px; border: 1px solid var(--border); }
+        .why-item { padding: 40px; background: var(--white); border: 1px solid var(--border); position: relative; transition: background 0.3s; }
         .why-item:hover { background: var(--off-white); }
-
-        .why-num {
-            font-family: 'Playfair Display', serif;
-            font-size: 40px;
-            color: var(--light);
-            position: absolute;
-            top: 30px;
-            right: 36px;
-            line-height: 1;
-            user-select: none;
-        }
-
-        .why-icon {
-            width: 40px;
-            height: 40px;
-            margin-bottom: 20px;
-            color: var(--accent);
-        }
-
-        .why-item h3 {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 10px;
-        }
-
-        .why-item p {
-            font-size: 13px;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
+        .why-num { font-family: 'Playfair Display', serif; font-size: 40px; color: var(--light); position: absolute; top: 30px; right: 36px; line-height: 1; user-select: none; }
+        .why-icon { width: 40px; height: 40px; margin-bottom: 20px; color: var(--accent); }
+        .why-item h3 { font-size: 16px; font-weight: 600; color: var(--heading-color); margin-bottom: 10px; }
+        .why-item p { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
 
         /* ── PRODUCTS ── */
         .products-section { background: var(--off-white); max-width: 100%; padding: 100px 0; overflow: hidden; }
         .products-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
-
-        .products-slider {
-            margin-top: 40px;
-            width: 100%;
-            position: relative;
-        }
-
+        .products-slider { margin-top: 40px; width: 100%; position: relative; }
         .products-slider .swiper-slide { height: auto; }
 
-        .product-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            overflow: hidden;
-            border-radius: 4px;
-            transition: box-shadow 0.3s, transform 0.3s;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
+        .product-card { background: var(--white); border: 1px solid var(--border); overflow: hidden; border-radius: 4px; transition: box-shadow 0.3s, transform 0.3s; height: 100%; display: flex; flex-direction: column; }
         .product-card:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(0,0,0,0.06); }
-
-        .product-visual {
-            height: 220px;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
+        .product-visual { height: 220px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
         .product-visual svg { width: 100%; height: 100%; }
-
-        .product-tag {
-            position: absolute;
-            top: 16px;
-            left: 16px;
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            background: var(--white);
-            border: 1px solid var(--border);
-            padding: 4px 10px;
-            border-radius: 20px;
-            color: var(--text-secondary);
-            z-index: 2;
-        }
-
+        .product-tag { position: absolute; top: 16px; left: 16px; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: var(--white); border: 1px solid var(--border); padding: 4px 10px; border-radius: 20px; color: var(--text-secondary); z-index: 2; }
         .product-body { padding: 28px; display: flex; flex-direction: column; flex-grow: 1; }
-        .product-body h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+        .product-body h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; color: var(--heading-color); }
         .product-body p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
         .product-price { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--text-primary); display: block; margin-bottom: 16px; }
         .product-price span { font-size: 13px; font-family: 'Inter', sans-serif; color: var(--text-muted); }
@@ -613,7 +372,7 @@
             display: block; text-align: center; font-size: 12px; font-weight: 500; padding: 10px;
             border: 1px solid var(--border); border-radius: 4px; color: var(--text-primary); background: transparent; cursor: pointer; width: 100%; transition: all 0.2s;
         }
-        .btn-card:hover { background: var(--text-primary); color: var(--white); border-color: var(--text-primary); }
+        .btn-card:hover { background: var(--btn-bg); color: var(--white); border-color: var(--btn-bg); }
 
         .slider-controls { display: flex; align-items: center; justify-content: space-between; margin-top: 32px; }
         .slider-nav { display: flex; gap: 12px; }
@@ -621,11 +380,11 @@
             position: static; width: 44px; height: 44px; background: var(--white); border: 1px solid var(--border);
             border-radius: 50%; color: var(--text-primary); margin: 0; transition: all 0.2s;
         }
-        .swiper-button-prev:hover, .swiper-button-next:hover { background: var(--text-primary); color: var(--white); border-color: var(--text-primary); }
+        .swiper-button-prev:hover, .swiper-button-next:hover { background: var(--btn-bg); color: var(--white); border-color: var(--btn-bg); }
         .swiper-button-prev::after, .swiper-button-next::after { font-size: 16px; font-weight: bold; }
         .swiper-pagination { position: static; width: auto !important; display: flex; align-items: center; gap: 6px; }
         .swiper-pagination-bullet { background: var(--border); opacity: 1; margin: 0 !important; }
-        .swiper-pagination-bullet-active { background: var(--text-primary); }
+        .swiper-pagination-bullet-active { background: var(--btn-bg); }
 
         /* ── PROCESS ── */
         .process-row { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 60px; }
@@ -634,13 +393,13 @@
         .step:first-child { border-top: 1px solid var(--border); }
         .step:hover .step-num { color: var(--accent); }
         .step-num { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--light); line-height: 1; min-width: 40px; transition: color 0.2s; }
-        .step-content h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+        .step-content h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; color: var(--heading-color); }
         .step-content p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
         .step-days { font-size: 11px; font-weight: 500; color: var(--accent); margin-top: 6px; letter-spacing: 0.04em; }
 
         .process-right { position: sticky; top: 120px; }
         .process-card { background: var(--off-white); border: 1px solid var(--border); border-radius: 4px; padding: 40px; }
-        .process-card h3 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 400; margin-bottom: 16px; }
+        .process-card h3 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 400; margin-bottom: 16px; color: var(--heading-color); }
         .process-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 28px; }
         .process-meta { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
         .meta-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
@@ -659,7 +418,7 @@
 
         /* ── FORM ── */
         .form-section { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-        .form-left h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 42px); font-weight: 400; margin-bottom: 20px; }
+        .form-left h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 42px); font-weight: 400; margin-bottom: 20px; color: var(--heading-color); }
         .form-left p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 28px; }
         .form-contact-row { display: flex; flex-direction: column; gap: 10px; }
         .contact-item { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--text-secondary); }
@@ -688,14 +447,13 @@
 
         /* ── SUCCESS MSG ── */
         .success-msg { display: none; text-align: center; padding: 32px; background: var(--off-white); border: 1px solid var(--border); border-radius: 4px; }
-        .success-msg h3 { font-size: 18px; margin-bottom: 8px; }
+        .success-msg h3 { font-size: 18px; margin-bottom: 8px; color: var(--heading-color); }
         .success-msg p { font-size: 13px; color: var(--text-secondary); }
-
 
         /* ── ADAPTIVE ── */
         @media (max-width: 1250px) {
             .site-header { padding: 16px 32px; }
-            .header-address { display: none; } /* Скрываем адрес от сжимания блоков */
+            .header-address { display: none; }
             .header-left { gap: 20px; }
             .header-nav { gap: 4px; }
             .header-nav a { padding: 8px 12px; }
@@ -703,39 +461,22 @@
         }
 
         @media (max-width: 1024px) {
-            /* Переход в мобильный режим шапки на планшетах */
-            .header-nav, .header-socials, .header-contacts {
-                display: none !important;
-            }
+            .header-nav, .header-socials, .header-contacts { display: none !important; }
 
             .burger-btn {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 5px;
-                width: 44px;
-                height: 44px;
-                background: transparent;
-                border: none;
-                cursor: pointer;
-                z-index: 101; /* Поверх мобильного меню */
+                display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+                width: 44px; height: 44px; background: transparent; border: none; cursor: pointer; z-index: 101;
             }
 
             .burger-btn span {
-                display: block;
-                width: 22px;
-                height: 2px;
-                background: var(--text-primary);
-                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s;
-                transform-origin: center;
+                display: block; width: 22px; height: 2px; background: var(--text-primary);
+                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s; transform-origin: center;
             }
 
             .burger-btn.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
             .burger-btn.active span:nth-child(2) { opacity: 0; }
             .burger-btn.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-            /* Коррекция внутренних отступов блоков */
             section { padding: 80px 32px; }
             .hero-content { padding: 0 32px; padding-top: 110px; }
             .products-inner, .coverage-inner { padding: 0 32px; }
@@ -752,7 +493,6 @@
 
         @media (max-width: 768px) {
             .site-header { padding: 12px 20px; }
-            /* Небольшая адаптация отступов для мобильных, чтобы кнопка и логотип уместились */
             .header-right { gap: 10px; }
             .header-cta { padding: 8px 16px; font-size: 11px; }
 
@@ -796,19 +536,13 @@
         <!-- Блок ссылок на соцсети Desktop -->
         <div class="header-socials">
             <a href="#" class="social-link" title="ВКонтакте">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M21 7L15.3598 11.7002C15.1318 11.8901 15 12.1716 15 12.4684V15.3355C15 16.3708 14.4661 17.333 13.5877 17.8809L10.1469 20.027C9.64736 20.3386 9 19.9794 9 19.3906V12.4684C9 12.1716 8.86818 11.8901 8.64018 11.7002L3 7V5C3 4.44772 3.44772 4 4 4H20C20.5523 4 21 4.44772 21 5V7ZM4.5 5.5V6.29744L9.60046 10.5478C10.1704 11.0228 10.5 11.7264 10.5 12.4684V18.0389L12.7938 16.6082C13.2331 16.3342 13.5 15.8531 13.5 15.3355V12.4684C13.5 11.7264 13.8296 11.0228 14.3995 10.5478L19.5 6.29744V5.5H4.5Z" fill="currentColor"/>
-                </svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M21 7L15.3598 11.7002C15.1318 11.8901 15 12.1716 15 12.4684V15.3355C15 16.3708 14.4661 17.333 13.5877 17.8809L10.1469 20.027C9.64736 20.3386 9 19.9794 9 19.3906V12.4684C9 12.1716 8.86818 11.8901 8.64018 11.7002L3 7V5C3 4.44772 3.44772 4 4 4H20C20.5523 4 21 4.44772 21 5V7ZM4.5 5.5V6.29744L9.60046 10.5478C10.1704 11.0228 10.5 11.7264 10.5 12.4684V18.0389L12.7938 16.6082C13.2331 16.3342 13.5 15.8531 13.5 15.3355V12.4684C13.5 11.7264 13.8296 11.0228 14.3995 10.5478L19.5 6.29744V5.5H4.5Z" fill="currentColor"/></svg>
             </a>
             <a href="#" class="social-link" title="Telegram">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M21 7L15.3598 11.7002C15.1318 11.8901 15 12.1716 15 12.4684V15.3355C15 16.3708 14.4661 17.333 13.5877 17.8809L10.1469 20.027C9.64736 20.3386 9 19.9794 9 19.3906V12.4684C9 12.1716 8.86818 11.8901 8.64018 11.7002L3 7V5C3 4.44772 3.44772 4 4 4H20C20.5523 4 21 4.44772 21 5V7ZM4.5 5.5V6.29744L9.60046 10.5478C10.1704 11.0228 10.5 11.7264 10.5 12.4684V18.0389L12.7938 16.6082C13.2331 16.3342 13.5 15.8531 13.5 15.3355V12.4684C13.5 11.7264 13.8296 11.0228 14.3995 10.5478L19.5 6.29744V5.5H4.5Z" fill="currentColor"/>
-                </svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M21 7L15.3598 11.7002C15.1318 11.8901 15 12.1716 15 12.4684V15.3355C15 16.3708 14.4661 17.333 13.5877 17.8809L10.1469 20.027C9.64736 20.3386 9 19.9794 9 19.3906V12.4684C9 12.1716 8.86818 11.8901 8.64018 11.7002L3 7V5C3 4.44772 3.44772 4 4 4H20C20.5523 4 21 4.44772 21 5V7ZM4.5 5.5V6.29744L9.60046 10.5478C10.1704 11.0228 10.5 11.7264 10.5 12.4684V18.0389L12.7938 16.6082C13.2331 16.3342 13.5 15.8531 13.5 15.3355V12.4684C13.5 11.7264 13.8296 11.0228 14.3995 10.5478L19.5 6.29744V5.5H4.5Z" fill="currentColor"/></svg>
             </a>
             <a href="#" class="social-link" title="MAX">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M21 7L15.3598 11.7002C15.1318 11.8901 15 12.1716 15 12.4684V15.3355C15 16.3708 14.4661 17.333 13.5877 17.8809L10.1469 20.027C9.64736 20.3386 9 19.9794 9 19.3906V12.4684C9 12.1716 8.86818 11.8901 8.64018 11.7002L3 7V5C3 4.44772 3.44772 4 4 4H20C20.5523 4 21 4.44772 21 5V7ZM4.5 5.5V6.29744L9.60046 10.5478C10.1704 11.0228 10.5 11.7264 10.5 12.4684V18.0389L12.7938 16.6082C13.2331 16.3342 13.5 15.8531 13.5 15.3355V12.4684C13.5 11.7264 13.8296 11.0228 14.3995 10.5478L19.5 6.29744V5.5H4.5Z" fill="currentColor"/>
-                </svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M21 7L15.3598 11.7002C15.1318 11.8901 15 12.1716 15 12.4684V15.3355C15 16.3708 14.4661 17.333 13.5877 17.8809L10.1469 20.027C9.64736 20.3386 9 19.9794 9 19.3906V12.4684C9 12.1716 8.86818 11.8901 8.64018 11.7002L3 7V5C3 4.44772 3.44772 4 4 4H20C20.5523 4 21 4.44772 21 5V7ZM4.5 5.5V6.29744L9.60046 10.5478C10.1704 11.0228 10.5 11.7264 10.5 12.4684V18.0389L12.7938 16.6082C13.2331 16.3342 13.5 15.8531 13.5 15.3355V12.4684C13.5 11.7264 13.8296 11.0228 14.3995 10.5478L19.5 6.29744V5.5H4.5Z" fill="currentColor"/></svg>
             </a>
         </div>
 
@@ -937,10 +671,13 @@
         <div class="hero-content">
             <p class="hero-label">Лестницы под ключ · Московская область</p>
             <h1 class="hero-title">
-                Лестницы<br/>на <em>металлокаркасе</em><br/>с деревом
+                Лестницы<br/>на <em>металлическом</em><br/>каркасе
             </h1>
-            <p class="hero-sub">
-                Проектируем, производим и монтируем лестницы для частных домов. Металлический каркас + деревянная обшивка — надёжность на десятилетия.
+            <p class="hero-sub hero-sub-1">
+                Мы предоставляем возможность людям комфортно и безопасно подниматься выше!
+            </p>
+            <p class="hero-sub hero-sub-2">
+                Проектируем, изготавливаем на собственном производстве и монтируем лестницы для дома и коммерческих пространств любой сложности
             </p>
             <div class="hero-tags">
                 <a href="#products" class="hero-tag">Маршевые</a>
@@ -1440,7 +1177,6 @@
                 e.preventDefault();
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
-            // Закрываем мобильное меню при клике на линк, если оно открыто
             if(mobileMenu.classList.contains('active')) {
                 toggleBurgerMenu();
             }
