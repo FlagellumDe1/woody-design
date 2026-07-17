@@ -10,5 +10,8 @@
   "private": true,
   "devDependencies": {
     "vite": "^8.1.5"
+  },
+  "dependencies": {
+    "swiper": "^14.0.5"
   }
 }
