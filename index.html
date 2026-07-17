@@ -98,7 +98,8 @@
         .header-left {
             display: flex;
             align-items: center;
-            flex-shrink: 0;
+            gap: 40px;
+            flex: 1;
         }
 
         .nav-logo {
@@ -125,16 +126,14 @@
 
         .nav-logo-icon svg { width: 12px; height: 12px; }
 
-        .header-center {
+        .header-nav {
             display: flex;
             align-items: center;
             gap: 8px;
-            flex: 1;
-            justify-content: center;
             overflow: hidden; /* Protection against pushing layout outward */
         }
 
-        .header-center a {
+        .header-nav a {
             font-size: 13px;
             font-weight: 500;
             color: var(--text-secondary);
@@ -145,8 +144,8 @@
             white-space: nowrap;
         }
 
-        .header-center a:hover { color: var(--text-primary); background: var(--light); }
-        .header-center a.active { color: var(--text-primary); background: var(--off-white); }
+        .header-nav a:hover { color: var(--text-primary); background: var(--light); }
+        .header-nav a.active { color: var(--text-primary); background: var(--off-white); }
 
         .header-right {
             display: flex;
@@ -697,14 +696,15 @@
         @media (max-width: 1250px) {
             .site-header { padding: 16px 32px; }
             .header-address { display: none; } /* Скрываем адрес от сжимания блоков */
-            .header-center { gap: 4px; }
-            .header-center a { padding: 8px 12px; }
+            .header-left { gap: 20px; }
+            .header-nav { gap: 4px; }
+            .header-nav a { padding: 8px 12px; }
             .header-right { gap: 16px; }
         }
 
         @media (max-width: 1024px) {
             /* Переход в мобильный режим шапки на планшетах */
-            .header-center, .header-socials, .header-contacts {
+            .header-nav, .header-socials, .header-contacts {
                 display: none !important;
             }
 
@@ -782,15 +782,15 @@
             </div>
             СтепХаус
         </a>
-    </div>
 
-    <nav class="header-center" role="navigation" aria-label="Основная навигация">
-        <a href="#why" class="active">О нас</a>
-        <a href="#products">Каталог</a>
-        <a href="#products">Материалы</a>
-        <a href="#process">Процесс</a>
-        <a href="#contact">Контакты</a>
-    </nav>
+        <nav class="header-nav" role="navigation" aria-label="Основная навигация">
+            <a href="#why" class="active">О нас</a>
+            <a href="#products">Каталог</a>
+            <a href="#products">Материалы</a>
+            <a href="#process">Процесс</a>
+            <a href="#contact">Контакты</a>
+        </nav>
+    </div>
 
     <div class="header-right">
         <!-- Блок ссылок на соцсети Desktop -->
@@ -817,7 +817,7 @@
             <span class="header-address">г. Красногорск, ул. Промышленная, 12</span>
         </div>
 
-        <a href="#contact" class="header-cta btn-primary">Заказать звонок</a>
+        <a href="#contact" class="header-cta btn-primary">Заказать консультацию</a>
 
         <!-- Burger Button -->
         <button class="burger-btn" aria-label="Открыть меню">
@@ -851,7 +851,7 @@
         </div>
         <a href="tel:+74951234567" class="header-phone">+7 (495) 123-45-67</a>
         <span class="header-address">г. Красногорск, ул. Промышленная, 12<br>Пн-Сб, 9:00 - 20:00</span>
-        <a href="#contact" class="btn-primary mobile-cta">Заказать звонок</a>
+        <a href="#contact" class="btn-primary mobile-cta">Заказать консультацию</a>
     </div>
 </div>
 
@@ -1448,12 +1448,12 @@
 
     // Active nav highlight
     const sections = document.querySelectorAll('section[id], div[id]');
-    const navLinks = document.querySelectorAll('.header-center a');
+    const navLinks = document.querySelectorAll('.header-nav a');
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 navLinks.forEach(l => l.classList.remove('active'));
-                const match = document.querySelector(`.header-center a[href="#${entry.target.id}"]`);
+                const match = document.querySelector(`.header-nav a[href="#${entry.target.id}"]`);
                 if (match) match.classList.add('active');
             }
         });
