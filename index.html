@@ -48,6 +48,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" />
 
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -456,15 +459,18 @@
             line-height: 1.7;
         }
 
-        /* ── PRODUCTS ── */
-        .products-section { background: var(--off-white); max-width: 100%; padding: 100px 0; }
+        /* ── PRODUCTS (SWIPER) ── */
+        .products-section { background: var(--off-white); max-width: 100%; padding: 100px 0; overflow: hidden; }
         .products-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
 
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-top: 60px;
+        .products-slider {
+            margin-top: 40px;
+            width: 100%;
+            position: relative;
+        }
+
+        .products-slider .swiper-slide {
+            height: auto;
         }
 
         .product-card {
@@ -472,9 +478,12 @@
             border: 1px solid var(--border);
             overflow: hidden;
             border-radius: 4px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: box-shadow 0.3s, transform 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
-        .product-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.08); }
+        .product-card:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(0,0,0,0.06); }
 
         .product-visual {
             height: 220px;
@@ -500,9 +509,10 @@
             padding: 4px 10px;
             border-radius: 20px;
             color: var(--text-secondary);
+            z-index: 2;
         }
 
-        .product-body { padding: 28px; }
+        .product-body { padding: 28px; display: flex; flex-direction: column; flex-grow: 1; }
         .product-body h3 {
             font-size: 17px;
             font-weight: 600;
@@ -513,6 +523,7 @@
             color: var(--text-secondary);
             line-height: 1.6;
             margin-bottom: 20px;
+            flex-grow: 1;
         }
         .product-price {
             font-family: 'Playfair Display', serif;
@@ -522,6 +533,7 @@
             margin-bottom: 16px;
         }
         .product-price span { font-size: 13px; font-family: 'Inter', sans-serif; color: var(--text-muted); }
+
         .btn-card {
             display: block;
             text-align: center;
@@ -538,6 +550,63 @@
             width: 100%;
         }
         .btn-card:hover { background: var(--text-primary); color: var(--white); border-color: var(--text-primary); }
+
+        /* Swiper Controls CSS */
+        .slider-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 32px;
+        }
+
+        .slider-nav {
+            display: flex;
+            gap: 12px;
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            position: static;
+            width: 44px;
+            height: 44px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--text-primary);
+            margin: 0;
+            transition: all 0.2s;
+        }
+
+        .swiper-button-prev:hover,
+        .swiper-button-next:hover {
+            background: var(--text-primary);
+            color: var(--white);
+            border-color: var(--text-primary);
+        }
+
+        .swiper-button-prev::after,
+        .swiper-button-next::after {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .swiper-pagination {
+            position: static;
+            width: auto !important;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .swiper-pagination-bullet {
+            background: var(--border);
+            opacity: 1;
+            margin: 0 !important;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--text-primary);
+        }
 
         /* ── PROCESS ── */
         .process-row {
@@ -791,8 +860,9 @@
             .stat { text-align: left; }
 
             .why-grid { grid-template-columns: 1fr; }
-            .products-grid { grid-template-columns: 1fr; }
+
             .products-inner { padding: 0 24px; }
+
             .process-row { grid-template-columns: 1fr; gap: 40px; }
             .process-right { position: static; }
             .cities-grid { grid-template-columns: 1fr 1fr; }
@@ -1040,90 +1110,166 @@
             <h2 class="section-title">Популярные модели</h2>
             <p class="section-sub">Каждая лестница проектируется под конкретный проём. Цена указана от — точная стоимость рассчитывается после замера.</p>
 
-            <div class="products-grid">
+            <div class="swiper products-slider">
+                <div class="swiper-wrapper">
 
-                <article class="product-card">
-                    <div class="product-visual" style="background:#f5f0ea;">
-                        <span class="product-tag">Хит продаж</span>
-                        <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="30" y="170" width="240" height="14" rx="2" fill="#8b6f47"/>
-                            <rect x="60" y="148" width="210" height="14" rx="2" fill="#8b6f47"/>
-                            <rect x="90" y="126" width="180" height="14" rx="2" fill="#8b6f47"/>
-                            <rect x="120" y="104" width="150" height="14" rx="2" fill="#8b6f47"/>
-                            <rect x="150" y="82" width="120" height="14" rx="2" fill="#8b6f47"/>
-                            <rect x="180" y="60" width="90" height="14" rx="2" fill="#8b6f47"/>
-                            <line x1="35" y1="172" x2="184" y2="62" stroke="#5a4535" stroke-width="2.5" opacity="0.5"/>
-                            <line x1="50" y1="172" x2="50" y2="148" stroke="#4a3825" stroke-width="1.5" opacity="0.5"/>
-                            <line x1="80" y1="150" x2="80" y2="126" stroke="#4a3825" stroke-width="1.5" opacity="0.5"/>
-                            <line x1="110" y1="128" x2="110" y2="104" stroke="#4a3825" stroke-width="1.5" opacity="0.5"/>
-                            <line x1="140" y1="106" x2="140" y2="82" stroke="#4a3825" stroke-width="1.5" opacity="0.5"/>
-                            <line x1="170" y1="84" x2="170" y2="60" stroke="#4a3825" stroke-width="1.5" opacity="0.5"/>
-                            <path d="M48 148 Q110 110 168 60" stroke="#6b4f35" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.7"/>
-                        </svg>
+                    <!-- Слайд 1 -->
+                    <div class="swiper-slide">
+                        <article class="product-card">
+                            <div class="product-visual" style="background:#f5f0ea;">
+                                <span class="product-tag">Хит продаж</span>
+                                <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="30" y="170" width="240" height="14" rx="2" fill="#8b6f47"/>
+                                    <rect x="60" y="148" width="210" height="14" rx="2" fill="#8b6f47"/>
+                                    <rect x="90" y="126" width="180" height="14" rx="2" fill="#8b6f47"/>
+                                    <rect x="120" y="104" width="150" height="14" rx="2" fill="#8b6f47"/>
+                                    <rect x="150" y="82" width="120" height="14" rx="2" fill="#8b6f47"/>
+                                    <rect x="180" y="60" width="90" height="14" rx="2" fill="#8b6f47"/>
+                                    <line x1="35" y1="172" x2="184" y2="62" stroke="#5a4535" stroke-width="2.5" opacity="0.5"/>
+                                    <line x1="50" y1="172" x2="50" y2="148" stroke="#4a3825" stroke-width="1.5" opacity="0.5"/>
+                                    <line x1="80" y1="150" x2="80" y2="126" stroke="#4a3825" stroke-width="1.5" opacity="0.5"/>
+                                    <line x1="110" y1="128" x2="110" y2="104" stroke="#4a3825" stroke-width="1.5" opacity="0.5"/>
+                                    <line x1="140" y1="106" x2="140" y2="82" stroke="#4a3825" stroke-width="1.5" opacity="0.5"/>
+                                    <line x1="170" y1="84" x2="170" y2="60" stroke="#4a3825" stroke-width="1.5" opacity="0.5"/>
+                                    <path d="M48 148 Q110 110 168 60" stroke="#6b4f35" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+                                </svg>
+                            </div>
+                            <div class="product-body">
+                                <h3>Маршевая прямая</h3>
+                                <p>Классическая прямая лестница на металлическом косоуре. Ступени из массива дуба или ясеня. Идеально для прямоугольных проёмов.</p>
+                                <span class="product-price">от 185 000 ₽ <span>под ключ</span></span>
+                                <button class="btn-card" onclick="openForm('Маршевая прямая')">Рассчитать стоимость</button>
+                            </div>
+                        </article>
                     </div>
-                    <div class="product-body">
-                        <h3>Маршевая прямая</h3>
-                        <p>Классическая прямая лестница на металлическом косоуре. Ступени из массива дуба или ясеня. Идеально для прямоугольных проёмов.</p>
-                        <span class="product-price">от 185 000 ₽ <span>под ключ</span></span>
-                        <button class="btn-card" onclick="openForm('Маршевая прямая')">Рассчитать стоимость</button>
-                    </div>
-                </article>
 
-                <article class="product-card">
-                    <div class="product-visual" style="background:#f0ede8;">
-                        <span class="product-tag">Популярное</span>
-                        <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="40" y="160" width="80" height="12" rx="2" fill="#8b6f47"/>
-                            <rect x="40" y="138" width="80" height="12" rx="2" fill="#8b6f47"/>
-                            <rect x="40" y="116" width="80" height="12" rx="2" fill="#8b6f47"/>
-                            <rect x="40" y="94" width="80" height="12" rx="2" fill="#8b6f47"/>
-                            <rect x="40" y="72" width="80" height="12" rx="2" fill="#8b6f47"/>
-                            <rect x="40" y="52" width="220" height="16" rx="2" fill="#a07850"/>
-                            <rect x="180" y="72" width="80" height="12" rx="2" fill="#8b6f47"/>
-                            <rect x="180" y="94" width="80" height="12" rx="2" fill="#8b6f47"/>
-                            <rect x="180" y="116" width="80" height="12" rx="2" fill="#8b6f47"/>
-                            <rect x="180" y="138" width="80" height="12" rx="2" fill="#8b6f47"/>
-                            <rect x="180" y="160" width="80" height="12" rx="2" fill="#8b6f47"/>
-                            <line x1="44" y1="162" x2="44" y2="68" stroke="#5a4535" stroke-width="2" opacity="0.4"/>
-                            <line x1="256" y1="162" x2="256" y2="68" stroke="#5a4535" stroke-width="2" opacity="0.4"/>
-                        </svg>
+                    <!-- Слайд 2 -->
+                    <div class="swiper-slide">
+                        <article class="product-card">
+                            <div class="product-visual" style="background:#f0ede8;">
+                                <span class="product-tag">Популярное</span>
+                                <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="40" y="160" width="80" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="40" y="138" width="80" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="40" y="116" width="80" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="40" y="94" width="80" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="40" y="72" width="80" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="40" y="52" width="220" height="16" rx="2" fill="#a07850"/>
+                                    <rect x="180" y="72" width="80" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="180" y="94" width="80" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="180" y="116" width="80" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="180" y="138" width="80" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="180" y="160" width="80" height="12" rx="2" fill="#8b6f47"/>
+                                    <line x1="44" y1="162" x2="44" y2="68" stroke="#5a4535" stroke-width="2" opacity="0.4"/>
+                                    <line x1="256" y1="162" x2="256" y2="68" stroke="#5a4535" stroke-width="2" opacity="0.4"/>
+                                </svg>
+                            </div>
+                            <div class="product-body">
+                                <h3>П-образная с площадкой</h3>
+                                <p>Разворотная лестница с промежуточной площадкой. Оптимальна при ограниченной ширине холла. Комфортный подъём для всей семьи.</p>
+                                <span class="product-price">от 260 000 ₽ <span>под ключ</span></span>
+                                <button class="btn-card" onclick="openForm('П-образная с площадкой')">Рассчитать стоимость</button>
+                            </div>
+                        </article>
                     </div>
-                    <div class="product-body">
-                        <h3>П-образная с площадкой</h3>
-                        <p>Разворотная лестница с промежуточной площадкой. Оптимальна при ограниченной ширине холла. Комфортный подъём для всей семьи.</p>
-                        <span class="product-price">от 260 000 ₽ <span>под ключ</span></span>
-                        <button class="btn-card" onclick="openForm('П-образная с площадкой')">Рассчитать стоимость</button>
-                    </div>
-                </article>
 
-                <article class="product-card">
-                    <div class="product-visual" style="background:#ede8e0;">
-                        <span class="product-tag">Новинка</span>
-                        <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="60" y="50" width="70" height="12" rx="2" fill="#8b6f47"/>
-                            <rect x="60" y="72" width="70" height="12" rx="2" fill="#8b6f47"/>
-                            <rect x="60" y="94" width="70" height="12" rx="2" fill="#8b6f47"/>
-                            <rect x="60" y="116" width="70" height="12" rx="2" fill="#8b6f47"/>
-                            <rect x="60" y="138" width="70" height="12" rx="2" fill="#8b6f47"/>
-                            <rect x="60" y="155" width="70" height="16" rx="2" fill="#a07850"/>
-                            <rect x="80" y="155" width="160" height="12" rx="2" fill="#8b6f47" transform="rotate(90 80 155) translate(0)"/>
-                            <rect x="104" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
-                            <rect x="124" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
-                            <rect x="144" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
-                            <rect x="164" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
-                            <rect x="184" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
-                            <rect x="204" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
-                        </svg>
+                    <!-- Слайд 3 -->
+                    <div class="swiper-slide">
+                        <article class="product-card">
+                            <div class="product-visual" style="background:#ede8e0;">
+                                <span class="product-tag">Новинка</span>
+                                <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="60" y="50" width="70" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="60" y="72" width="70" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="60" y="94" width="70" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="60" y="116" width="70" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="60" y="138" width="70" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="60" y="155" width="70" height="16" rx="2" fill="#a07850"/>
+                                    <rect x="80" y="155" width="160" height="12" rx="2" fill="#8b6f47" transform="rotate(90 80 155) translate(0)"/>
+                                    <rect x="104" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
+                                    <rect x="124" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
+                                    <rect x="144" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
+                                    <rect x="164" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
+                                    <rect x="184" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
+                                    <rect x="204" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
+                                </svg>
+                            </div>
+                            <div class="product-body">
+                                <h3>Г-образная забежная</h3>
+                                <p>Лестница с поворотом на 90°. Забежные ступени обеспечивают плавный разворот. Экономит до 30% площади по сравнению с прямой.</p>
+                                <span class="product-price">от 220 000 ₽ <span>под ключ</span></span>
+                                <button class="btn-card" onclick="openForm('Г-образная забежная')">Рассчитать стоимость</button>
+                            </div>
+                        </article>
                     </div>
-                    <div class="product-body">
-                        <h3>Г-образная забежная</h3>
-                        <p>Лестница с поворотом на 90°. Забежные ступени обеспечивают плавный разворот. Экономит до 30% площади по сравнению с прямой.</p>
-                        <span class="product-price">от 220 000 ₽ <span>под ключ</span></span>
-                        <button class="btn-card" onclick="openForm('Г-образная забежная')">Рассчитать стоимость</button>
-                    </div>
-                </article>
 
+                    <!-- Слайд 4 -->
+                    <div class="swiper-slide">
+                        <article class="product-card">
+                            <div class="product-visual" style="background:#f0ede8;">
+                                <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="40" y="160" width="80" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="40" y="138" width="80" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="40" y="116" width="80" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="40" y="94" width="80" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="40" y="72" width="80" height="12" rx="2" fill="#8b6f47"/>
+                                    <path d="M40 52 h120 l100 20 v-20 h-220 z" fill="#a07850"/>
+                                    <rect x="180" y="72" width="80" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="180" y="94" width="80" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="180" y="116" width="80" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="180" y="138" width="80" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="180" y="160" width="80" height="12" rx="2" fill="#8b6f47"/>
+                                    <line x1="44" y1="162" x2="44" y2="68" stroke="#5a4535" stroke-width="2" opacity="0.4"/>
+                                    <line x1="256" y1="162" x2="256" y2="68" stroke="#5a4535" stroke-width="2" opacity="0.4"/>
+                                </svg>
+                            </div>
+                            <div class="product-body">
+                                <h3>П-образная забежная</h3>
+                                <p>Компактная конструкция с забежными ступенями на развороте вместо площадки. Идеально для небольших квадратных проемов.</p>
+                                <span class="product-price">от 280 000 ₽ <span>под ключ</span></span>
+                                <button class="btn-card" onclick="openForm('П-образная забежная')">Рассчитать стоимость</button>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Слайд 5 -->
+                    <div class="swiper-slide">
+                        <article class="product-card">
+                            <div class="product-visual" style="background:#ede8e0;">
+                                <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="60" y="50" width="70" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="60" y="72" width="70" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="60" y="94" width="70" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="60" y="116" width="70" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="60" y="138" width="70" height="12" rx="2" fill="#8b6f47"/>
+                                    <rect x="60" y="155" width="70" height="24" rx="2" fill="#a07850"/>
+                                    <rect x="80" y="180" width="160" height="12" rx="2" fill="#8b6f47" transform="rotate(90 80 180) translate(0)"/>
+                                    <rect x="104" y="180" width="12" height="50" rx="2" fill="#8b6f47"/>
+                                    <rect x="124" y="180" width="12" height="50" rx="2" fill="#8b6f47"/>
+                                    <rect x="144" y="180" width="12" height="50" rx="2" fill="#8b6f47"/>
+                                </svg>
+                            </div>
+                            <div class="product-body">
+                                <h3>Г-образная с площадкой</h3>
+                                <p>Лестница с поворотом на 90° и промежуточной площадкой для комфортного подъема. Подходит для семей с детьми и пожилых людей.</p>
+                                <span class="product-price">от 240 000 ₽ <span>под ключ</span></span>
+                                <button class="btn-card" onclick="openForm('Г-образная с площадкой')">Рассчитать стоимость</button>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+
+                <!-- Swiper Controls -->
+                <div class="slider-controls">
+                    <div class="slider-nav">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
             </div>
+
         </div>
     </div>
 
@@ -1306,7 +1452,43 @@
     <p class="footer-copy">© 2026 СтепХаус. Лестницы на металлокаркасе, Московская область.</p>
 </footer>
 
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 <script>
+    // Init Swiper
+    document.addEventListener("DOMContentLoaded", function() {
+        new Swiper('.products-slider', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 24
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 24
+                }
+            }
+        });
+    });
+
     // Smooth scroll for nav links
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', e => {
