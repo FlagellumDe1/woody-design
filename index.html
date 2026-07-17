@@ -48,9 +48,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" />
 
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -261,26 +258,69 @@
         .mobile-nav-bottom .mobile-cta { justify-content: center; text-align: center; font-size: 14px; padding: 14px 20px; }
 
         /* ── HERO ── */
-        .hero { min-height: 100vh; position: relative; display: flex; align-items: center; overflow: hidden; background: var(--white); }
-        .hero-bg { position: absolute; inset: 0; pointer-events: none; }
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: var(--white);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
         .hero-glow {
             position: absolute; top: 10%; right: 5%; width: 65%; height: 90%;
             background: radial-gradient(ellipse 60% 80% at 60% 40%, rgba(196,168,130,0.18) 0%, rgba(180,150,100,0.08) 40%, transparent 70%);
             border-radius: 50%;
         }
 
-        .hero-visual { position: absolute; right: 0; top: 0; width: 58%; height: 100%; display: flex; align-items: center; justify-content: center; }
-        .stair-silhouette { width: 100%; height: 100%; opacity: 0.88; }
-        .hero-content { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 60px; padding-top: 100px; width: 100%; }
+        .hero-visual {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 58%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-        .hero-label { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; }
+        .stair-silhouette {
+            width: 100%;
+            height: 100%;
+            opacity: 0.88;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 60px;
+            padding-top: 100px;
+            width: 100%;
+        }
+
+        .hero-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
 
         .hero-title {
             font-family: 'Playfair Display', serif;
             font-size: clamp(36px, 5vw, 64px);
             font-weight: 400;
             line-height: 1.15;
-            color: var(--text-primary); /* Возвращает актуальный RAL 8019 */
+            color: var(--text-primary);
             max-width: 500px;
             margin-bottom: 24px;
         }
@@ -354,10 +394,28 @@
         /* ── PRODUCTS ── */
         .products-section { background: var(--off-white); max-width: 100%; padding: 100px 0; overflow: hidden; }
         .products-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
-        .products-slider { margin-top: 40px; width: 100%; position: relative; }
-        .products-slider .swiper-slide { height: auto; }
 
-        .product-card { background: var(--white); border: 1px solid var(--border); overflow: hidden; border-radius: 4px; transition: box-shadow 0.3s, transform 0.3s; height: 100%; display: flex; flex-direction: column; }
+        /* Базовые стили для Swiper взамен CDN */
+        .swiper { margin-left: auto; margin-right: auto; position: relative; overflow: hidden; list-style: none; padding: 0; z-index: 1; }
+        .swiper-wrapper { position: relative; width: 100%; height: 100%; z-index: 1; display: flex; transition-property: transform; box-sizing: content-box; }
+        .swiper-slide { flex-shrink: 0; width: 100%; height: auto; position: relative; transition-property: transform; }
+
+        .products-slider {
+            margin-top: 40px;
+            width: 100%;
+        }
+
+        .product-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            border-radius: 4px;
+            transition: box-shadow 0.3s, transform 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
         .product-card:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(0,0,0,0.06); }
         .product-visual { height: 220px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
         .product-visual svg { width: 100%; height: 100%; }
@@ -374,17 +432,84 @@
         }
         .btn-card:hover { background: var(--btn-bg); color: var(--white); border-color: var(--btn-bg); }
 
-        .slider-controls { display: flex; align-items: center; justify-content: space-between; margin-top: 32px; }
-        .slider-nav { display: flex; gap: 12px; }
-        .swiper-button-prev, .swiper-button-next {
-            position: static; width: 44px; height: 44px; background: var(--white); border: 1px solid var(--border);
-            border-radius: 50%; color: var(--text-primary); margin: 0; transition: all 0.2s;
+        /* Swiper Controls CSS */
+        .slider-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 32px;
         }
-        .swiper-button-prev:hover, .swiper-button-next:hover { background: var(--btn-bg); color: var(--white); border-color: var(--btn-bg); }
-        .swiper-button-prev::after, .swiper-button-next::after { font-size: 16px; font-weight: bold; }
-        .swiper-pagination { position: static; width: auto !important; display: flex; align-items: center; gap: 6px; }
-        .swiper-pagination-bullet { background: var(--border); opacity: 1; margin: 0 !important; }
-        .swiper-pagination-bullet-active { background: var(--btn-bg); }
+
+        .slider-nav {
+            display: flex;
+            gap: 12px;
+        }
+
+        .swiper-navigation-icon {
+            display: none;
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: static;
+            width: 44px;
+            height: 44px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--text-primary);
+            margin: 0;
+            cursor: pointer;
+            transition: all 0.2s;
+            z-index: 10;
+        }
+
+        .swiper-button-prev:hover,
+        .swiper-button-next:hover {
+            background: var(--btn-bg);
+            color: var(--white);
+            border-color: var(--btn-bg);
+        }
+
+        .swiper-button-prev::after {
+            padding-bottom: 3px;
+            content: '←';
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .swiper-button-next::after {
+            padding-bottom: 3px;
+            content: '→';
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .swiper-pagination {
+            position: static;
+            width: auto !important;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .swiper-pagination-bullet {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--border);
+            opacity: 1;
+            margin: 0 !important;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--btn-bg);
+        }
 
         /* ── PROCESS ── */
         .process-row { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 60px; }
@@ -1130,34 +1255,7 @@
     <p class="footer-copy">© 2026 СтепХаус. Лестницы на металлокаркасе, Московская область.</p>
 </footer>
 
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
 <script>
-    // Init Swiper
-    document.addEventListener("DOMContentLoaded", function() {
-        new Swiper('.products-slider', {
-            loop: true,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                320: { slidesPerView: 1, spaceBetween: 20 },
-                768: { slidesPerView: 2, spaceBetween: 24 },
-                1024: { slidesPerView: 3, spaceBetween: 24 }
-            }
-        });
-    });
-
     // Smooth scroll for nav links & mobile menu handling
     const burgerBtn = document.querySelector('.burger-btn');
     const mobileMenu = document.getElementById('mobileMenu');
