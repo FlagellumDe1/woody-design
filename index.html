@@ -64,7 +64,7 @@
             --accent: #8b6f47;
             --accent-light: #c4a882;
             --border: #e8e3dc;
-            --nav-bg: rgba(255,255,255,0.9);
+            --nav-bg: rgba(255,255,255,0.95);
         }
 
         html { scroll-behavior: smooth; }
@@ -91,13 +91,14 @@
             -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
             padding: 16px 60px;
-            transition: box-shadow 0.3s ease;
+            gap: 20px;
+            transition: box-shadow 0.3s ease, padding 0.3s ease;
         }
 
         .header-left {
             display: flex;
             align-items: center;
-            flex: 1;
+            flex-shrink: 0;
         }
 
         .nav-logo {
@@ -109,6 +110,7 @@
             align-items: center;
             gap: 10px;
             text-decoration: none;
+            white-space: nowrap;
         }
 
         .nav-logo-icon {
@@ -127,8 +129,9 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            flex: 1.5;
+            flex: 1;
             justify-content: center;
+            overflow: hidden; /* Protection against pushing layout outward */
         }
 
         .header-center a {
@@ -150,7 +153,39 @@
             align-items: center;
             justify-content: flex-end;
             gap: 24px;
-            flex: 1;
+            flex-shrink: 0;
+        }
+
+        .header-socials {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--off-white);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .social-link:hover {
+            color: var(--text-primary);
+            border-color: var(--text-primary);
+            background: var(--light);
+        }
+
+        .social-link svg {
+            width: 24px;
+            height: 24px;
         }
 
         .header-contacts {
@@ -158,6 +193,7 @@
             flex-direction: column;
             align-items: flex-end;
             gap: 3px;
+            flex-shrink: 0;
         }
 
         .header-phone {
@@ -166,6 +202,7 @@
             color: var(--text-primary);
             text-decoration: none;
             transition: color 0.2s;
+            white-space: nowrap;
         }
         .header-phone:hover { color: var(--accent); }
 
@@ -173,6 +210,7 @@
             font-size: 11px;
             color: var(--text-muted);
             letter-spacing: 0.02em;
+            white-space: nowrap;
         }
 
         .header-cta {
@@ -184,8 +222,66 @@
             font-weight: 500;
             text-decoration: none;
             transition: background 0.2s;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
         .header-cta:hover { background: #333 !important; }
+
+        /* ── BURGER MENU BUTTON (HIDDEN DEFAULT) ── */
+        .burger-btn {
+            display: none;
+        }
+
+        /* ── MOBILE MENU OVERLAY ── */
+        .mobile-menu {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: var(--nav-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            z-index: 99; /* Just below header */
+            display: flex;
+            flex-direction: column;
+            padding: 100px 32px 40px;
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+            border-left: 1px solid var(--border);
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-bottom: auto; /* Push contact details down */
+        }
+
+        .mobile-nav-links a {
+            font-size: 24px;
+            font-weight: 500;
+            font-family: 'Playfair Display', serif;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .mobile-nav-links a:hover { color: var(--accent); }
+
+        .mobile-nav-bottom {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            border-top: 1px solid var(--border);
+            padding-top: 32px;
+            margin-top: 40px;
+        }
+
+        .mobile-nav-bottom .header-phone { font-size: 20px; }
+        .mobile-nav-bottom .header-address { font-size: 13px; color: var(--text-secondary); white-space: normal; line-height: 1.5; }
+        .mobile-nav-bottom .mobile-cta { justify-content: center; text-align: center; font-size: 14px; padding: 14px 20px; }
 
         /* ── HERO ── */
         .hero {
@@ -203,7 +299,6 @@
             pointer-events: none;
         }
 
-        /* Gradient glow mimicking the silhouette lighting */
         .hero-glow {
             position: absolute;
             top: 10%;
@@ -217,7 +312,6 @@
             border-radius: 50%;
         }
 
-        /* SVG Staircase Silhouette */
         .hero-visual {
             position: absolute;
             right: 0;
@@ -241,7 +335,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 60px;
-            padding-top: 100px; /* Offset for header */
+            padding-top: 100px;
             width: 100%;
         }
 
@@ -459,7 +553,7 @@
             line-height: 1.7;
         }
 
-        /* ── PRODUCTS (SWIPER) ── */
+        /* ── PRODUCTS ── */
         .products-section { background: var(--off-white); max-width: 100%; padding: 100px 0; overflow: hidden; }
         .products-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
 
@@ -469,9 +563,7 @@
             position: relative;
         }
 
-        .products-slider .swiper-slide {
-            height: auto;
-        }
+        .products-slider .swiper-slide { height: auto; }
 
         .product-card {
             background: var(--white);
@@ -513,185 +605,46 @@
         }
 
         .product-body { padding: 28px; display: flex; flex-direction: column; flex-grow: 1; }
-        .product-body h3 {
-            font-size: 17px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .product-body p {
-            font-size: 13px;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-        .product-price {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            color: var(--text-primary);
-            display: block;
-            margin-bottom: 16px;
-        }
+        .product-body h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+        .product-body p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
+        .product-price { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--text-primary); display: block; margin-bottom: 16px; }
         .product-price span { font-size: 13px; font-family: 'Inter', sans-serif; color: var(--text-muted); }
 
         .btn-card {
-            display: block;
-            text-align: center;
-            font-size: 12px;
-            font-weight: 500;
-            padding: 10px;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: all 0.2s;
-            background: transparent;
-            cursor: pointer;
-            width: 100%;
+            display: block; text-align: center; font-size: 12px; font-weight: 500; padding: 10px;
+            border: 1px solid var(--border); border-radius: 4px; color: var(--text-primary); background: transparent; cursor: pointer; width: 100%; transition: all 0.2s;
         }
         .btn-card:hover { background: var(--text-primary); color: var(--white); border-color: var(--text-primary); }
 
-        /* Swiper Controls CSS */
-        .slider-controls {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 32px;
+        .slider-controls { display: flex; align-items: center; justify-content: space-between; margin-top: 32px; }
+        .slider-nav { display: flex; gap: 12px; }
+        .swiper-button-prev, .swiper-button-next {
+            position: static; width: 44px; height: 44px; background: var(--white); border: 1px solid var(--border);
+            border-radius: 50%; color: var(--text-primary); margin: 0; transition: all 0.2s;
         }
-
-        .slider-nav {
-            display: flex;
-            gap: 12px;
-        }
-
-        .swiper-button-prev,
-        .swiper-button-next {
-            position: static;
-            width: 44px;
-            height: 44px;
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 50%;
-            color: var(--text-primary);
-            margin: 0;
-            transition: all 0.2s;
-        }
-
-        .swiper-button-prev:hover,
-        .swiper-button-next:hover {
-            background: var(--text-primary);
-            color: var(--white);
-            border-color: var(--text-primary);
-        }
-
-        .swiper-button-prev::after,
-        .swiper-button-next::after {
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        .swiper-pagination {
-            position: static;
-            width: auto !important;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .swiper-pagination-bullet {
-            background: var(--border);
-            opacity: 1;
-            margin: 0 !important;
-        }
-
-        .swiper-pagination-bullet-active {
-            background: var(--text-primary);
-        }
+        .swiper-button-prev:hover, .swiper-button-next:hover { background: var(--text-primary); color: var(--white); border-color: var(--text-primary); }
+        .swiper-button-prev::after, .swiper-button-next::after { font-size: 16px; font-weight: bold; }
+        .swiper-pagination { position: static; width: auto !important; display: flex; align-items: center; gap: 6px; }
+        .swiper-pagination-bullet { background: var(--border); opacity: 1; margin: 0 !important; }
+        .swiper-pagination-bullet-active { background: var(--text-primary); }
 
         /* ── PROCESS ── */
-        .process-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: start;
-            margin-top: 60px;
-        }
-
+        .process-row { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 60px; }
         .process-steps { display: flex; flex-direction: column; gap: 0; }
-
-        .step {
-            display: flex;
-            gap: 24px;
-            padding: 28px 0;
-            border-bottom: 1px solid var(--border);
-            cursor: default;
-            transition: all 0.2s;
-        }
+        .step { display: flex; gap: 24px; padding: 28px 0; border-bottom: 1px solid var(--border); cursor: default; transition: all 0.2s; }
         .step:first-child { border-top: 1px solid var(--border); }
         .step:hover .step-num { color: var(--accent); }
+        .step-num { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--light); line-height: 1; min-width: 40px; transition: color 0.2s; }
+        .step-content h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+        .step-content p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+        .step-days { font-size: 11px; font-weight: 500; color: var(--accent); margin-top: 6px; letter-spacing: 0.04em; }
 
-        .step-num {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            color: var(--light);
-            line-height: 1;
-            min-width: 40px;
-            transition: color 0.2s;
-        }
-
-        .step-content h4 {
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-        .step-content p {
-            font-size: 13px;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-        .step-days {
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--accent);
-            margin-top: 6px;
-            letter-spacing: 0.04em;
-        }
-
-        .process-right {
-            position: sticky;
-            top: 120px;
-        }
-
-        .process-card {
-            background: var(--off-white);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            padding: 40px;
-        }
-        .process-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 26px;
-            font-weight: 400;
-            margin-bottom: 16px;
-        }
-        .process-card p {
-            font-size: 13px;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 28px;
-        }
-        .process-meta {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 28px;
-        }
-        .meta-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 13px;
-        }
+        .process-right { position: sticky; top: 120px; }
+        .process-card { background: var(--off-white); border: 1px solid var(--border); border-radius: 4px; padding: 40px; }
+        .process-card h3 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 400; margin-bottom: 16px; }
+        .process-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 28px; }
+        .process-meta { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+        .meta-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
         .meta-row span:first-child { color: var(--text-muted); }
         .meta-row span:last-child { font-weight: 500; }
 
@@ -700,176 +653,119 @@
         .coverage-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
         .coverage-inner .section-label { color: var(--accent-light); }
         .coverage-inner .section-title { color: var(--white); }
-
-        .cities-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2px;
-            margin-top: 48px;
-        }
-
-        .city-item {
-            padding: 20px 24px;
-            border: 1px solid rgba(255,255,255,0.08);
-            font-size: 14px;
-            color: rgba(255,255,255,0.7);
-            transition: all 0.2s;
-            cursor: default;
-        }
+        .cities-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 48px; }
+        .city-item { padding: 20px 24px; border: 1px solid rgba(255,255,255,0.08); font-size: 14px; color: rgba(255,255,255,0.7); cursor: default; transition: all 0.2s; }
         .city-item:hover { background: rgba(255,255,255,0.05); color: var(--white); }
         .city-item b { display: block; font-size: 11px; font-weight: 500; letter-spacing: 0.06em; color: var(--accent-light); margin-bottom: 2px; }
 
         /* ── FORM ── */
-        .form-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .form-left h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(28px, 3vw, 42px);
-            font-weight: 400;
-            margin-bottom: 20px;
-        }
-        .form-left p {
-            font-size: 14px;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 28px;
-        }
-        .form-contact-row {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 14px;
-            color: var(--text-secondary);
-        }
+        .form-section { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .form-left h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 42px); font-weight: 400; margin-bottom: 20px; }
+        .form-left p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 28px; }
+        .form-contact-row { display: flex; flex-direction: column; gap: 10px; }
+        .contact-item { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--text-secondary); }
         .contact-item strong { color: var(--text-primary); }
 
-        .form-right form {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
+        .form-right form { display: flex; flex-direction: column; gap: 12px; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-
-        .field {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
+        .field { display: flex; flex-direction: column; gap: 6px; }
+        .field label { font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
+        .field input, .field select, .field textarea {
+            border: 1px solid var(--border); border-radius: 4px; padding: 12px 14px; font-size: 14px;
+            font-family: 'Inter', sans-serif; color: var(--text-primary); background: var(--white); outline: none; transition: border-color 0.2s; resize: none;
         }
-        .field label {
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-        }
-        .field input,
-        .field select,
-        .field textarea {
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            padding: 12px 14px;
-            font-size: 14px;
-            font-family: 'Inter', sans-serif;
-            color: var(--text-primary);
-            background: var(--white);
-            outline: none;
-            transition: border-color 0.2s;
-            resize: none;
-        }
-        .field input:focus,
-        .field select:focus,
-        .field textarea:focus { border-color: var(--accent); }
-
+        .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--accent); }
         .field.full { grid-column: 1 / -1; }
-
-        .form-submit {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
+        .form-submit { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
         .privacy { font-size: 11px; color: var(--text-muted); line-height: 1.5; max-width: 220px; }
 
         /* ── FOOTER ── */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 40px 60px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-        .footer-brand {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .footer-links {
-            display: flex;
-            gap: 24px;
-            flex-wrap: wrap;
-        }
-        .footer-links a {
-            font-size: 12px;
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
+        footer { border-top: 1px solid var(--border); padding: 40px 60px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+        .footer-brand { font-size: 15px; font-weight: 600; color: var(--text-primary); display: flex; align-items: center; gap: 10px; }
+        .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+        .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
         .footer-links a:hover { color: var(--text-primary); }
         .footer-copy { font-size: 11px; color: var(--text-muted); }
 
         /* ── SUCCESS MSG ── */
-        .success-msg {
-            display: none;
-            text-align: center;
-            padding: 32px;
-            background: var(--off-white);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-        }
+        .success-msg { display: none; text-align: center; padding: 32px; background: var(--off-white); border: 1px solid var(--border); border-radius: 4px; }
         .success-msg h3 { font-size: 18px; margin-bottom: 8px; }
         .success-msg p { font-size: 13px; color: var(--text-secondary); }
 
-        /* ── MOBILE ── */
-        @media (max-width: 900px) {
-            .site-header { padding: 12px 24px; flex-wrap: wrap; }
-            .header-center a { display: none; }
-            .header-center a.active { display: block; }
-            .header-address { display: none; }
 
-            section { padding: 70px 24px; }
-            .hero-content { padding: 0 24px; padding-top: 110px; }
+        /* ── ADAPTIVE ── */
+        @media (max-width: 1250px) {
+            .site-header { padding: 16px 32px; }
+            .header-address { display: none; } /* Скрываем адрес от сжимания блоков */
+            .header-center { gap: 4px; }
+            .header-center a { padding: 8px 12px; }
+            .header-right { gap: 16px; }
+        }
+
+        @media (max-width: 1024px) {
+            /* Переход в мобильный режим шапки на планшетах */
+            .header-center, .header-socials, .header-contacts {
+                display: none !important;
+            }
+
+            .burger-btn {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                width: 44px;
+                height: 44px;
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                z-index: 101; /* Поверх мобильного меню */
+            }
+
+            .burger-btn span {
+                display: block;
+                width: 22px;
+                height: 2px;
+                background: var(--text-primary);
+                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s;
+                transform-origin: center;
+            }
+
+            .burger-btn.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+            .burger-btn.active span:nth-child(2) { opacity: 0; }
+            .burger-btn.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+            /* Коррекция внутренних отступов блоков */
+            section { padding: 80px 32px; }
+            .hero-content { padding: 0 32px; padding-top: 110px; }
+            .products-inner, .coverage-inner { padding: 0 32px; }
+            footer { padding: 40px 32px; }
+
             .hero-visual { display: none; }
-            .hero-stats { position: relative; bottom: unset; right: unset; flex-direction: row; gap: 30px; margin-top: 48px; }
+            .hero-stats { position: relative; bottom: unset; right: unset; flex-direction: row; gap: 40px; margin-top: 48px; }
             .stat { text-align: left; }
-
-            .why-grid { grid-template-columns: 1fr; }
-
-            .products-inner { padding: 0 24px; }
 
             .process-row { grid-template-columns: 1fr; gap: 40px; }
             .process-right { position: static; }
-            .cities-grid { grid-template-columns: 1fr 1fr; }
-            .coverage-inner { padding: 0 24px; }
             .form-section { grid-template-columns: 1fr; gap: 40px; }
+        }
+
+        @media (max-width: 768px) {
+            .site-header { padding: 12px 20px; }
+            /* Небольшая адаптация отступов для мобильных, чтобы кнопка и логотип уместились */
+            .header-right { gap: 10px; }
+            .header-cta { padding: 8px 16px; font-size: 11px; }
+
+            section { padding: 70px 20px; }
+            .hero-content { padding: 0 20px; padding-top: 110px; }
+            .products-inner, .coverage-inner { padding: 0 20px; }
+            footer { padding: 32px 20px; flex-direction: column; gap: 20px; align-items: flex-start; }
+
+            .hero-stats { flex-wrap: wrap; gap: 30px; }
+            .why-grid { grid-template-columns: 1fr; }
+            .cities-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .city-item { padding: 16px; }
             .form-row { grid-template-columns: 1fr; }
-            footer { padding: 32px 24px; flex-direction: column; gap: 20px; }
         }
     </style>
 </head>
@@ -891,18 +787,73 @@
     <nav class="header-center" role="navigation" aria-label="Основная навигация">
         <a href="#why" class="active">О нас</a>
         <a href="#products">Каталог</a>
+        <a href="#products">Материалы</a>
         <a href="#process">Процесс</a>
-        <a href="#coverage">Регионы</a>
+        <a href="#contact">Контакты</a>
     </nav>
 
     <div class="header-right">
+        <!-- Блок ссылок на соцсети Desktop -->
+        <div class="header-socials">
+            <a href="#" class="social-link" title="ВКонтакте">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M21 7L15.3598 11.7002C15.1318 11.8901 15 12.1716 15 12.4684V15.3355C15 16.3708 14.4661 17.333 13.5877 17.8809L10.1469 20.027C9.64736 20.3386 9 19.9794 9 19.3906V12.4684C9 12.1716 8.86818 11.8901 8.64018 11.7002L3 7V5C3 4.44772 3.44772 4 4 4H20C20.5523 4 21 4.44772 21 5V7ZM4.5 5.5V6.29744L9.60046 10.5478C10.1704 11.0228 10.5 11.7264 10.5 12.4684V18.0389L12.7938 16.6082C13.2331 16.3342 13.5 15.8531 13.5 15.3355V12.4684C13.5 11.7264 13.8296 11.0228 14.3995 10.5478L19.5 6.29744V5.5H4.5Z" fill="currentColor"/>
+                </svg>
+            </a>
+            <a href="#" class="social-link" title="Telegram">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M21 7L15.3598 11.7002C15.1318 11.8901 15 12.1716 15 12.4684V15.3355C15 16.3708 14.4661 17.333 13.5877 17.8809L10.1469 20.027C9.64736 20.3386 9 19.9794 9 19.3906V12.4684C9 12.1716 8.86818 11.8901 8.64018 11.7002L3 7V5C3 4.44772 3.44772 4 4 4H20C20.5523 4 21 4.44772 21 5V7ZM4.5 5.5V6.29744L9.60046 10.5478C10.1704 11.0228 10.5 11.7264 10.5 12.4684V18.0389L12.7938 16.6082C13.2331 16.3342 13.5 15.8531 13.5 15.3355V12.4684C13.5 11.7264 13.8296 11.0228 14.3995 10.5478L19.5 6.29744V5.5H4.5Z" fill="currentColor"/>
+                </svg>
+            </a>
+            <a href="#" class="social-link" title="MAX">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M21 7L15.3598 11.7002C15.1318 11.8901 15 12.1716 15 12.4684V15.3355C15 16.3708 14.4661 17.333 13.5877 17.8809L10.1469 20.027C9.64736 20.3386 9 19.9794 9 19.3906V12.4684C9 12.1716 8.86818 11.8901 8.64018 11.7002L3 7V5C3 4.44772 3.44772 4 4 4H20C20.5523 4 21 4.44772 21 5V7ZM4.5 5.5V6.29744L9.60046 10.5478C10.1704 11.0228 10.5 11.7264 10.5 12.4684V18.0389L12.7938 16.6082C13.2331 16.3342 13.5 15.8531 13.5 15.3355V12.4684C13.5 11.7264 13.8296 11.0228 14.3995 10.5478L19.5 6.29744V5.5H4.5Z" fill="currentColor"/>
+                </svg>
+            </a>
+        </div>
+
         <div class="header-contacts">
             <a href="tel:+74951234567" class="header-phone">+7 (495) 123-45-67</a>
-            <span class="header-address">д. Красногорск, ул. Промышленная, 12</span>
+            <span class="header-address">г. Красногорск, ул. Промышленная, 12</span>
         </div>
-        <a href="#contact" class="header-cta">Заказать звонок</a>
+
+        <a href="#contact" class="header-cta btn-primary">Заказать звонок</a>
+
+        <!-- Burger Button -->
+        <button class="burger-btn" aria-label="Открыть меню">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </div>
 </header>
+
+<!-- MOBILE MENU OVERLAY -->
+<div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-nav-links">
+        <a href="#why">О нас</a>
+        <a href="#products">Каталог</a>
+        <a href="#products">Материалы</a>
+        <a href="#process">Процесс</a>
+        <a href="#contact">Контакты</a>
+    </nav>
+    <div class="mobile-nav-bottom">
+        <div class="header-socials mobile-socials">
+            <a href="#" class="social-link" title="ВКонтакте">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M21 7L15.3598 11.7002C15.1318 11.8901 15 12.1716 15 12.4684V15.3355C15 16.3708 14.4661 17.333 13.5877 17.8809L10.1469 20.027C9.64736 20.3386 9 19.9794 9 19.3906V12.4684C9 12.1716 8.86818 11.8901 8.64018 11.7002L3 7V5C3 4.44772 3.44772 4 4 4H20C20.5523 4 21 4.44772 21 5V7ZM4.5 5.5V6.29744L9.60046 10.5478C10.1704 11.0228 10.5 11.7264 10.5 12.4684V18.0389L12.7938 16.6082C13.2331 16.3342 13.5 15.8531 13.5 15.3355V12.4684C13.5 11.7264 13.8296 11.0228 14.3995 10.5478L19.5 6.29744V5.5H4.5Z" fill="currentColor"/></svg>
+            </a>
+            <a href="#" class="social-link" title="Telegram">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M21 7L15.3598 11.7002C15.1318 11.8901 15 12.1716 15 12.4684V15.3355C15 16.3708 14.4661 17.333 13.5877 17.8809L10.1469 20.027C9.64736 20.3386 9 19.9794 9 19.3906V12.4684C9 12.1716 8.86818 11.8901 8.64018 11.7002L3 7V5C3 4.44772 3.44772 4 4 4H20C20.5523 4 21 4.44772 21 5V7ZM4.5 5.5V6.29744L9.60046 10.5478C10.1704 11.0228 10.5 11.7264 10.5 12.4684V18.0389L12.7938 16.6082C13.2331 16.3342 13.5 15.8531 13.5 15.3355V12.4684C13.5 11.7264 13.8296 11.0228 14.3995 10.5478L19.5 6.29744V5.5H4.5Z" fill="currentColor"/></svg>
+            </a>
+            <a href="#" class="social-link" title="MAX">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M21 7L15.3598 11.7002C15.1318 11.8901 15 12.1716 15 12.4684V15.3355C15 16.3708 14.4661 17.333 13.5877 17.8809L10.1469 20.027C9.64736 20.3386 9 19.9794 9 19.3906V12.4684C9 12.1716 8.86818 11.8901 8.64018 11.7002L3 7V5C3 4.44772 3.44772 4 4 4H20C20.5523 4 21 4.44772 21 5V7ZM4.5 5.5V6.29744L9.60046 10.5478C10.1704 11.0228 10.5 11.7264 10.5 12.4684V18.0389L12.7938 16.6082C13.2331 16.3342 13.5 15.8531 13.5 15.3355V12.4684C13.5 11.7264 13.8296 11.0228 14.3995 10.5478L19.5 6.29744V5.5H4.5Z" fill="currentColor"/></svg>
+            </a>
+        </div>
+        <a href="tel:+74951234567" class="header-phone">+7 (495) 123-45-67</a>
+        <span class="header-address">г. Красногорск, ул. Промышленная, 12<br>Пн-Сб, 9:00 - 20:00</span>
+        <a href="#contact" class="btn-primary mobile-cta">Заказать звонок</a>
+    </div>
+</div>
 
 <!-- HERO -->
 <main>
@@ -911,7 +862,6 @@
             <div class="hero-glow"></div>
         </div>
 
-        <!-- SVG Staircase Silhouette -->
         <div class="hero-visual" aria-hidden="true">
             <svg class="stair-silhouette" viewBox="0 0 600 700" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
@@ -944,31 +894,22 @@
                 <ellipse cx="310" cy="350" rx="280" ry="320" fill="url(#glow)"/>
 
                 <g filter="url(#softShadow)">
-                    <!-- Step 1 (bottom) -->
                     <rect x="80" y="560" width="340" height="20" rx="2" fill="url(#stepGrad)"/>
                     <rect x="80" y="540" width="12" height="20" rx="1" fill="url(#riserGrad)"/>
-                    <!-- Step 2 -->
                     <rect x="118" y="520" width="302" height="20" rx="2" fill="url(#stepGrad)"/>
                     <rect x="118" y="500" width="12" height="20" rx="1" fill="url(#riserGrad)"/>
-                    <!-- Step 3 -->
                     <rect x="156" y="480" width="264" height="20" rx="2" fill="url(#stepGrad)"/>
                     <rect x="156" y="460" width="12" height="20" rx="1" fill="url(#riserGrad)"/>
-                    <!-- Step 4 -->
                     <rect x="194" y="440" width="226" height="20" rx="2" fill="url(#stepGrad)"/>
                     <rect x="194" y="420" width="12" height="20" rx="1" fill="url(#riserGrad)"/>
-                    <!-- Step 5 -->
                     <rect x="232" y="400" width="188" height="20" rx="2" fill="url(#stepGrad)"/>
                     <rect x="232" y="380" width="12" height="20" rx="1" fill="url(#riserGrad)"/>
-                    <!-- Step 6 -->
                     <rect x="270" y="360" width="150" height="20" rx="2" fill="url(#stepGrad)"/>
                     <rect x="270" y="340" width="12" height="20" rx="1" fill="url(#riserGrad)"/>
-                    <!-- Step 7 -->
                     <rect x="308" y="320" width="112" height="20" rx="2" fill="url(#stepGrad)"/>
                     <rect x="308" y="300" width="12" height="20" rx="1" fill="url(#riserGrad)"/>
-                    <!-- Step 8 -->
                     <rect x="346" y="280" width="74" height="20" rx="2" fill="url(#stepGrad)"/>
                     <rect x="346" y="260" width="12" height="20" rx="1" fill="url(#riserGrad)"/>
-                    <!-- Step 9 (top) -->
                     <rect x="384" y="240" width="36" height="20" rx="2" fill="url(#stepGrad)"/>
                 </g>
 
@@ -1112,7 +1053,6 @@
 
             <div class="swiper products-slider">
                 <div class="swiper-wrapper">
-
                     <!-- Слайд 1 -->
                     <div class="swiper-slide">
                         <article class="product-card">
@@ -1378,7 +1318,7 @@
                     </div>
                     <div class="contact-item">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="7" r="3" stroke="currentColor" stroke-width="1.2"/><path d="M8 1C4.686 1 2 3.686 2 7c0 4 6 9 6 9s6-5 6-9c0-3.314-2.686-6-6-6z" stroke="currentColor" stroke-width="1.2"/></svg>
-                        <span>Красногорск, ул. Промышленная, 12</span>
+                        <span>г. Красногорск, ул. Промышленная, 12</span>
                     </div>
                 </div>
             </div>
@@ -1473,27 +1413,36 @@
                 clickable: true,
             },
             breakpoints: {
-                320: {
-                    slidesPerView: 1,
-                    spaceBetween: 20
-                },
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 24
-                },
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 24
-                }
+                320: { slidesPerView: 1, spaceBetween: 20 },
+                768: { slidesPerView: 2, spaceBetween: 24 },
+                1024: { slidesPerView: 3, spaceBetween: 24 }
             }
         });
     });
 
-    // Smooth scroll for nav links
+    // Smooth scroll for nav links & mobile menu handling
+    const burgerBtn = document.querySelector('.burger-btn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    function toggleBurgerMenu() {
+        burgerBtn.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    }
+
+    burgerBtn.addEventListener('click', toggleBurgerMenu);
+
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', e => {
             const target = document.querySelector(a.getAttribute('href'));
-            if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            // Закрываем мобильное меню при клике на линк, если оно открыто
+            if(mobileMenu.classList.contains('active')) {
+                toggleBurgerMenu();
+            }
         });
     });
 
