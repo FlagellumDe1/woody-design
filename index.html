@@ -1,1337 +1,1213 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- SEO: Title & Description -->
-    <title>Лестницы на металлическом каркасе | Московская область</title>
-    <meta name="description" content="Изготовление и монтаж лестниц на металлическом каркасе с деревянной обшивкой для частных домов в Московской области. Замер, проект, производство — под ключ. Звоните!" />
-    <meta name="keywords" content="Лестницы на металлическом каркасе Московская область, лестницы для частных домов МО, лестницы с деревянными ступенями Подмосковье, заказать лестницу на металлокаркасе, изготовление лестниц Москва, металлические лестницы с деревом" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://stephaus.ru/" />
-
-    <!-- OG / Social -->
-    <meta property="og:title" content="Лестницы на металлическом каркасе| Подмосковье" />
-    <meta property="og:description" content="Производство и монтаж лестниц на металлическом каркасе с деревянной обшивкой в Московской области. Под ключ от 45 дней." />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="ru_RU" />
-
-    <script type="module" src="/main.js"></script>
-
-    <!-- Structured Data: LocalBusiness -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "СтепХаус",
-            "description": "Изготовление и монтаж лестниц на металлокаркасе с деревянной обшивкой для частных домов в Московской области",
-            "url": "https://stephaus.ru",
-            "telephone": "+7 (495) 123-45-67",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "ул. Промышленная, 12",
-                "addressLocality": "Красногорск",
-                "addressRegion": "Московская область",
-                "postalCode": "143400",
-                "addressCountry": "RU"
-            },
-            "areaServed": {
-                "@type": "AdministrativeArea",
-                "name": "Московская область"
-            },
-            "priceRange": "₽₽₽",
-            "openingHours": "Mo-Sa 09:00-20:00"
-        }
-    </script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" />
-
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-        :root {
-            --white: #ffffff;
-            --off-white: #f8f7f5;
-            --light: #f0ede8;
-            /* RAL Цветовая Палитра */
-            --text-primary: #3b3332; /* RAL 8019 Серо-коричневый */
-            --heading-color: #384337; /* RAL 6020 Хромовый зеленый */
-            --btn-bg: #006442; /* RAL 6016 Бирюзово-зеленый */
-            /* Остальные цвета */
-            --text-secondary: #6b6560;
-            --text-muted: #a09990;
-            --accent: #8b6f47;
-            --accent-light: #c4a882;
-            --border: #e8e3dc;
-            --nav-bg: rgba(255,255,255,0.95);
-        }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--white);
-            color: var(--text-primary);
-            overflow-x: hidden;
-        }
-
-        /* ── HEADER & NAV ── */
-        .site-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: var(--nav-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--border);
-            padding: 16px 60px;
-            gap: 20px;
-            transition: box-shadow 0.3s ease, padding 0.3s ease;
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            flex: 1;
-        }
-
-        .nav-logo {
-            font-size: 15px;
-            font-weight: 600;
-            letter-spacing: 0.04em;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            white-space: nowrap;
-        }
-
-        .nav-logo-icon {
-            width: 26px;
-            height: 26px;
-            border: 1.5px solid var(--text-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .nav-logo-icon svg { width: 12px; height: 12px; }
-
-        .header-nav {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            overflow: hidden;
-        }
-
-        .header-nav a {
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--text-secondary);
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 30px;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-        }
-
-        .header-nav a:hover { color: var(--text-primary); background: var(--light); }
-        .header-nav a.active { color: var(--text-primary); background: var(--off-white); }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            gap: 24px;
-            flex-shrink: 0;
-        }
-
-        .header-socials {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: var(--off-white);
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
-            transition: all 0.2s ease;
-            text-decoration: none;
-            flex-shrink: 0;
-        }
-
-        .social-link:hover {
-            color: var(--text-primary);
-            border-color: var(--text-primary);
-            background: var(--light);
-        }
-
-        .social-link svg {
-            width: 24px;
-            height: 24px;
-        }
-
-        .header-contacts {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 3px;
-            flex-shrink: 0;
-        }
-
-        .header-phone {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: color 0.2s;
-            white-space: nowrap;
-        }
-        .header-phone:hover { color: var(--accent); }
-
-        .header-address {
-            font-size: 11px;
-            color: var(--text-muted);
-            letter-spacing: 0.02em;
-            white-space: nowrap;
-        }
-
-        .header-cta {
-            background: var(--btn-bg) !important;
-            color: var(--white) !important;
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-size: 12px;
-            font-weight: 500;
-            text-decoration: none;
-            transition: background 0.2s;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-        .header-cta:hover { background: #004b32 !important; }
-
-        /* ── BURGER MENU BUTTON ── */
-        .burger-btn { display: none; }
-
-        /* ── MOBILE MENU OVERLAY ── */
-        .mobile-menu {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: var(--nav-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            z-index: 99;
-            display: flex;
-            flex-direction: column;
-            padding: 100px 32px 40px;
-            transform: translateX(100%);
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow-y: auto;
-            border-left: 1px solid var(--border);
-        }
-        .mobile-menu.active { transform: translateX(0); }
-
-        .mobile-nav-links { display: flex; flex-direction: column; gap: 24px; margin-bottom: auto; }
-        .mobile-nav-links a { font-size: 24px; font-weight: 500; font-family: 'Playfair Display', serif; color: var(--text-primary); text-decoration: none; transition: color 0.2s; }
-        .mobile-nav-links a:hover { color: var(--accent); }
-
-        .mobile-nav-bottom { display: flex; flex-direction: column; gap: 24px; border-top: 1px solid var(--border); padding-top: 32px; margin-top: 40px; }
-        .mobile-nav-bottom .header-phone { font-size: 20px; }
-        .mobile-nav-bottom .header-address { font-size: 13px; color: var(--text-secondary); white-space: normal; line-height: 1.5; }
-        .mobile-nav-bottom .mobile-cta { justify-content: center; text-align: center; font-size: 14px; padding: 14px 20px; }
-
-        /* ── HERO ── */
-        .hero {
-            min-height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            background: var(--white);
-        }
-
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-        }
-
-        .hero-glow {
-            position: absolute; top: 10%; right: 5%; width: 65%; height: 90%;
-            background: radial-gradient(ellipse 60% 80% at 60% 40%, rgba(196,168,130,0.18) 0%, rgba(180,150,100,0.08) 40%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .hero-visual {
-            position: absolute;
-            right: 0;
-            top: 0;
-            width: 58%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .stair-silhouette {
-            width: 100%;
-            height: 100%;
-            opacity: 0.88;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 60px;
-            padding-top: 100px;
-            width: 100%;
-        }
-
-        .hero-label {
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
-
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(36px, 5vw, 64px);
-            font-weight: 400;
-            line-height: 1.15;
-            color: var(--text-primary);
-            max-width: 500px;
-            margin-bottom: 24px;
-        }
-
-        .hero-title em { font-style: italic; color: var(--accent); }
-        .hero-sub { font-size: 14px; color: #00694C; line-height: 1.7; max-width: 340px; }
-        .hero-sub-2 { font-size: 14px; margin-bottom: 40px;  }
-        .hero-sub-1 {
-            font-size: 20px;
-            margin-bottom: 20px;
-        }
-
-        .hero-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
-        .hero-tag {
-            font-size: 11px; font-weight: 500; letter-spacing: 0.05em; border: 1px solid var(--border); border-radius: 30px;
-            padding: 5px 14px; color: var(--text-secondary); cursor: pointer; transition: all 0.2s; background: rgba(255,255,255,0.7); text-decoration: none;
-        }
-        .hero-tag:hover { border-color: var(--accent); color: var(--accent); }
-
-        .hero-cta-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-
-        .btn-primary {
-            display: inline-flex; align-items: center; gap: 8px; background: var(--btn-bg); color: var(--white);
-            font-size: 13px; font-weight: 500; padding: 13px 28px; border-radius: 50px; text-decoration: none;
-            transition: all 0.25s; border: none; cursor: pointer;
-        }
-        .btn-primary:hover { background: #004b32; transform: translateY(-1px); }
-
-        .btn-outline {
-            display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-secondary);
-            text-decoration: none; padding: 13px 0; border-bottom: 1px solid transparent; transition: all 0.2s;
-        }
-        .btn-outline:hover { color: var(--btn-bg); border-bottom-color: var(--btn-bg); }
-
-        .hero-stats { position: absolute; bottom: 50px; right: 60px; z-index: 2; display: flex; gap: 40px; }
-        .stat { text-align: right; }
-        .stat-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 400; color: var(--text-primary); display: block; }
-        .stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.05em; }
-
-        /* ── TICKER ── */
-        .ticker-wrap { overflow: hidden; border-bottom: 1px solid var(--border); padding: 14px 0; background: var(--off-white); }
-        .ticker { display: flex; gap: 60px; white-space: nowrap; animation: ticker 22s linear infinite; }
-        .ticker span { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
-        .ticker span b { color: var(--accent); font-weight: 500; }
-        @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-        /* ── SECTIONS ── */
-        section { max-width: 1200px; margin: 0 auto; padding: 100px 60px; }
-        .section-label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(28px, 3.5vw, 46px);
-            font-weight: 400;
-            line-height: 1.2;
-            color: var(--heading-color);
-            margin-bottom: 20px;
-        }
-
-        .section-sub { font-size: 14px; color: var(--text-secondary); line-height: 1.8; max-width: 520px; }
-
-        /* ── WHY ── */
-        .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 60px; border: 1px solid var(--border); }
-        .why-item { padding: 40px; background: var(--white); border: 1px solid var(--border); position: relative; transition: background 0.3s; }
-        .why-item:hover { background: var(--off-white); }
-        .why-num { font-family: 'Playfair Display', serif; font-size: 40px; color: var(--light); position: absolute; top: 30px; right: 36px; line-height: 1; user-select: none; }
-        .why-icon { width: 40px; height: 40px; margin-bottom: 20px; color: var(--accent); }
-        .why-item h3 { font-size: 16px; font-weight: 600; color: var(--heading-color); margin-bottom: 10px; }
-        .why-item p { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
-
-        /* ── PRODUCTS ── */
-        .products-section { background: var(--off-white); max-width: 100%; padding: 100px 0; overflow: hidden; }
-        .products-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
-
-        /* Базовые стили для Swiper взамен CDN */
-        .swiper { margin-left: auto; margin-right: auto; position: relative; overflow: hidden; list-style: none; padding: 0; z-index: 1; }
-        .swiper-wrapper { position: relative; width: 100%; height: 100%; z-index: 1; display: flex; transition-property: transform; box-sizing: content-box; }
-        .swiper-slide { flex-shrink: 0; width: 100%; height: auto; position: relative; transition-property: transform; }
-
-        .products-slider {
-            margin-top: 40px;
-            width: 100%;
-        }
-
-        .product-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            overflow: hidden;
-            border-radius: 4px;
-            transition: box-shadow 0.3s, transform 0.3s;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product-card:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(0,0,0,0.06); }
-        .product-visual { height: 220px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-        .product-visual svg { width: 100%; height: 100%; }
-        .product-tag { position: absolute; top: 16px; left: 16px; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: var(--white); border: 1px solid var(--border); padding: 4px 10px; border-radius: 20px; color: var(--text-secondary); z-index: 2; }
-        .product-body { padding: 28px; display: flex; flex-direction: column; flex-grow: 1; }
-        .product-body h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; color: var(--heading-color); }
-        .product-body p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
-        .product-price { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--text-primary); display: block; margin-bottom: 16px; }
-        .product-price span { font-size: 13px; font-family: 'Inter', sans-serif; color: var(--text-muted); }
-
-        .btn-card {
-            display: block; text-align: center; font-size: 12px; font-weight: 500; padding: 10px;
-            border: 1px solid var(--border); border-radius: 4px; color: var(--text-primary); background: transparent; cursor: pointer; width: 100%; transition: all 0.2s;
-        }
-        .btn-card:hover { background: var(--btn-bg); color: var(--white); border-color: var(--btn-bg); }
-
-        /* Swiper Controls CSS */
-        .slider-controls {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 32px;
-        }
-
-        .slider-nav {
-            display: flex;
-            gap: 12px;
-        }
-
-        .swiper-navigation-icon {
-            display: none;
-        }
-
-        .swiper-button-prev,
-        .swiper-button-next {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: static;
-            width: 44px;
-            height: 44px;
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 50%;
-            color: var(--text-primary);
-            margin: 0;
-            cursor: pointer;
-            transition: all 0.2s;
-            z-index: 10;
-        }
-
-        .swiper-button-prev:hover,
-        .swiper-button-next:hover {
-            background: var(--btn-bg);
-            color: var(--white);
-            border-color: var(--btn-bg);
-        }
-
-        .swiper-button-prev::after {
-            padding-bottom: 3px;
-            content: '←';
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        .swiper-button-next::after {
-            padding-bottom: 3px;
-            content: '→';
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        .swiper-pagination {
-            position: static;
-            width: auto !important;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .swiper-pagination-bullet {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--border);
-            opacity: 1;
-            margin: 0 !important;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .swiper-pagination-bullet-active {
-            background: var(--btn-bg);
-        }
-
-        /* ── PROCESS ── */
-        .process-row { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 60px; }
-        .process-steps { display: flex; flex-direction: column; gap: 0; }
-        .step { display: flex; gap: 24px; padding: 28px 0; border-bottom: 1px solid var(--border); cursor: default; transition: all 0.2s; }
-        .step:first-child { border-top: 1px solid var(--border); }
-        .step:hover .step-num { color: var(--accent); }
-        .step-num { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--light); line-height: 1; min-width: 40px; transition: color 0.2s; }
-        .step-content h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; color: var(--heading-color); }
-        .step-content p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
-        .step-days { font-size: 11px; font-weight: 500; color: var(--accent); margin-top: 6px; letter-spacing: 0.04em; }
-
-        .process-right { position: sticky; top: 120px; }
-        .process-card { background: var(--off-white); border: 1px solid var(--border); border-radius: 4px; padding: 40px; }
-        .process-card h3 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 400; margin-bottom: 16px; color: var(--heading-color); }
-        .process-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 28px; }
-        .process-meta { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
-        .meta-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
-        .meta-row span:first-child { color: var(--text-muted); }
-        .meta-row span:last-child { font-weight: 500; }
-
-        /* ── COVERAGE ── */
-        .coverage-section { background: var(--text-primary); color: var(--white); max-width: 100%; padding: 80px 0; }
-        .coverage-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
-        .coverage-inner .section-label { color: var(--accent-light); }
-        .coverage-inner .section-title { color: var(--white); }
-        .cities-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 48px; }
-        .city-item { padding: 20px 24px; border: 1px solid rgba(255,255,255,0.08); font-size: 14px; color: rgba(255,255,255,0.7); cursor: default; transition: all 0.2s; }
-        .city-item:hover { background: rgba(255,255,255,0.05); color: var(--white); }
-        .city-item b { display: block; font-size: 11px; font-weight: 500; letter-spacing: 0.06em; color: var(--accent-light); margin-bottom: 2px; }
-
-        /* ── FORM ── */
-        .form-section { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-        .form-left h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 42px); font-weight: 400; margin-bottom: 20px; color: var(--heading-color); }
-        .form-left p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 28px; }
-        .form-contact-row { display: flex; flex-direction: column; gap: 10px; }
-        .contact-item { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--text-secondary); }
-        .contact-item strong { color: var(--text-primary); }
-
-        .form-right form { display: flex; flex-direction: column; gap: 12px; }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .field { display: flex; flex-direction: column; gap: 6px; }
-        .field label { font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
-        .field input, .field select, .field textarea {
-            border: 1px solid var(--border); border-radius: 4px; padding: 12px 14px; font-size: 14px;
-            font-family: 'Inter', sans-serif; color: var(--text-primary); background: var(--white); outline: none; transition: border-color 0.2s; resize: none;
-        }
-        .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--accent); }
-        .field.full { grid-column: 1 / -1; }
-        .form-submit { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-        .privacy { font-size: 11px; color: var(--text-muted); line-height: 1.5; max-width: 220px; }
-
-        /* ── FOOTER ── */
-        footer { border-top: 1px solid var(--border); padding: 40px 60px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-        .footer-brand { font-size: 15px; font-weight: 600; color: var(--text-primary); display: flex; align-items: center; gap: 10px; }
-        .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
-        .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
-        .footer-links a:hover { color: var(--text-primary); }
-        .footer-copy { font-size: 11px; color: var(--text-muted); }
-
-        /* ── SUCCESS MSG ── */
-        .success-msg { display: none; text-align: center; padding: 32px; background: var(--off-white); border: 1px solid var(--border); border-radius: 4px; }
-        .success-msg h3 { font-size: 18px; margin-bottom: 8px; color: var(--heading-color); }
-        .success-msg p { font-size: 13px; color: var(--text-secondary); }
-
-        /* ── ADAPTIVE ── */
-        @media (max-width: 1250px) {
-            .site-header { padding: 16px 32px; }
-            .header-address { display: none; }
-            .header-left { gap: 20px; }
-            .header-nav { gap: 4px; }
-            .header-nav a { padding: 8px 12px; }
-            .header-right { gap: 16px; }
-        }
-
-        @media (max-width: 1024px) {
-            .header-nav, .header-socials, .header-contacts { display: none !important; }
-
-            .burger-btn {
-                display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
-                width: 44px; height: 44px; background: transparent; border: none; cursor: pointer; z-index: 101;
-            }
-
-            .burger-btn span {
-                display: block; width: 22px; height: 2px; background: var(--text-primary);
-                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s; transform-origin: center;
-            }
-
-            .burger-btn.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-            .burger-btn.active span:nth-child(2) { opacity: 0; }
-            .burger-btn.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-            section { padding: 80px 32px; }
-            .hero-content { padding: 0 32px; padding-top: 110px; }
-            .products-inner, .coverage-inner { padding: 0 32px; }
-            footer { padding: 40px 32px; }
-
-            .hero-visual { display: none; }
-            .hero-stats { position: relative; bottom: unset; right: unset; flex-direction: row; gap: 40px; margin-top: 48px; }
-            .stat { text-align: left; }
-
-            .process-row { grid-template-columns: 1fr; gap: 40px; }
-            .process-right { position: static; }
-            .form-section { grid-template-columns: 1fr; gap: 40px; }
-        }
-
-        @media (max-width: 768px) {
-            .site-header { padding: 12px 20px; }
-            .header-right { gap: 10px; }
-            .header-cta { padding: 8px 16px; font-size: 11px; }
-
-            section { padding: 70px 20px; }
-            .hero-content { padding: 0 20px; padding-top: 110px; }
-            .products-inner, .coverage-inner { padding: 0 20px; }
-            footer { padding: 32px 20px; flex-direction: column; gap: 20px; align-items: flex-start; }
-
-            .hero-stats { flex-wrap: wrap; gap: 30px; }
-            .why-grid { grid-template-columns: 1fr; }
-            .cities-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-            .city-item { padding: 16px; }
-            .form-row { grid-template-columns: 1fr; }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+  <link rel="shortcut icon" href="/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicons/site.webmanifest" />
+
+  <!-- SEO: Title & Description -->
+  <title>Лестницы на металлическом каркасе | Московская область</title>
+  <meta name="description" content="Изготовление и монтаж лестниц на металлическом каркасе с деревянной обшивкой для частных домов в Московской области. Замер, проект, производство — под ключ. Звоните!" />
+  <meta name="keywords" content="Лестницы на металлическом каркасе Московская область, лестницы для частных домов МО, лестницы с деревянными ступенями Подмосковье, заказать лестницу на металлокаркасе, изготовление лестниц Москва, металлические лестницы с деревом" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- OG / Social -->
+  <meta property="og:title" content="Лестницы на металлическом каркасе| Подмосковье" />
+  <meta property="og:description" content="Производство и монтаж лестниц на металлическом каркасе с деревянной обшивкой в Московской области. Под ключ от 45 дней." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+
+  <script type="module" src="/main.js"></script>
+
+  <!-- Structured Data: LocalBusiness -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "СтепХаус",
+      "description": "Изготовление и монтаж лестниц на металлокаркасе с деревянной обшивкой для частных домов в Московской области",
+      "url": "https://stephaus.ru",
+      "telephone": "+7 (930) 940-33-33",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "дер. Губкино, 78 соор 5",
+        "addressLocality": "г. Москва",
+        "addressRegion": "Московская область",
+        "postalCode": "143400",
+        "addressCountry": "RU"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Московская область"
+      },
+      "priceRange": "₽₽₽",
+      "openingHours": "Mo-Sa 09:00-20:00"
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      :root {
+          --white: #ffffff;
+          --off-white: #f8f7f5;
+          --light: #f0ede8;
+          /* RAL Цветовая Палитра */
+          --text-primary: #3b3332; /* RAL 8019 Серо-коричневый */
+          --heading-color: #384337; /* RAL 6020 Хромовый зеленый */
+          --btn-bg: #006442; /* RAL 6016 Бирюзово-зеленый */
+          /* Остальные цвета */
+          --text-secondary: #6b6560;
+          --text-muted: #a09990;
+          --accent: #8b6f47;
+          --accent-light: #c4a882;
+          --border: #e8e3dc;
+          --nav-bg: rgba(255,255,255,0.95);
+      }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+          font-family: 'Inter', sans-serif;
+          background: var(--white);
+          color: var(--text-primary);
+          overflow-x: hidden;
+      }
+
+      /* ── HEADER & NAV ── */
+      .site-header {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          z-index: 100;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background: var(--nav-bg);
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+          border-bottom: 1px solid var(--border);
+          padding: 16px 60px;
+          gap: 20px;
+          transition: box-shadow 0.3s ease, padding 0.3s ease;
+      }
+
+      .header-left {
+          display: flex;
+          align-items: center;
+          gap: 40px;
+          flex: 1;
+      }
+
+      .nav-logo {
+          font-size: 15px;
+          font-weight: 600;
+          letter-spacing: 0.04em;
+          color: var(--text-primary);
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          text-decoration: none;
+          white-space: nowrap;
+      }
+
+      .nav-logo-icon {
+          width: 26px;
+          height: 26px;
+          border: 1.5px solid var(--text-primary);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+
+      .nav-logo svg { width: 12px; height: 12px; }
+
+      .nav-logo-img {
+          height: 50px;
+          aspect-ratio: 1;
+      }
+
+      .header-nav {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          overflow: hidden;
+      }
+
+      .header-nav a {
+          font-size: 13px;
+          font-weight: 500;
+          color: var(--text-secondary);
+          text-decoration: none;
+          padding: 8px 16px;
+          border-radius: 30px;
+          transition: all 0.2s ease;
+          white-space: nowrap;
+      }
+
+      .header-nav a:hover { color: var(--text-primary); background: var(--light); }
+      .header-nav a.active { color: var(--text-primary); background: var(--off-white); }
+
+      .header-right {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          gap: 24px;
+          flex-shrink: 0;
+      }
+
+      .header-socials {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+      }
+
+      .social-link {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.2s ease;
+          flex-shrink: 0;
+      }
+
+      .social-link img {
+          width: 28px;
+          aspect-ratio: 1;
+          transition: transform 300ms ease;
+      }
+
+      .social-link img:hover {
+          transform: scale(1.2);
+      }
+
+      .header-contacts {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          gap: 3px;
+          flex-shrink: 0;
+      }
+
+      .header-phone {
+          font-size: 14px;
+          font-weight: 600;
+          color: var(--text-primary);
+          text-decoration: none;
+          transition: color 0.2s;
+          white-space: nowrap;
+      }
+      .header-phone:hover { color: var(--accent); }
+
+      .header-address {
+          font-size: 11px;
+          color: var(--text-muted);
+          letter-spacing: 0.02em;
+          white-space: nowrap;
+      }
+
+      .header-cta {
+          background: var(--btn-bg) !important;
+          color: var(--white) !important;
+          padding: 10px 20px;
+          border-radius: 30px;
+          font-size: 12px;
+          font-weight: 500;
+          text-decoration: none;
+          transition: background 0.2s;
+          white-space: nowrap;
+          flex-shrink: 0;
+      }
+      .header-cta:hover { background: #004b32 !important; }
+
+      /* ── BURGER MENU BUTTON ── */
+      .burger-btn { display: none; }
+
+      /* ── MOBILE MENU OVERLAY ── */
+      .mobile-menu {
+          position: fixed;
+          top: 0; left: 0; right: 0; bottom: 0;
+          background: var(--nav-bg);
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+          z-index: 99;
+          display: flex;
+          flex-direction: column;
+          padding: 100px 32px 40px;
+          transform: translateX(100%);
+          transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          overflow-y: auto;
+          border-left: 1px solid var(--border);
+      }
+      .mobile-menu.active { transform: translateX(0); }
+
+      .mobile-nav-links { display: flex; flex-direction: column; gap: 24px; margin-bottom: auto; }
+      .mobile-nav-links a { font-size: 24px; font-weight: 500; font-family: 'Playfair Display', serif; color: var(--text-primary); text-decoration: none; transition: color 0.2s; }
+      .mobile-nav-links a:hover { color: var(--accent); }
+
+      .mobile-nav-bottom { display: flex; flex-direction: column; gap: 24px; border-top: 1px solid var(--border); padding-top: 32px; margin-top: 40px; }
+      .mobile-nav-bottom .header-phone { font-size: 20px; }
+      .mobile-nav-bottom .header-address { font-size: 13px; color: var(--text-secondary); white-space: normal; line-height: 1.5; }
+      .mobile-nav-bottom .mobile-cta { justify-content: center; text-align: center; font-size: 14px; padding: 14px 20px; }
+
+      /* ── HERO ── */
+      .hero {
+          min-height: 100vh;
+          width: 100%;
+          position: relative;
+          display: flex;
+          align-items: center;
+          overflow: hidden;
+          max-width: none;
+          background:
+                  linear-gradient(90deg,
+                  rgba(255, 255, 255, 1) 0%,
+                  rgba(255, 255, 255, 0.98) 15%,
+                  rgba(255, 255, 255, 0.6) 40%,
+                  rgba(255, 255, 255, 0) 75%),
+                  url('/assets/images/hero.jpg') no-repeat center right / cover;
+      }
+
+      .hero-content {
+          position: relative;
+          z-index: 2;
+          padding: 100px 60px 0;
+          width: 100%;
+      }
+
+      .hero-label {
+          font-size: 11px;
+          font-weight: 500;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: var(--text-muted);
+          margin-bottom: 20px;
+      }
+
+      .hero-title {
+          font-family: 'Playfair Display', serif;
+          font-size: clamp(36px, 5vw, 64px);
+          font-weight: 400;
+          line-height: 1.15;
+          color: var(--text-primary);
+          max-width: 500px;
+          margin-bottom: 24px;
+      }
+
+      .hero-title em { font-style: italic; color: var(--accent); }
+      .hero-sub { font-size: 14px; color: #00694C; line-height: 1.7; max-width: 340px; }
+      .hero-sub-2 { font-size: 14px; margin-bottom: 40px;  }
+      .hero-sub-1 {
+          font-size: 20px;
+          margin-bottom: 20px;
+      }
+
+      .hero-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
+      .hero-tag {
+          font-size: 11px; font-weight: 500; letter-spacing: 0.05em; border: 1px solid var(--border); border-radius: 30px;
+          padding: 5px 14px; color: var(--text-secondary); cursor: pointer; transition: all 0.2s; background: rgba(255,255,255,0.7); text-decoration: none;
+      }
+      .hero-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+      .hero-cta-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+
+      .btn-primary {
+          display: inline-flex; align-items: center; gap: 8px; background: var(--btn-bg); color: var(--white);
+          font-size: 13px; font-weight: 500; padding: 13px 28px; border-radius: 50px; text-decoration: none;
+          transition: all 0.25s; border: none; cursor: pointer;
+      }
+      .btn-primary:hover { background: #004b32; transform: translateY(-1px); }
+
+      .btn-outline {
+          display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-secondary);
+          text-decoration: none; padding: 13px 0; border-bottom: 1px solid transparent; transition: all 0.2s;
+      }
+      .btn-outline:hover { color: var(--btn-bg); border-bottom-color: var(--btn-bg); }
+
+      .hero-stats {
+          position: absolute;
+          bottom: 50px;
+          right: 60px;
+          z-index: 2;
+          display: flex;
+          gap: 40px;
+          background: rgba(255, 255, 255, 0.85);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          padding: 24px 36px;
+          border-radius: 12px;
+          border: 1px solid rgba(255, 255, 255, 0.6);
+          box-shadow: 0 16px 32px rgba(0, 0, 0, 0.06);
+      }
+      .stat { text-align: center; }
+      .stat-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 400; color: var(--text-primary); display: block; }
+      .stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.05em; margin-top: 4px; }
+
+      /* ── TICKER ── */
+      .ticker-wrap { overflow: hidden; border-bottom: 1px solid var(--border); padding: 14px 0; background: var(--off-white); }
+      .ticker { display: flex; gap: 60px; white-space: nowrap; animation: ticker 22s linear infinite; }
+      .ticker span { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+      .ticker span b { color: var(--accent); font-weight: 500; }
+      @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+      /* ── SECTIONS ── */
+      section { max-width: 1200px; margin: 0 auto; padding: 100px 60px; }
+      .section-label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+
+      .section-title {
+          font-family: 'Playfair Display', serif;
+          font-size: clamp(28px, 3.5vw, 46px);
+          font-weight: 400;
+          line-height: 1.2;
+          color: var(--heading-color);
+          margin-bottom: 20px;
+      }
+
+      .section-sub { font-size: 14px; color: var(--text-secondary); line-height: 1.8; max-width: 520px; }
+
+      /* ── WHY ── */
+      .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 60px; border: 1px solid var(--border); }
+      .why-item { padding: 40px; background: var(--white); border: 1px solid var(--border); position: relative; transition: background 0.3s; }
+      .why-item:hover { background: var(--off-white); }
+      .why-num { font-family: 'Playfair Display', serif; font-size: 40px; color: var(--light); position: absolute; top: 30px; right: 36px; line-height: 1; user-select: none; }
+      .why-icon { width: 40px; height: 40px; margin-bottom: 20px; color: var(--accent); }
+      .why-item h3 { font-size: 16px; font-weight: 600; color: var(--heading-color); margin-bottom: 10px; }
+      .why-item p { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+
+      /* ── PRODUCTS ── */
+      .products-section { background: var(--off-white); max-width: 100%; padding: 100px 0; overflow: hidden; }
+      .products-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
+
+      /* Базовые стили для Swiper взамен CDN */
+      .swiper { margin-left: auto; margin-right: auto; position: relative; overflow: hidden; list-style: none; padding: 0; z-index: 1; }
+      .swiper-wrapper { position: relative; width: 100%; height: 100%; z-index: 1; display: flex; transition-property: transform; box-sizing: content-box; }
+      .swiper-slide { flex-shrink: 0; width: 100%; height: auto; position: relative; transition-property: transform; }
+
+      .products-slider {
+          margin-top: 40px;
+          width: 100%;
+      }
+
+      .product-card {
+          background: var(--white);
+          border: 1px solid var(--border);
+          overflow: hidden;
+          border-radius: 4px;
+          transition: box-shadow 0.3s, transform 0.3s;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+      }
+
+      .product-card:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(0,0,0,0.06); }
+      .product-visual { height: 220px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+      .product-visual svg { width: 100%; height: 100%; }
+      .product-tag { position: absolute; top: 16px; left: 16px; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: var(--white); border: 1px solid var(--border); padding: 4px 10px; border-radius: 20px; color: var(--text-secondary); z-index: 2; }
+      .product-body { padding: 28px; display: flex; flex-direction: column; flex-grow: 1; }
+      .product-body h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; color: var(--heading-color); }
+      .product-body p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
+      .product-price { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--text-primary); display: block; margin-bottom: 16px; }
+      .product-price span { font-size: 13px; font-family: 'Inter', sans-serif; color: var(--text-muted); }
+
+      .btn-card {
+          display: block; text-align: center; font-size: 12px; font-weight: 500; padding: 10px;
+          border: 1px solid var(--border); border-radius: 4px; color: var(--text-primary); background: transparent; cursor: pointer; width: 100%; transition: all 0.2s;
+      }
+      .btn-card:hover { background: var(--btn-bg); color: var(--white); border-color: var(--btn-bg); }
+
+      /* Swiper Controls CSS */
+      .slider-controls {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 32px;
+      }
+
+      .slider-nav {
+          display: flex;
+          gap: 12px;
+      }
+      .swiper-navigation-icon { display: none; }
+      .swiper-button-prev, .swiper-button-next {
+          display: flex; align-items: center; justify-content: center; position: static;
+          width: 44px; height: 44px; background: var(--white); border: 1px solid var(--border);
+          border-radius: 50%; color: var(--text-primary); margin: 0; cursor: pointer; transition: all 0.2s; z-index: 10;
+      }
+      .swiper-button-prev:hover, .swiper-button-next:hover { background: var(--btn-bg); color: var(--white); border-color: var(--btn-bg); }
+      .swiper-button-prev::after { padding-bottom: 3px; content: '←'; font-size: 16px; font-weight: bold; }
+      .swiper-button-next::after { padding-bottom: 3px; content: '→'; font-size: 16px; font-weight: bold; }
+      .swiper-pagination { position: static; width: auto !important; display: flex; align-items: center; gap: 6px; }
+      .swiper-pagination-bullet { width: 8px; height: 8px; border-radius: 50%; background: var(--border); opacity: 1; margin: 0 !important; cursor: pointer; transition: background 0.2s; }
+      .swiper-pagination-bullet-active { background: var(--btn-bg); }
+
+      /* ── PROCESS ── */
+      .process-row { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 60px; }
+      .process-steps { display: flex; flex-direction: column; gap: 0; }
+      .step { display: flex; gap: 24px; padding: 28px 0; border-bottom: 1px solid var(--border); cursor: default; transition: all 0.2s; }
+      .step:first-child { border-top: 1px solid var(--border); }
+      .step:hover .step-num { color: var(--accent); }
+      .step-num { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--light); line-height: 1; min-width: 40px; transition: color 0.2s; }
+      .step-content h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; color: var(--heading-color); }
+      .step-content p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+      .step-days { font-size: 11px; font-weight: 500; color: var(--accent); margin-top: 6px; letter-spacing: 0.04em; }
+
+      .process-right { position: sticky; top: 120px; }
+      .process-card { background: var(--off-white); border: 1px solid var(--border); border-radius: 4px; padding: 40px; }
+      .process-card h3 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 400; margin-bottom: 16px; color: var(--heading-color); }
+      .process-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 28px; }
+      .process-meta { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+      .meta-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+      .meta-row span:first-child { color: var(--text-muted); }
+      .meta-row span:last-child { font-weight: 500; }
+
+      /* ── COVERAGE ── */
+      .coverage-section { background: var(--text-primary); color: var(--white); max-width: 100%; padding: 80px 0; }
+      .coverage-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
+      .coverage-inner .section-label { color: var(--accent-light); }
+      .coverage-inner .section-title { color: var(--white); }
+      .cities-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 48px; }
+      .city-item { padding: 20px 24px; border: 1px solid rgba(255,255,255,0.08); font-size: 14px; color: rgba(255,255,255,0.7); cursor: default; transition: all 0.2s; }
+      .city-item:hover { background: rgba(255,255,255,0.05); color: var(--white); }
+      .city-item b { display: block; font-size: 11px; font-weight: 500; letter-spacing: 0.06em; color: var(--accent-light); margin-bottom: 2px; }
+
+      /* ── FORM ── */
+      .form-section { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+      .form-left h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 42px); font-weight: 400; margin-bottom: 20px; color: var(--heading-color); }
+      .form-left p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 28px; }
+      .form-contact-row { display: flex; flex-direction: column; gap: 10px; }
+      .contact-item { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--text-secondary); }
+      .contact-item strong { color: var(--text-primary); }
+
+      .form-right form { display: flex; flex-direction: column; gap: 12px; }
+      .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+      .field { display: flex; flex-direction: column; gap: 6px; }
+      .field label { font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
+      .field input, .field select, .field textarea {
+          border: 1px solid var(--border); border-radius: 4px; padding: 12px 14px; font-size: 14px;
+          font-family: 'Inter', sans-serif; color: var(--text-primary); background: var(--white); outline: none; transition: border-color 0.2s; resize: none;
+      }
+      .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--accent); }
+      .field.full { grid-column: 1 / -1; }
+      .form-submit { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+      .privacy { font-size: 11px; color: var(--text-muted); line-height: 1.5; max-width: 220px; }
+
+      /* ── FOOTER ── */
+      footer { border-top: 1px solid var(--border); padding: 40px 60px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+      .footer-brand { font-size: 15px; font-weight: 600; color: var(--text-primary); display: flex; align-items: center; gap: 10px; }
+      .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+      .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+      .footer-links a:hover { color: var(--text-primary); }
+      .footer-copy { font-size: 11px; color: var(--text-muted); }
+
+      /* ── SUCCESS MSG ── */
+      .success-msg { display: none; text-align: center; padding: 32px; background: var(--off-white); border: 1px solid var(--border); border-radius: 4px; }
+      .success-msg h3 { font-size: 18px; margin-bottom: 8px; color: var(--heading-color); }
+      .success-msg p { font-size: 13px; color: var(--text-secondary); }
+
+      /* ── ADAPTIVE ── */
+      @media (max-width: 1250px) {
+          .site-header { padding: 16px 32px; }
+          .header-address { display: none; }
+          .header-left { gap: 20px; }
+          .header-nav { gap: 4px; }
+          .header-nav a { padding: 8px 12px; }
+          .header-right { gap: 16px; }
+      }
+
+      @media (max-width: 1024px) {
+          .hero {
+              background:
+                      linear-gradient(90deg,
+                      rgba(255, 255, 255, 1) 0%,
+                      rgba(255, 255, 255, 0.95) 20%,
+                      rgba(255, 255, 255, 0.6) 50%,
+                      rgba(255, 255, 255, 0.2) 85%),
+                      url('/assets/images/hero.jpg') no-repeat center right / cover;
+          }
+
+          .header-nav, .header-socials, .header-contacts { display: none !important; }
+
+          .burger-btn {
+              display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+              width: 44px; height: 44px; background: transparent; border: none; cursor: pointer; z-index: 101;
+          }
+
+          .burger-btn span {
+              display: block; width: 22px; height: 2px; background: var(--text-primary);
+              transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s; transform-origin: center;
+          }
+
+          .burger-btn.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+          .burger-btn.active span:nth-child(2) { opacity: 0; }
+          .burger-btn.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+          section { padding: 80px 32px; }
+          .hero-content { padding: 110px 32px 60px; }
+          .products-inner, .coverage-inner { padding: 0 32px; }
+          footer { padding: 40px 32px; }
+
+          .hero-stats {
+              position: relative;
+              bottom: unset;
+              right: unset;
+              flex-direction: row;
+              flex-wrap: wrap;
+              gap: 30px;
+              margin-top: 48px;
+              display: inline-flex;
+              padding: 24px;
+              background: rgba(255, 255, 255, 0.9);
+          }
+          .stat { text-align: left; }
+
+          .process-row { grid-template-columns: 1fr; gap: 40px; }
+          .process-right { position: static; }
+          .form-section { grid-template-columns: 1fr; gap: 40px; }
+      }
+
+      @media (max-width: 768px) {
+          .hero {
+              background:
+                      linear-gradient(90deg,
+                      rgba(255, 255, 255, 0.98) 0%,
+                      rgba(255, 255, 255, 0.75) 100%),
+                      url('https://i.pinimg.com/originals/63/be/87/63be873bbaf3c35b4b2f49628d4d8d5b.jpg') no-repeat center right / cover;
+          }
+
+          .site-header { padding: 12px 20px; }
+          .header-right { gap: 10px; }
+          .header-cta { padding: 8px 16px; font-size: 11px; }
+
+          section { padding: 70px 20px; }
+          .hero-content { padding: 110px 20px 50px; }
+          .products-inner, .coverage-inner { padding: 0 20px; }
+          footer { padding: 32px 20px; flex-direction: column; gap: 20px; align-items: flex-start; }
+
+          .hero-stats {
+              gap: 20px;
+              padding: 20px;
+              width: 100%;
+              justify-content: space-around;
+          }
+          .why-grid { grid-template-columns: 1fr; }
+          .cities-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+          .city-item { padding: 16px; }
+          .form-row { grid-template-columns: 1fr; }
+      }
+  </style>
 </head>
 <body>
 
 <!-- HEADER & NAV -->
 <header class="site-header">
-    <div class="header-left">
-        <a href="#" class="nav-logo" aria-label="СтепХаус - на главную">
-            <div class="nav-logo-icon">
-                <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M2 8 L2 6 L4 6 L4 4 L6 4 L6 2 L8 2"/>
-                </svg>
-            </div>
-            СтепХаус
-        </a>
+  <div class="header-left">
+    <a href="#" class="nav-logo" aria-label="СтепХаус - на главную">
+      <img class="nav-logo-img" src="/assets/images/logo.jpg" alt="Древесный замысел"/>
+      Древесный замысел
+    </a>
 
-        <nav class="header-nav" role="navigation" aria-label="Основная навигация">
-            <a href="#why" class="active">О нас</a>
-            <a href="#products">Каталог</a>
-            <a href="#products">Материалы</a>
-            <a href="#process">Процесс</a>
-            <a href="#contact">Контакты</a>
-        </nav>
+    <nav class="header-nav" role="navigation" aria-label="Основная навигация">
+      <a href="#why" class="active">О нас</a>
+      <a href="#products">Каталог</a>
+      <a href="#products">Материалы</a>
+      <a href="#process">Процесс</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+  </div>
+
+  <div class="header-right">
+    <!-- Блок ссылок на соцсети Desktop -->
+    <div class="header-socials">
+      <a href="https://vk.ru/thewoodplan" class="social-link" title="ВКонтакте" target="_blank">
+        <img src="/src/assets/icons/vk.svg" alt="">
+      </a>
+      <a href="https://t.me/TheWoodPlan" class="social-link" title="Telegram" target="_blank">
+        <img src="/src/assets/icons/tg.svg" alt="">
+      </a>
+      <a href="#" class="social-link" title="MAX" target="_blank">
+        <img src="/src/assets/icons/max.svg" alt="">
+      </a>
     </div>
 
-    <div class="header-right">
-        <!-- Блок ссылок на соцсети Desktop -->
-        <div class="header-socials">
-            <a href="#" class="social-link" title="ВКонтакте">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M21 7L15.3598 11.7002C15.1318 11.8901 15 12.1716 15 12.4684V15.3355C15 16.3708 14.4661 17.333 13.5877 17.8809L10.1469 20.027C9.64736 20.3386 9 19.9794 9 19.3906V12.4684C9 12.1716 8.86818 11.8901 8.64018 11.7002L3 7V5C3 4.44772 3.44772 4 4 4H20C20.5523 4 21 4.44772 21 5V7ZM4.5 5.5V6.29744L9.60046 10.5478C10.1704 11.0228 10.5 11.7264 10.5 12.4684V18.0389L12.7938 16.6082C13.2331 16.3342 13.5 15.8531 13.5 15.3355V12.4684C13.5 11.7264 13.8296 11.0228 14.3995 10.5478L19.5 6.29744V5.5H4.5Z" fill="currentColor"/></svg>
-            </a>
-            <a href="#" class="social-link" title="Telegram">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M21 7L15.3598 11.7002C15.1318 11.8901 15 12.1716 15 12.4684V15.3355C15 16.3708 14.4661 17.333 13.5877 17.8809L10.1469 20.027C9.64736 20.3386 9 19.9794 9 19.3906V12.4684C9 12.1716 8.86818 11.8901 8.64018 11.7002L3 7V5C3 4.44772 3.44772 4 4 4H20C20.5523 4 21 4.44772 21 5V7ZM4.5 5.5V6.29744L9.60046 10.5478C10.1704 11.0228 10.5 11.7264 10.5 12.4684V18.0389L12.7938 16.6082C13.2331 16.3342 13.5 15.8531 13.5 15.3355V12.4684C13.5 11.7264 13.8296 11.0228 14.3995 10.5478L19.5 6.29744V5.5H4.5Z" fill="currentColor"/></svg>
-            </a>
-            <a href="#" class="social-link" title="MAX">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M21 7L15.3598 11.7002C15.1318 11.8901 15 12.1716 15 12.4684V15.3355C15 16.3708 14.4661 17.333 13.5877 17.8809L10.1469 20.027C9.64736 20.3386 9 19.9794 9 19.3906V12.4684C9 12.1716 8.86818 11.8901 8.64018 11.7002L3 7V5C3 4.44772 3.44772 4 4 4H20C20.5523 4 21 4.44772 21 5V7ZM4.5 5.5V6.29744L9.60046 10.5478C10.1704 11.0228 10.5 11.7264 10.5 12.4684V18.0389L12.7938 16.6082C13.2331 16.3342 13.5 15.8531 13.5 15.3355V12.4684C13.5 11.7264 13.8296 11.0228 14.3995 10.5478L19.5 6.29744V5.5H4.5Z" fill="currentColor"/></svg>
-            </a>
-        </div>
-
-        <div class="header-contacts">
-            <a href="tel:+74951234567" class="header-phone">+7 (495) 123-45-67</a>
-            <span class="header-address">г. Красногорск, ул. Промышленная, 12</span>
-            <a href="mailto:n.ilya2001@yandex.ru" class="header-address">n.ilya2001@yandex.ru</a>
-        </div>
-
-        <a href="#contact" class="header-cta btn-primary">Заказать консультацию</a>
-
-        <!-- Burger Button -->
-        <button class="burger-btn" aria-label="Открыть меню">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+    <div class="header-contacts">
+      <a href="tel:+79309403333" class="header-phone">+7 (930) 940-33-33</a>
+      <span class="header-address">г. Москва, дер. Губкино, 78 соор 5</span>
+      <a href="mailto:n.ilya2001@yandex.ru" class="header-address">n.ilya2001@yandex.ru</a>
     </div>
+
+    <a href="#contact" class="header-cta btn-primary">Заказать консультацию</a>
+
+    <!-- Burger Button -->
+    <button class="burger-btn" aria-label="Открыть меню">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
 </header>
 
 <!-- MOBILE MENU OVERLAY -->
 <div class="mobile-menu" id="mobileMenu">
-    <nav class="mobile-nav-links">
-        <a href="#why">О нас</a>
-        <a href="#products">Каталог</a>
-        <a href="#products">Материалы</a>
-        <a href="#process">Процесс</a>
-        <a href="#contact">Контакты</a>
-    </nav>
-    <div class="mobile-nav-bottom">
-        <div class="header-socials mobile-socials">
-            <a href="#" class="social-link" title="ВКонтакте">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M21 7L15.3598 11.7002C15.1318 11.8901 15 12.1716 15 12.4684V15.3355C15 16.3708 14.4661 17.333 13.5877 17.8809L10.1469 20.027C9.64736 20.3386 9 19.9794 9 19.3906V12.4684C9 12.1716 8.86818 11.8901 8.64018 11.7002L3 7V5C3 4.44772 3.44772 4 4 4H20C20.5523 4 21 4.44772 21 5V7ZM4.5 5.5V6.29744L9.60046 10.5478C10.1704 11.0228 10.5 11.7264 10.5 12.4684V18.0389L12.7938 16.6082C13.2331 16.3342 13.5 15.8531 13.5 15.3355V12.4684C13.5 11.7264 13.8296 11.0228 14.3995 10.5478L19.5 6.29744V5.5H4.5Z" fill="currentColor"/></svg>
-            </a>
-            <a href="#" class="social-link" title="Telegram">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M21 7L15.3598 11.7002C15.1318 11.8901 15 12.1716 15 12.4684V15.3355C15 16.3708 14.4661 17.333 13.5877 17.8809L10.1469 20.027C9.64736 20.3386 9 19.9794 9 19.3906V12.4684C9 12.1716 8.86818 11.8901 8.64018 11.7002L3 7V5C3 4.44772 3.44772 4 4 4H20C20.5523 4 21 4.44772 21 5V7ZM4.5 5.5V6.29744L9.60046 10.5478C10.1704 11.0228 10.5 11.7264 10.5 12.4684V18.0389L12.7938 16.6082C13.2331 16.3342 13.5 15.8531 13.5 15.3355V12.4684C13.5 11.7264 13.8296 11.0228 14.3995 10.5478L19.5 6.29744V5.5H4.5Z" fill="currentColor"/></svg>
-            </a>
-            <a href="#" class="social-link" title="MAX">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M21 7L15.3598 11.7002C15.1318 11.8901 15 12.1716 15 12.4684V15.3355C15 16.3708 14.4661 17.333 13.5877 17.8809L10.1469 20.027C9.64736 20.3386 9 19.9794 9 19.3906V12.4684C9 12.1716 8.86818 11.8901 8.64018 11.7002L3 7V5C3 4.44772 3.44772 4 4 4H20C20.5523 4 21 4.44772 21 5V7ZM4.5 5.5V6.29744L9.60046 10.5478C10.1704 11.0228 10.5 11.7264 10.5 12.4684V18.0389L12.7938 16.6082C13.2331 16.3342 13.5 15.8531 13.5 15.3355V12.4684C13.5 11.7264 13.8296 11.0228 14.3995 10.5478L19.5 6.29744V5.5H4.5Z" fill="currentColor"/></svg>
-            </a>
-        </div>
-        <a href="tel:+74951234567" class="header-phone">+7 (495) 123-45-67</a>
-        <span class="header-address-mobile">г. Красногорск, ул. Промышленная, 12<br>Пн-Сб, 9:00 - 20:00</span>
-        <a href="#contact" class="btn-primary mobile-cta">Заказать консультацию</a>
+  <nav class="mobile-nav-links">
+    <a href="#why">О нас</a>
+    <a href="#products">Каталог</a>
+    <a href="#products">Материалы</a>
+    <a href="#process">Процесс</a>
+    <a href="#contact">Контакты</a>
+  </nav>
+  <div class="mobile-nav-bottom">
+    <div class="header-socials mobile-socials">
+      <a href="https://vk.ru/thewoodplan" class="social-link" title="ВКонтакте" target="_blank">
+        <img src="/src/assets/icons/vk.svg" alt="">
+      </a>
+      <a href="https://t.me/TheWoodPlan" class="social-link" title="Telegram" target="_blank">
+        <img src="/src/assets/icons/tg.svg" alt="">
+      </a>
+      <a href="#" class="social-link" title="MAX" target="_blank">
+        <img src="/src/assets/icons/max.svg" alt="">
+      </a>
     </div>
+    <a href="tel:+79309403333" class="header-phone">+7 (930) 940-33-33</a>
+    <span class="header-address-mobile">г. Москва, дер. Губкино, 78 соор 5<br>Пн-Сб, 9:00 - 20:00</span>
+    <a href="#contact" class="btn-primary mobile-cta">Заказать консультацию</a>
+  </div>
 </div>
 
 <!-- HERO -->
 <main>
-    <section class="hero" aria-label="Главный экран">
-        <div class="hero-bg">
-            <div class="hero-glow"></div>
-        </div>
-
-        <div class="hero-visual" aria-hidden="true">
-            <svg class="stair-silhouette" viewBox="0 0 600 700" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <radialGradient id="glow" cx="55%" cy="45%" r="55%">
-                        <stop offset="0%" stop-color="#c4a882" stop-opacity="0.22"/>
-                        <stop offset="50%" stop-color="#d4b892" stop-opacity="0.08"/>
-                        <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
-                    </radialGradient>
-                    <linearGradient id="stepGrad" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0%" stop-color="#2a2018"/>
-                        <stop offset="100%" stop-color="#8b6f47"/>
-                    </linearGradient>
-                    <linearGradient id="riserGrad" x1="0" y1="0" x2="1" y2="0">
-                        <stop offset="0%" stop-color="#1a150d"/>
-                        <stop offset="100%" stop-color="#6b5030"/>
-                    </linearGradient>
-                    <filter id="softShadow">
-                        <feDropShadow dx="4" dy="8" stdDeviation="10" flood-color="#8b6f47" flood-opacity="0.15"/>
-                    </filter>
-                    <linearGradient id="fadeRight" x1="0" y1="0" x2="1" y2="0">
-                        <stop offset="55%" stop-color="white" stop-opacity="0"/>
-                        <stop offset="100%" stop-color="white" stop-opacity="1"/>
-                    </linearGradient>
-                    <linearGradient id="fadeBottom" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="75%" stop-color="white" stop-opacity="0"/>
-                        <stop offset="100%" stop-color="white" stop-opacity="1"/>
-                    </linearGradient>
-                </defs>
-
-                <ellipse cx="310" cy="350" rx="280" ry="320" fill="url(#glow)"/>
-
-                <g filter="url(#softShadow)">
-                    <rect x="80" y="560" width="340" height="20" rx="2" fill="url(#stepGrad)"/>
-                    <rect x="80" y="540" width="12" height="20" rx="1" fill="url(#riserGrad)"/>
-                    <rect x="118" y="520" width="302" height="20" rx="2" fill="url(#stepGrad)"/>
-                    <rect x="118" y="500" width="12" height="20" rx="1" fill="url(#riserGrad)"/>
-                    <rect x="156" y="480" width="264" height="20" rx="2" fill="url(#stepGrad)"/>
-                    <rect x="156" y="460" width="12" height="20" rx="1" fill="url(#riserGrad)"/>
-                    <rect x="194" y="440" width="226" height="20" rx="2" fill="url(#stepGrad)"/>
-                    <rect x="194" y="420" width="12" height="20" rx="1" fill="url(#riserGrad)"/>
-                    <rect x="232" y="400" width="188" height="20" rx="2" fill="url(#stepGrad)"/>
-                    <rect x="232" y="380" width="12" height="20" rx="1" fill="url(#riserGrad)"/>
-                    <rect x="270" y="360" width="150" height="20" rx="2" fill="url(#stepGrad)"/>
-                    <rect x="270" y="340" width="12" height="20" rx="1" fill="url(#riserGrad)"/>
-                    <rect x="308" y="320" width="112" height="20" rx="2" fill="url(#stepGrad)"/>
-                    <rect x="308" y="300" width="12" height="20" rx="1" fill="url(#riserGrad)"/>
-                    <rect x="346" y="280" width="74" height="20" rx="2" fill="url(#stepGrad)"/>
-                    <rect x="346" y="260" width="12" height="20" rx="1" fill="url(#riserGrad)"/>
-                    <rect x="384" y="240" width="36" height="20" rx="2" fill="url(#stepGrad)"/>
-                </g>
-
-                <line x1="85" y1="562" x2="388" y2="242" stroke="#5a4535" stroke-width="3" stroke-opacity="0.5"/>
-                <line x1="408" y1="562" x2="416" y2="242" stroke="#5a4535" stroke-width="3" stroke-opacity="0.3"/>
-
-                <g stroke="#4a3825" stroke-width="2" stroke-opacity="0.6">
-                    <line x1="92" y1="540" x2="88" y2="490"/>
-                    <line x1="130" y1="500" x2="126" y2="450"/>
-                    <line x1="168" y1="460" x2="164" y2="410"/>
-                    <line x1="206" y1="420" x2="202" y2="370"/>
-                    <line x1="244" y1="380" x2="240" y2="330"/>
-                    <line x1="282" y1="340" x2="278" y2="290"/>
-                    <line x1="320" y1="300" x2="316" y2="250"/>
-                    <line x1="358" y1="260" x2="354" y2="210"/>
-                </g>
-                <path d="M 88 490 Q 200 400 354 210" stroke="#6b4f35" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-opacity="0.7"/>
-
-                <rect x="0" y="0" width="600" height="700" fill="url(#fadeRight)"/>
-                <rect x="0" y="0" width="600" height="700" fill="url(#fadeBottom)"/>
-            </svg>
-        </div>
-
-        <div class="hero-content">
-            <p class="hero-label">Лестницы под ключ · Московская область</p>
-            <h1 class="hero-title">
-                Лестницы<br/>на <em>металлическом</em><br/>каркасе
-            </h1>
-            <p class="hero-sub hero-sub-1">
-                Мы предоставляем возможность людям комфортно и безопасно подниматься выше!
-            </p>
-            <p class="hero-sub hero-sub-2">
-                Проектируем, изготавливаем на собственном производстве и монтируем лестницы для дома и коммерческих пространств любой сложности
-            </p>
-            <div class="hero-tags">
-                <a href="#products" class="hero-tag">Маршевые</a>
-                <a href="#products" class="hero-tag">П-образные</a>
-                <a href="#products" class="hero-tag">Г-образные</a>
-                <a href="#products" class="hero-tag">На больцах</a>
-            </div>
-            <div class="hero-cta-row">
-                <a href="#contact" class="btn-primary">
-                    Бесплатный замер
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                </a>
-                <a href="#products" class="btn-outline">Смотреть каталог →</a>
-            </div>
-
-            <div class="hero-stats">
-                <div class="stat">
-                    <span class="stat-num">340+</span>
-                    <span class="stat-label">Объектов в МО</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-num">12</span>
-                    <span class="stat-label">Лет опыта</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-num">45</span>
-                    <span class="stat-label">Дней под ключ</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TICKER -->
-    <div class="ticker-wrap" aria-hidden="true">
-        <div class="ticker">
-            <span><b>★</b> Замер бесплатно</span>
-            <span>·</span>
-            <span>Собственное производство</span>
-            <span>·</span>
-            <span><b>★</b> Гарантия 5 лет</span>
-            <span>·</span>
-            <span>Вся Московская область</span>
-            <span>·</span>
-            <span><b>★</b> Дуб · Ясень · Бук</span>
-            <span>·</span>
-            <span>Металлокаркас от 4 мм</span>
-            <span>·</span>
-            <span><b>★</b> Замер бесплатно</span>
-            <span>·</span>
-            <span>Собственное производство</span>
-            <span>·</span>
-            <span><b>★</b> Гарантия 5 лет</span>
-            <span>·</span>
-            <span>Вся Московская область</span>
-            <span>·</span>
-            <span><b>★</b> Дуб · Ясень · Бук</span>
-            <span>·</span>
-            <span>Металлокаркас от 4 мм</span>
-            <span>·</span>
-        </div>
+  <section class="hero" aria-label="Главный экран">
+    <div class="hero-content">
+      <p class="hero-label">Лестницы под ключ · Московская область</p>
+      <h1 class="hero-title">
+        Лестницы<br/>на <em>металлическом</em><br/>каркасе
+      </h1>
+      <p class="hero-sub hero-sub-1">
+        Мы предоставляем возможность людям комфортно и безопасно подниматься выше!
+      </p>
+      <p class="hero-sub hero-sub-2">
+        Проектируем, изготавливаем на собственном производстве и монтируем лестницы для дома и коммерческих пространств любой сложности
+      </p>
+      <div class="hero-tags">
+        <a href="#products" class="hero-tag">Открытый тип</a>
+        <a href="#products" class="hero-tag">Закрытый тип</a>
+        <a href="#products" class="hero-tag">Обшивка бетона</a>
+        <a href="#products" class="hero-tag">Деревянные изделия</a>
+      </div>
+      <div class="hero-cta-row">
+        <a href="#contact" class="btn-primary">
+          Заказать замер
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </a>
+        <a href="#products" class="btn-outline">Смотреть каталог →</a>
+      </div>
     </div>
+  </section>
 
-    <!-- WHY -->
-    <section id="why" aria-labelledby="why-heading">
-        <p class="section-label">Почему мы</p>
-        <h2 class="section-title" id="why-heading">Металл + дерево —<br/>лучшее решение</h2>
-        <p class="section-sub">Лестницы на металлическом каркасе выдерживают нагрузку до 1500 кг, не скрипят, не деформируются. Деревянная обшивка создаёт тепло и уют в любом интерьере.</p>
-
-        <div class="why-grid">
-            <div class="why-item">
-                <span class="why-num">01</span>
-                <svg class="why-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <rect x="8" y="28" width="24" height="4" rx="1"/><rect x="14" y="21" width="18" height="4" rx="1"/><rect x="20" y="14" width="12" height="4" rx="1"/><rect x="26" y="7" width="6" height="4" rx="1"/>
-                </svg>
-                <h3>Собственное производство</h3>
-                <p>Завод в Подмосковье. Полный цикл от заготовки металла до финишной отделки дерева. Никаких посредников — цены ниже рынка на 20–30%.</p>
-            </div>
-            <div class="why-item">
-                <span class="why-num">02</span>
-                <svg class="why-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <circle cx="20" cy="20" r="12"/><path d="M20 14v6l4 3"/>
-                </svg>
-                <h3>Срок исполнения 30–45 дней</h3>
-                <p>Фиксируем сроки в договоре. Если задержали по нашей вине — компенсируем. Монтаж за 2–3 дня без ущерба для чистовой отделки.</p>
-            </div>
-            <div class="why-item">
-                <span class="why-num">03</span>
-                <svg class="why-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M20 6l2.4 7.4H30l-6.2 4.5 2.4 7.4L20 21l-6.2 4.3 2.4-7.4L10 13.4h7.6z"/>
-                </svg>
-                <h3>Гарантия 5 лет</h3>
-                <p>Гарантийные обязательства на конструкцию, сварные швы и деревянные элементы. Бесплатный выезд мастера при любых вопросах.</p>
-            </div>
-            <div class="why-item">
-                <span class="why-num">04</span>
-                <svg class="why-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M8 32 Q8 10 20 10 Q32 10 32 32"/><path d="M14 20 Q14 16 20 16 Q26 16 26 20"/>
-                </svg>
-                <h3>Индивидуальный проект</h3>
-                <p>3D-визуализация до начала работ. Дизайнер согласует форму, породу дерева, цвет металла и тип ограждения под ваш интерьер.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRODUCTS -->
-    <div class="products-section" id="products">
-        <div class="products-inner">
-            <p class="section-label">Каталог</p>
-            <h2 class="section-title">Популярные модели</h2>
-            <p class="section-sub">Каждая лестница проектируется под конкретный проём. Цена указана от — точная стоимость рассчитывается после замера.</p>
-
-            <div class="swiper products-slider">
-                <div class="swiper-wrapper">
-                    <!-- Слайд 1 -->
-                    <div class="swiper-slide">
-                        <article class="product-card">
-                            <div class="product-visual" style="background:#f5f0ea;">
-                                <span class="product-tag">Хит продаж</span>
-                                <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="30" y="170" width="240" height="14" rx="2" fill="#8b6f47"/>
-                                    <rect x="60" y="148" width="210" height="14" rx="2" fill="#8b6f47"/>
-                                    <rect x="90" y="126" width="180" height="14" rx="2" fill="#8b6f47"/>
-                                    <rect x="120" y="104" width="150" height="14" rx="2" fill="#8b6f47"/>
-                                    <rect x="150" y="82" width="120" height="14" rx="2" fill="#8b6f47"/>
-                                    <rect x="180" y="60" width="90" height="14" rx="2" fill="#8b6f47"/>
-                                    <line x1="35" y1="172" x2="184" y2="62" stroke="#5a4535" stroke-width="2.5" opacity="0.5"/>
-                                    <line x1="50" y1="172" x2="50" y2="148" stroke="#4a3825" stroke-width="1.5" opacity="0.5"/>
-                                    <line x1="80" y1="150" x2="80" y2="126" stroke="#4a3825" stroke-width="1.5" opacity="0.5"/>
-                                    <line x1="110" y1="128" x2="110" y2="104" stroke="#4a3825" stroke-width="1.5" opacity="0.5"/>
-                                    <line x1="140" y1="106" x2="140" y2="82" stroke="#4a3825" stroke-width="1.5" opacity="0.5"/>
-                                    <line x1="170" y1="84" x2="170" y2="60" stroke="#4a3825" stroke-width="1.5" opacity="0.5"/>
-                                    <path d="M48 148 Q110 110 168 60" stroke="#6b4f35" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.7"/>
-                                </svg>
-                            </div>
-                            <div class="product-body">
-                                <h3>Маршевая прямая</h3>
-                                <p>Классическая прямая лестница на металлическом косоуре. Ступени из массива дуба или ясеня. Идеально для прямоугольных проёмов.</p>
-                                <span class="product-price">от 185 000 ₽ <span>под ключ</span></span>
-                                <button class="btn-card" onclick="openForm('Маршевая прямая')">Рассчитать стоимость</button>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- Слайд 2 -->
-                    <div class="swiper-slide">
-                        <article class="product-card">
-                            <div class="product-visual" style="background:#f0ede8;">
-                                <span class="product-tag">Популярное</span>
-                                <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="40" y="160" width="80" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="40" y="138" width="80" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="40" y="116" width="80" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="40" y="94" width="80" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="40" y="72" width="80" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="40" y="52" width="220" height="16" rx="2" fill="#a07850"/>
-                                    <rect x="180" y="72" width="80" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="180" y="94" width="80" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="180" y="116" width="80" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="180" y="138" width="80" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="180" y="160" width="80" height="12" rx="2" fill="#8b6f47"/>
-                                    <line x1="44" y1="162" x2="44" y2="68" stroke="#5a4535" stroke-width="2" opacity="0.4"/>
-                                    <line x1="256" y1="162" x2="256" y2="68" stroke="#5a4535" stroke-width="2" opacity="0.4"/>
-                                </svg>
-                            </div>
-                            <div class="product-body">
-                                <h3>П-образная с площадкой</h3>
-                                <p>Разворотная лестница с промежуточной площадкой. Оптимальна при ограниченной ширине холла. Комфортный подъём для всей семьи.</p>
-                                <span class="product-price">от 260 000 ₽ <span>под ключ</span></span>
-                                <button class="btn-card" onclick="openForm('П-образная с площадкой')">Рассчитать стоимость</button>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- Слайд 3 -->
-                    <div class="swiper-slide">
-                        <article class="product-card">
-                            <div class="product-visual" style="background:#ede8e0;">
-                                <span class="product-tag">Новинка</span>
-                                <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="60" y="50" width="70" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="60" y="72" width="70" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="60" y="94" width="70" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="60" y="116" width="70" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="60" y="138" width="70" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="60" y="155" width="70" height="16" rx="2" fill="#a07850"/>
-                                    <rect x="80" y="155" width="160" height="12" rx="2" fill="#8b6f47" transform="rotate(90 80 155) translate(0)"/>
-                                    <rect x="104" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
-                                    <rect x="124" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
-                                    <rect x="144" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
-                                    <rect x="164" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
-                                    <rect x="184" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
-                                    <rect x="204" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
-                                </svg>
-                            </div>
-                            <div class="product-body">
-                                <h3>Г-образная забежная</h3>
-                                <p>Лестница с поворотом на 90°. Забежные ступени обеспечивают плавный разворот. Экономит до 30% площади по сравнению с прямой.</p>
-                                <span class="product-price">от 220 000 ₽ <span>под ключ</span></span>
-                                <button class="btn-card" onclick="openForm('Г-образная забежная')">Рассчитать стоимость</button>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- Слайд 4 -->
-                    <div class="swiper-slide">
-                        <article class="product-card">
-                            <div class="product-visual" style="background:#f0ede8;">
-                                <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="40" y="160" width="80" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="40" y="138" width="80" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="40" y="116" width="80" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="40" y="94" width="80" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="40" y="72" width="80" height="12" rx="2" fill="#8b6f47"/>
-                                    <path d="M40 52 h120 l100 20 v-20 h-220 z" fill="#a07850"/>
-                                    <rect x="180" y="72" width="80" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="180" y="94" width="80" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="180" y="116" width="80" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="180" y="138" width="80" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="180" y="160" width="80" height="12" rx="2" fill="#8b6f47"/>
-                                    <line x1="44" y1="162" x2="44" y2="68" stroke="#5a4535" stroke-width="2" opacity="0.4"/>
-                                    <line x1="256" y1="162" x2="256" y2="68" stroke="#5a4535" stroke-width="2" opacity="0.4"/>
-                                </svg>
-                            </div>
-                            <div class="product-body">
-                                <h3>П-образная забежная</h3>
-                                <p>Компактная конструкция с забежными ступенями на развороте вместо площадки. Идеально для небольших квадратных проемов.</p>
-                                <span class="product-price">от 280 000 ₽ <span>под ключ</span></span>
-                                <button class="btn-card" onclick="openForm('П-образная забежная')">Рассчитать стоимость</button>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- Слайд 5 -->
-                    <div class="swiper-slide">
-                        <article class="product-card">
-                            <div class="product-visual" style="background:#ede8e0;">
-                                <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="60" y="50" width="70" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="60" y="72" width="70" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="60" y="94" width="70" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="60" y="116" width="70" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="60" y="138" width="70" height="12" rx="2" fill="#8b6f47"/>
-                                    <rect x="60" y="155" width="70" height="24" rx="2" fill="#a07850"/>
-                                    <rect x="80" y="180" width="160" height="12" rx="2" fill="#8b6f47" transform="rotate(90 80 180) translate(0)"/>
-                                    <rect x="104" y="180" width="12" height="50" rx="2" fill="#8b6f47"/>
-                                    <rect x="124" y="180" width="12" height="50" rx="2" fill="#8b6f47"/>
-                                    <rect x="144" y="180" width="12" height="50" rx="2" fill="#8b6f47"/>
-                                </svg>
-                            </div>
-                            <div class="product-body">
-                                <h3>Г-образная с площадкой</h3>
-                                <p>Лестница с поворотом на 90° и промежуточной площадкой для комфортного подъема. Подходит для семей с детьми и пожилых людей.</p>
-                                <span class="product-price">от 240 000 ₽ <span>под ключ</span></span>
-                                <button class="btn-card" onclick="openForm('Г-образная с площадкой')">Рассчитать стоимость</button>
-                            </div>
-                        </article>
-                    </div>
-
-                </div>
-
-                <!-- Swiper Controls -->
-                <div class="slider-controls">
-                    <div class="slider-nav">
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-            </div>
-
-        </div>
+  <!-- TICKER -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker">
+      <span>10 лет опыта</span>
+      <span>·</span>
+      <span>Собственное производство</span>
+      <span>·</span>
+      <span>Гарантия качества</span>
+      <span>·</span>
+      <span>10 лет опыта</span>
+      <span>·</span>
+      <span>Собственное производство</span>
+      <span>·</span>
+      <span>Гарантия качества</span>
+      <span>·</span>
+      <span>10 лет опыта</span>
+      <span>·</span>
+      <span>Собственное производство</span>
+      <span>·</span>
+      <span>Гарантия качества</span>
+      <span>·</span>
+      <span>10 лет опыта</span>
+      <span>·</span>
+      <span>Собственное производство</span>
+      <span>·</span>
+      <span>Гарантия качества</span>
+      <span>·</span>
     </div>
+  </div>
 
-    <!-- PROCESS -->
-    <section id="process" aria-labelledby="process-heading">
-        <p class="section-label">Как мы работаем</p>
-        <h2 class="section-title" id="process-heading">От звонка до<br/>готовой лестницы</h2>
+  <!-- WHY -->
+  <section id="why" aria-labelledby="why-heading">
+    <p class="section-label">Почему мы</p>
+    <h2 class="section-title" id="why-heading">Металл + дерево —<br/>лучшее решение</h2>
+    <p class="section-sub">Лестницы на металлическом каркасе выдерживают нагрузку до 1500 кг, не скрипят, не деформируются. Деревянная обшивка создаёт тепло и уют в любом интерьере.</p>
 
-        <div class="process-row">
-            <div class="process-steps">
-                <div class="step">
-                    <span class="step-num">1</span>
-                    <div class="step-content">
-                        <h4>Заявка и первичная консультация</h4>
-                        <p>Обсуждаем задачу, проём, стиль интерьера. Даём предварительную оценку стоимости.</p>
-                        <span class="step-days">День 1</span>
-                    </div>
-                </div>
-                <div class="step">
-                    <span class="step-num">2</span>
-                    <div class="step-content">
-                        <h4>Бесплатный выездной замер</h4>
-                        <p>Инженер приезжает на объект, снимает размеры, оценивает перекрытия и нагрузки.</p>
-                        <span class="step-days">День 2–3</span>
-                    </div>
-                </div>
-                <div class="step">
-                    <span class="step-num">3</span>
-                    <div class="step-content">
-                        <h4>Проект и 3D-визуализация</h4>
-                        <p>Дизайнер готовит чертёж и 3D-модель. Вы согласовываете внешний вид до начала работ.</p>
-                        <span class="step-days">День 5–7</span>
-                    </div>
-                </div>
-                <div class="step">
-                    <span class="step-num">4</span>
-                    <div class="step-content">
-                        <h4>Производство на заводе</h4>
-                        <p>Металлоконструкция сваривается, грунтуется, красится. Ступени высыхают в сушильной камере.</p>
-                        <span class="step-days">День 8–35</span>
-                    </div>
-                </div>
-                <div class="step">
-                    <span class="step-num">5</span>
-                    <div class="step-content">
-                        <h4>Монтаж и финишная отделка</h4>
-                        <p>Бригада монтирует лестницу за 2–3 дня. Итоговая уборка объекта включена.</p>
-                        <span class="step-days">День 36–45</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="process-right">
-                <div class="process-card">
-                    <h3>Всё включено в цену</h3>
-                    <p>Вы платите один раз — без скрытых доплат за выезд, проект или монтаж.</p>
-                    <div class="process-meta">
-                        <div class="meta-row"><span>Замер</span><span>Бесплатно</span></div>
-                        <div class="meta-row"><span>3D-проект</span><span>Бесплатно</span></div>
-                        <div class="meta-row"><span>Доставка по МО</span><span>Включена</span></div>
-                        <div class="meta-row"><span>Монтаж</span><span>Включён</span></div>
-                        <div class="meta-row"><span>Гарантия</span><span>5 лет</span></div>
-                    </div>
-                    <a href="#contact" class="btn-primary" style="width:100%; justify-content:center;">
-                        Заказать замер
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- COVERAGE -->
-    <div class="coverage-section" id="coverage">
-        <div class="coverage-inner">
-            <p class="section-label">Зона работ</p>
-            <h2 class="section-title">Работаем по всей<br/>Московской области</h2>
-
-            <div class="cities-grid">
-                <div class="city-item"><b>Север МО</b>Мытищи, Пушкино, Королёв</div>
-                <div class="city-item"><b>Восток МО</b>Балашиха, Электросталь, Ногинск</div>
-                <div class="city-item"><b>Юг МО</b>Домодедово, Подольск, Чехов</div>
-                <div class="city-item"><b>Запад МО</b>Красногорск, Одинцово, Звенигород</div>
-                <div class="city-item"><b>С-Восток</b>Щёлково, Фрязево, Хотьково</div>
-                <div class="city-item"><b>С-Запад</b>Химки, Лобня, Зеленоград</div>
-                <div class="city-item"><b>Ю-Восток</b>Люберцы, Жуковский, Раменское</div>
-                <div class="city-item"><b>Ю-Запад</b>Наро-Фоминск, Апрелевка, Троицк</div>
-            </div>
-        </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <span class="why-num">01</span>
+        <svg class="why-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="8" y="28" width="24" height="4" rx="1"/><rect x="14" y="21" width="18" height="4" rx="1"/><rect x="20" y="14" width="12" height="4" rx="1"/><rect x="26" y="7" width="6" height="4" rx="1"/>
+        </svg>
+        <h3>Собственное производство</h3>
+        <p>Завод в Подмосковье. Полный цикл от заготовки металла до финишной отделки дерева. Никаких посредников — цены ниже рынка на 20–30%.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-num">02</span>
+        <svg class="why-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="20" cy="20" r="12"/><path d="M20 14v6l4 3"/>
+        </svg>
+        <h3>Срок исполнения 30–45 дней</h3>
+        <p>Фиксируем сроки в договоре. Если задержали по нашей вине — компенсируем. Монтаж за 2–3 дня без ущерба для чистовой отделки.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-num">03</span>
+        <svg class="why-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M20 6l2.4 7.4H30l-6.2 4.5 2.4 7.4L20 21l-6.2 4.3 2.4-7.4L10 13.4h7.6z"/>
+        </svg>
+        <h3>Гарантия 5 лет</h3>
+        <p>Гарантийные обязательства на конструкцию, сварные швы и деревянные элементы. Бесплатный выезд мастера при любых вопросах.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-num">04</span>
+        <svg class="why-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M8 32 Q8 10 20 10 Q32 10 32 32"/><path d="M14 20 Q14 16 20 16 Q26 16 26 20"/>
+        </svg>
+        <h3>Индивидуальный проект</h3>
+        <p>3D-визуализация до начала работ. Дизайнер согласует форму, породу дерева, цвет металла и тип ограждения под ваш интерьер.</p>
+      </div>
     </div>
+  </section>
 
-    <!-- CONTACT FORM -->
-    <section id="contact" aria-labelledby="contact-heading">
-        <div class="form-section">
-            <div class="form-left">
-                <p class="section-label">Контакты</p>
-                <h2 id="contact-heading">Рассчитайте стоимость<br/>своей лестницы</h2>
-                <p>Оставьте заявку — перезвоним в течение 30 минут в рабочее время. Выезд замерщика бесплатно по всей Московской области.</p>
-                <div class="form-contact-row">
-                    <div class="contact-item">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2h4l1.5 4-2 1.5a10 10 0 004 4L11 9.5l4 1.5v4c0 1-1 1.5-2 1.5C5 16.5 0 10 0 4c0-1 .5-2 2-2z" stroke="currentColor" stroke-width="1.2"/></svg>
-                        <span><strong>+7 (495) 123-45-67</strong> — пн–сб, 9:00–20:00</span>
-                    </div>
-                    <div class="contact-item">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M1 5l7 5 7-5" stroke="currentColor" stroke-width="1.2"/></svg>
-                        <span>info@stephaus.ru</span>
-                    </div>
-                    <div class="contact-item">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="7" r="3" stroke="currentColor" stroke-width="1.2"/><path d="M8 1C4.686 1 2 3.686 2 7c0 4 6 9 6 9s6-5 6-9c0-3.314-2.686-6-6-6z" stroke="currentColor" stroke-width="1.2"/></svg>
-                        <span>г. Красногорск, ул. Промышленная, 12</span>
-                    </div>
-                </div>
-            </div>
+  <!-- PRODUCTS -->
+  <div class="products-section" id="products">
+    <div class="products-inner">
+      <p class="section-label">Каталог</p>
+      <h2 class="section-title">Популярные модели</h2>
+      <p class="section-sub">Каждая лестница проектируется под конкретный проём. Цена указана от — точная стоимость рассчитывается после замера.</p>
 
-            <div class="form-right">
-                <div id="successMsg" class="success-msg">
-                    <h3>Заявка отправлена ✓</h3>
-                    <p>Свяжемся с вами в течение 30 минут. Спасибо!</p>
-                </div>
-                <form id="leadForm" novalidate>
-                    <div class="form-row">
-                        <div class="field">
-                            <label for="name">Ваше имя</label>
-                            <input type="text" id="name" name="name" placeholder="Александр" required />
-                        </div>
-                        <div class="field">
-                            <label for="phone">Телефон</label>
-                            <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required />
-                        </div>
-                    </div>
-                    <div class="field full">
-                        <label for="city">Город / район</label>
-                        <input type="text" id="city" name="city" placeholder="Одинцово, Красногорск, Химки…" />
-                    </div>
-                    <div class="field full">
-                        <label for="type">Тип лестницы</label>
-                        <select id="type" name="type">
-                            <option value="">— Выберите тип —</option>
-                            <option>Маршевая прямая</option>
-                            <option>П-образная с площадкой</option>
-                            <option>Г-образная забежная</option>
-                            <option>Лестница на больцах</option>
-                            <option>Не знаю, нужна консультация</option>
-                        </select>
-                    </div>
-                    <div class="field full">
-                        <label for="comment">Комментарий</label>
-                        <textarea id="comment" name="comment" rows="3" placeholder="Примерные размеры проёма, порода дерева, пожелания…"></textarea>
-                    </div>
-                    <div class="form-submit">
-                        <button type="submit" class="btn-primary">
-                            Отправить заявку
-                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                        </button>
-                        <p class="privacy">Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных</p>
-                    </div>
-                </form>
-            </div>
+      <div class="swiper products-slider">
+        <div class="swiper-wrapper">
+          <!-- Слайд 1 -->
+          <div class="swiper-slide">
+            <article class="product-card">
+              <div class="product-visual" style="background:#f5f0ea;">
+                <span class="product-tag">Хит продаж</span>
+                <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="30" y="170" width="240" height="14" rx="2" fill="#8b6f47"/>
+                  <rect x="60" y="148" width="210" height="14" rx="2" fill="#8b6f47"/>
+                  <rect x="90" y="126" width="180" height="14" rx="2" fill="#8b6f47"/>
+                  <rect x="120" y="104" width="150" height="14" rx="2" fill="#8b6f47"/>
+                  <rect x="150" y="82" width="120" height="14" rx="2" fill="#8b6f47"/>
+                  <rect x="180" y="60" width="90" height="14" rx="2" fill="#8b6f47"/>
+                  <line x1="35" y1="172" x2="184" y2="62" stroke="#5a4535" stroke-width="2.5" opacity="0.5"/>
+                  <line x1="50" y1="172" x2="50" y2="148" stroke="#4a3825" stroke-width="1.5" opacity="0.5"/>
+                  <line x1="80" y1="150" x2="80" y2="126" stroke="#4a3825" stroke-width="1.5" opacity="0.5"/>
+                  <line x1="110" y1="128" x2="110" y2="104" stroke="#4a3825" stroke-width="1.5" opacity="0.5"/>
+                  <line x1="140" y1="106" x2="140" y2="82" stroke="#4a3825" stroke-width="1.5" opacity="0.5"/>
+                  <line x1="170" y1="84" x2="170" y2="60" stroke="#4a3825" stroke-width="1.5" opacity="0.5"/>
+                  <path d="M48 148 Q110 110 168 60" stroke="#6b4f35" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+                </svg>
+              </div>
+              <div class="product-body">
+                <h3>Маршевая прямая</h3>
+                <p>Классическая прямая лестница на металлическом косоуре. Ступени из массива дуба или ясеня. Идеально для прямоугольных проёмов.</p>
+                <span class="product-price">от 185 000 ₽ <span>под ключ</span></span>
+                <button class="btn-card" onclick="openForm('Маршевая прямая')">Рассчитать стоимость</button>
+              </div>
+            </article>
+          </div>
+
+          <!-- Слайд 2 -->
+          <div class="swiper-slide">
+            <article class="product-card">
+              <div class="product-visual" style="background:#f0ede8;">
+                <span class="product-tag">Популярное</span>
+                <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="40" y="160" width="80" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="40" y="138" width="80" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="40" y="116" width="80" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="40" y="94" width="80" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="40" y="72" width="80" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="40" y="52" width="220" height="16" rx="2" fill="#a07850"/>
+                  <rect x="180" y="72" width="80" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="180" y="94" width="80" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="180" y="116" width="80" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="180" y="138" width="80" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="180" y="160" width="80" height="12" rx="2" fill="#8b6f47"/>
+                  <line x1="44" y1="162" x2="44" y2="68" stroke="#5a4535" stroke-width="2" opacity="0.4"/>
+                  <line x1="256" y1="162" x2="256" y2="68" stroke="#5a4535" stroke-width="2" opacity="0.4"/>
+                </svg>
+              </div>
+              <div class="product-body">
+                <h3>П-образная с площадкой</h3>
+                <p>Разворотная лестница с промежуточной площадкой. Оптимальна при ограниченной ширине холла. Комфортный подъём для всей семьи.</p>
+                <span class="product-price">от 260 000 ₽ <span>под ключ</span></span>
+                <button class="btn-card" onclick="openForm('П-образная с площадкой')">Рассчитать стоимость</button>
+              </div>
+            </article>
+          </div>
+
+          <!-- Слайд 3 -->
+          <div class="swiper-slide">
+            <article class="product-card">
+              <div class="product-visual" style="background:#ede8e0;">
+                <span class="product-tag">Новинка</span>
+                <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="60" y="50" width="70" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="60" y="72" width="70" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="60" y="94" width="70" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="60" y="116" width="70" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="60" y="138" width="70" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="60" y="155" width="70" height="16" rx="2" fill="#a07850"/>
+                  <rect x="80" y="155" width="160" height="12" rx="2" fill="#8b6f47" transform="rotate(90 80 155) translate(0)"/>
+                  <rect x="104" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
+                  <rect x="124" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
+                  <rect x="144" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
+                  <rect x="164" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
+                  <rect x="184" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
+                  <rect x="204" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
+                </svg>
+              </div>
+              <div class="product-body">
+                <h3>Г-образная забежная</h3>
+                <p>Лестница с поворотом на 90°. Забежные ступени обеспечивают плавный разворот. Экономит до 30% площади по сравнению с прямой.</p>
+                <span class="product-price">от 220 000 ₽ <span>под ключ</span></span>
+                <button class="btn-card" onclick="openForm('Г-образная забежная')">Рассчитать стоимость</button>
+              </div>
+            </article>
+          </div>
+
+          <!-- Слайд 4 -->
+          <div class="swiper-slide">
+            <article class="product-card">
+              <div class="product-visual" style="background:#f0ede8;">
+                <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="40" y="160" width="80" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="40" y="138" width="80" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="40" y="116" width="80" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="40" y="94" width="80" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="40" y="72" width="80" height="12" rx="2" fill="#8b6f47"/>
+                  <path d="M40 52 h120 l100 20 v-20 h-220 z" fill="#a07850"/>
+                  <rect x="180" y="72" width="80" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="180" y="94" width="80" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="180" y="116" width="80" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="180" y="138" width="80" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="180" y="160" width="80" height="12" rx="2" fill="#8b6f47"/>
+                  <line x1="44" y1="162" x2="44" y2="68" stroke="#5a4535" stroke-width="2" opacity="0.4"/>
+                  <line x1="256" y1="162" x2="256" y2="68" stroke="#5a4535" stroke-width="2" opacity="0.4"/>
+                </svg>
+              </div>
+              <div class="product-body">
+                <h3>П-образная забежная</h3>
+                <p>Компактная конструкция с забежными ступенями на развороте вместо площадки. Идеально для небольших квадратных проемов.</p>
+                <span class="product-price">от 280 000 ₽ <span>под ключ</span></span>
+                <button class="btn-card" onclick="openForm('П-образная забежная')">Рассчитать стоимость</button>
+              </div>
+            </article>
+          </div>
+
+          <!-- Слайд 5 -->
+          <div class="swiper-slide">
+            <article class="product-card">
+              <div class="product-visual" style="background:#ede8e0;">
+                <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="60" y="50" width="70" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="60" y="72" width="70" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="60" y="94" width="70" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="60" y="116" width="70" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="60" y="138" width="70" height="12" rx="2" fill="#8b6f47"/>
+                  <rect x="60" y="155" width="70" height="24" rx="2" fill="#a07850"/>
+                  <rect x="80" y="180" width="160" height="12" rx="2" fill="#8b6f47" transform="rotate(90 80 180) translate(0)"/>
+                  <rect x="104" y="180" width="12" height="50" rx="2" fill="#8b6f47"/>
+                  <rect x="124" y="180" width="12" height="50" rx="2" fill="#8b6f47"/>
+                  <rect x="144" y="180" width="12" height="50" rx="2" fill="#8b6f47"/>
+                </svg>
+              </div>
+              <div class="product-body">
+                <h3>Г-образная с площадкой</h3>
+                <p>Лестница с поворотом на 90° и промежуточной площадкой для комфортного подъема. Подходит для семей с детьми и пожилых людей.</p>
+                <span class="product-price">от 240 000 ₽ <span>под ключ</span></span>
+                <button class="btn-card" onclick="openForm('Г-образная с площадкой')">Рассчитать стоимость</button>
+              </div>
+            </article>
+          </div>
+
         </div>
-    </section>
+
+        <!-- Swiper Controls -->
+        <div class="slider-controls">
+          <div class="slider-nav">
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PROCESS -->
+  <section id="process" aria-labelledby="process-heading">
+    <p class="section-label">Как мы работаем</p>
+    <h2 class="section-title" id="process-heading">От звонка до<br/>готовой лестницы</h2>
+
+    <div class="process-row">
+      <div class="process-steps">
+        <div class="step">
+          <span class="step-num">1</span>
+          <div class="step-content">
+            <h4>Заявка и первичная консультация</h4>
+            <p>Обсуждаем задачу, проём, стиль интерьера. Даём предварительную оценку стоимости.</p>
+            <span class="step-days">День 1</span>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">2</span>
+          <div class="step-content">
+            <h4>Бесплатный выездной замер</h4>
+            <p>Инженер приезжает на объект, снимает размеры, оценивает перекрытия и нагрузки.</p>
+            <span class="step-days">День 2–3</span>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <div class="step-content">
+            <h4>Проект и 3D-визуализация</h4>
+            <p>Дизайнер готовит чертёж и 3D-модель. Вы согласовываете внешний вид до начала работ.</p>
+            <span class="step-days">День 5–7</span>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">4</span>
+          <div class="step-content">
+            <h4>Производство на заводе</h4>
+            <p>Металлоконструкция сваривается, грунтуется, красится. Ступени высыхают в сушильной камере.</p>
+            <span class="step-days">День 8–35</span>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">5</span>
+          <div class="step-content">
+            <h4>Монтаж и финишная отделка</h4>
+            <p>Бригада монтирует лестницу за 2–3 дня. Итоговая уборка объекта включена.</p>
+            <span class="step-days">День 36–45</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-right">
+        <div class="process-card">
+          <h3>Всё включено в цену</h3>
+          <p>Вы платите один раз — без скрытых доплат за выезд, проект или монтаж.</p>
+          <div class="process-meta">
+            <div class="meta-row"><span>Замер</span><span>Бесплатно</span></div>
+            <div class="meta-row"><span>3D-проект</span><span>Бесплатно</span></div>
+            <div class="meta-row"><span>Доставка по МО</span><span>Включена</span></div>
+            <div class="meta-row"><span>Монтаж</span><span>Включён</span></div>
+            <div class="meta-row"><span>Гарантия</span><span>5 лет</span></div>
+          </div>
+          <a href="#contact" class="btn-primary" style="width:100%; justify-content:center;">
+            Заказать замер
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COVERAGE -->
+  <div class="coverage-section" id="coverage">
+    <div class="coverage-inner">
+      <p class="section-label">Зона работ</p>
+      <h2 class="section-title">Работаем по всей<br/>Московской области</h2>
+
+      <div class="cities-grid">
+        <div class="city-item"><b>Север МО</b>Мытищи, Пушкино, Королёв</div>
+        <div class="city-item"><b>Восток МО</b>Балашиха, Электросталь, Ногинск</div>
+        <div class="city-item"><b>Юг МО</b>Домодедово, Подольск, Чехов</div>
+        <div class="city-item"><b>Запад МО</b>Красногорск, Одинцово, Звенигород</div>
+        <div class="city-item"><b>С-Восток</b>Щёлково, Фрязево, Хотьково</div>
+        <div class="city-item"><b>С-Запад</b>Химки, Лобня, Зеленоград</div>
+        <div class="city-item"><b>Ю-Восток</b>Люберцы, Жуковский, Раменское</div>
+        <div class="city-item"><b>Ю-Запад</b>Наро-Фоминск, Апрелевка, Троицк</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT FORM -->
+  <section id="contact" aria-labelledby="contact-heading">
+    <div class="form-section">
+      <div class="form-left">
+        <p class="section-label">Контакты</p>
+        <h2 id="contact-heading">Рассчитайте стоимость<br/>своей лестницы</h2>
+        <p>Оставьте заявку — перезвоним в течение 30 минут в рабочее время. Выезд замерщика бесплатно по всей Московской области.</p>
+        <div class="form-contact-row">
+          <div class="contact-item">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2h4l1.5 4-2 1.5a10 10 0 004 4L11 9.5l4 1.5v4c0 1-1 1.5-2 1.5C5 16.5 0 10 0 4c0-1 .5-2 2-2z" stroke="currentColor" stroke-width="1.2"/></svg>
+            <span><strong>+7 (495) 123-45-67</strong> — пн–сб, 9:00–20:00</span>
+          </div>
+          <div class="contact-item">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M1 5l7 5 7-5" stroke="currentColor" stroke-width="1.2"/></svg>
+            <span>info@stephaus.ru</span>
+          </div>
+          <div class="contact-item">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="7" r="3" stroke="currentColor" stroke-width="1.2"/><path d="M8 1C4.686 1 2 3.686 2 7c0 4 6 9 6 9s6-5 6-9c0-3.314-2.686-6-6-6z" stroke="currentColor" stroke-width="1.2"/></svg>
+            <span>г. Москва, дер. Губкино, 78 соор 5</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-right">
+        <div id="successMsg" class="success-msg">
+          <h3>Заявка отправлена ✓</h3>
+          <p>Свяжемся с вами в течение 30 минут. Спасибо!</p>
+        </div>
+        <form id="leadForm" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Ваше имя</label>
+              <input type="text" id="name" name="name" placeholder="Александр" required />
+            </div>
+            <div class="field">
+              <label for="phone">Телефон</label>
+              <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required />
+            </div>
+          </div>
+          <div class="field full">
+            <label for="city">Город / район</label>
+            <input type="text" id="city" name="city" placeholder="Одинцово, Красногорск, Химки…" />
+          </div>
+          <div class="field full">
+            <label for="type">Тип лестницы</label>
+            <select id="type" name="type">
+              <option value="">— Выберите тип —</option>
+              <option>Маршевая прямая</option>
+              <option>П-образная с площадкой</option>
+              <option>Г-образная забежная</option>
+              <option>Лестница на больцах</option>
+              <option>Не знаю, нужна консультация</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="comment">Комментарий</label>
+            <textarea id="comment" name="comment" rows="3" placeholder="Примерные размеры проёма, порода дерева, пожелания…"></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn-primary">
+              Отправить заявку
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+            <p class="privacy">Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
 </main>
 
 <!-- FOOTER -->
 <footer>
-    <div class="footer-brand">
-        <div class="nav-logo-icon">
-            <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M2 8 L2 6 L4 6 L4 4 L6 4 L6 2 L8 2"/>
-            </svg>
-        </div>
-        СтепХаус
+  <div class="footer-brand">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M2 8 L2 6 L4 6 L4 4 L6 4 L6 2 L8 2"/>
+      </svg>
     </div>
-    <div class="footer-links">
-        <a href="#why">О компании</a>
-        <a href="#products">Каталог</a>
-        <a href="#process">Процесс</a>
-        <a href="#coverage">Регионы</a>
-        <a href="#contact">Контакты</a>
-        <a href="#">Политика конфиденциальности</a>
-    </div>
-    <p class="footer-copy">© 2026 СтепХаус. Лестницы на металлокаркасе, Московская область.</p>
+    СтепХаус
+  </div>
+  <div class="footer-links">
+    <a href="#why">О компании</a>
+    <a href="#products">Каталог</a>
+    <a href="#process">Процесс</a>
+    <a href="#coverage">Регионы</a>
+    <a href="#contact">Контакты</a>
+    <a href="#">Политика конфиденциальности</a>
+  </div>
+  <p class="footer-copy">© 2026 СтепХаус. Лестницы на металлокаркасе, Московская область.</p>
 </footer>
 
 <script>
-    // Smooth scroll for nav links & mobile menu handling
-    const burgerBtn = document.querySelector('.burger-btn');
-    const mobileMenu = document.getElementById('mobileMenu');
+  // Smooth scroll for nav links & mobile menu handling
+  const burgerBtn = document.querySelector('.burger-btn');
+  const mobileMenu = document.getElementById('mobileMenu');
 
-    function toggleBurgerMenu() {
-        burgerBtn.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
-        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-    }
+  function toggleBurgerMenu() {
+    burgerBtn.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+  }
 
-    burgerBtn.addEventListener('click', toggleBurgerMenu);
+  burgerBtn.addEventListener('click', toggleBurgerMenu);
 
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-        a.addEventListener('click', e => {
-            const target = document.querySelector(a.getAttribute('href'));
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-            if(mobileMenu.classList.contains('active')) {
-                toggleBurgerMenu();
-            }
-        });
-    });
-
-    // Active nav highlight
-    const sections = document.querySelectorAll('section[id], div[id]');
-    const navLinks = document.querySelectorAll('.header-nav a');
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                navLinks.forEach(l => l.classList.remove('active'));
-                const match = document.querySelector(`.header-nav a[href="#${entry.target.id}"]`);
-                if (match) match.classList.add('active');
-            }
-        });
-    }, { threshold: 0.4 });
-    sections.forEach(s => observer.observe(s));
-
-    // Open form with pre-selected type
-    function openForm(type) {
-        document.getElementById('type').value = type;
-        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // Form submit
-    document.getElementById('leadForm').addEventListener('submit', function(e) {
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
         e.preventDefault();
-        const name = document.getElementById('name').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-        if (!name || !phone) {
-            alert('Пожалуйста, заполните имя и телефон.');
-            return;
-        }
-        this.style.display = 'none';
-        document.getElementById('successMsg').style.display = 'block';
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      if(mobileMenu.classList.contains('active')) {
+        toggleBurgerMenu();
+      }
     });
+  });
 
-    // Phone mask
-    const phoneInput = document.getElementById('phone');
-    phoneInput.addEventListener('input', function() {
-        let v = this.value.replace(/\D/g, '');
-        if (v.startsWith('8')) v = '7' + v.slice(1);
-        if (v.startsWith('7')) {
-            const m = v.match(/^7(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
-            this.value = !m[1] ? '+7' : '+7 (' + m[1] + (m[2] ? ') ' + m[2] : '') + (m[3] ? '-' + m[3] : '') + (m[4] ? '-' + m[4] : '');
-        }
+  // Active nav highlight
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const navLinks = document.querySelectorAll('.header-nav a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const match = document.querySelector(`.header-nav a[href="#${entry.target.id}"]`);
+        if (match) match.classList.add('active');
+      }
     });
+  }, { threshold: 0.4 });
+  sections.forEach(s => observer.observe(s));
 
-    // Header scroll effect
-    const header = document.querySelector('.site-header');
-    window.addEventListener('scroll', () => {
-        header.style.boxShadow = window.scrollY > 10
-            ? '0 4px 30px rgba(0,0,0,0.08)'
-            : 'none';
-    });
+  // Open form with pre-selected type
+  function openForm(type) {
+    document.getElementById('type').value = type;
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Form submit
+  document.getElementById('leadForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    if (!name || !phone) {
+      alert('Пожалуйста, заполните имя и телефон.');
+      return;
+    }
+    this.style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+  });
+
+  // Phone mask
+  const phoneInput = document.getElementById('phone');
+  phoneInput.addEventListener('input', function() {
+    let v = this.value.replace(/\D/g, '');
+    if (v.startsWith('8')) v = '7' + v.slice(1);
+    if (v.startsWith('7')) {
+      const m = v.match(/^7(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+      this.value = !m[1] ? '+7' : '+7 (' + m[1] + (m[2] ? ') ' + m[2] : '') + (m[3] ? '-' + m[3] : '') + (m[4] ? '-' + m[4] : '');
+    }
+  });
+
+  // Header scroll effect
+  const header = document.querySelector('.site-header');
+  window.addEventListener('scroll', () => {
+    header.style.boxShadow = window.scrollY > 10
+      ? '0 4px 30px rgba(0,0,0,0.08)'
+      : 'none';
+  });
 </script>
 </body>
 </html>
