@@ -4,7 +4,7 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 document.addEventListener('DOMContentLoaded', () => {
     new Swiper('.products-slider', {
         modules: [Navigation, Pagination, Autoplay],
-        loop: false,
+        loop: true,
         slidesPerView: 3,
         autoplay: {
             delay: 5000,
