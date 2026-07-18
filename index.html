@@ -359,7 +359,7 @@
       @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
       /* ── SECTIONS ── */
-      section { max-width: 1200px; margin: 0 auto; padding: 100px 60px; }
+      section:not(.pswp__scroll-wrap) { max-width: 1200px; margin: 0 auto; padding: 100px 60px; }
       .section-label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
 
       .section-title {
@@ -933,7 +933,7 @@
                 <h3>Лестницы закрытого типа</h3>
                 <p>Классические конструкции с подступёнками. Выглядят монолитно и строго, хорошо вписываются в классический, скандинавский и современный интерьер. Обеспечивают дополнительную пространство под лестницей. Косоуры изготавливаются из швеллера, или из листа металла. </p>
                 <button class="btn-card" onclick="openForm(this)">Рассчитать стоимость</button>
-                <button class="btn-card" onclick="openForm('Маршевая прямая')">Примеры работ</button>
+                <button class="btn-card" id="btn-gallery-closedType">Примеры работ</button>
               </div>
             </article>
           </div>
@@ -949,7 +949,7 @@
                 <p>Создают ощущение воздушности и лёгкости в интерьере. Популярный выбор для современных домов в стиле лофт, минимализм, хай-тек.
                   Пропускают свет, без подступенков, металлокаркас остаётся виден, его можно покрасить в любой цвет. Есть несколько видов лестниц открытого типа с различными косоурами: на монокосоуре, на ломанных косоурах, на тетивах, консольные, винтовые. </p>
                 <button class="btn-card" onclick="openForm(this)">Рассчитать стоимость</button>
-                <button class="btn-card" onclick="openForm('Маршевая прямая')">Примеры работ</button>
+                <button class="btn-card" id="btn-gallery-openType">Примеры работ</button>
               </div>
             </article>
           </div>
@@ -964,7 +964,7 @@
                 <h3>Обшивка бетонных лестниц</h3>
                 <p>Если в вашем доме уже есть бетонная лестница, которая выглядит незаконченно — мы превратим её в стильный элемент интерьера. Полная обшивка: ступени, подступёнки, боковины и ограждение.  </p>
                 <button class="btn-card" onclick="openForm(this)">Рассчитать стоимость</button>
-                <button class="btn-card" onclick="openForm('Маршевая прямая')">Примеры работ</button>
+                <button class="btn-card" id="btn-gallery-covering">Примеры работ</button>
               </div>
             </article>
           </div>
@@ -979,7 +979,7 @@
                 <h3>Ограждения</h3>
                 <p>Правильно подобранные ограждения — залог безопасности и визитная карточка любой лестницы. Изготавливаем и устанавливаем деревянные, металлические, комбинированные (деревянные с коваными элементами) и стеклянные ограждения. </p>
                 <button class="btn-card" onclick="openForm(this)">Рассчитать стоимость</button>
-                <button class="btn-card" onclick="openForm('Маршевая прямая')">Примеры работ</button>
+                <button class="btn-card" id="btn-gallery-fences">Примеры работ</button>
               </div>
             </article>
           </div>
@@ -994,7 +994,7 @@
                 <h3>Деревянные изделия</h3>
                 <p>Помимо лестниц, мы производим шкафы, столы, слэбы, стеновые панели, перегородки для зонирования, предметы интерьера</p>
                 <button class="btn-card" onclick="openForm(this)">Рассчитать стоимость</button>
-                <button class="btn-card" onclick="openForm('Маршевая прямая')">Примеры работ</button>
+                <button class="btn-card" id="btn-gallery-wood">Примеры работ</button>
               </div>
             </article>
           </div>
