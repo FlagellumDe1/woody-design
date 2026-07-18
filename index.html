@@ -488,6 +488,9 @@
       /* ── PRODUCTS ── */
       .products-section { background: var(--off-white); max-width: 100%; padding: 100px 0; overflow: hidden; }
       .products-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
+      .products-section .section-sub {
+          max-width: 800px;
+      }
 
       /* Базовые стили для Swiper взамен CDN */
       .swiper { margin-left: auto; margin-right: auto; position: relative; overflow: hidden; list-style: none; padding: 0; z-index: 1; }
@@ -512,7 +515,7 @@
 
       .product-card:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(0,0,0,0.06); }
       .product-visual { height: 220px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-      .product-visual svg { width: 100%; height: 100%; }
+      .product-visual img { object-fit: cover; height: 100%; width: 100% }
       .product-tag { position: absolute; top: 16px; left: 16px; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: var(--white); border: 1px solid var(--border); padding: 4px 10px; border-radius: 20px; color: var(--text-secondary); z-index: 2; }
       .product-body { padding: 28px; display: flex; flex-direction: column; flex-grow: 1; }
       .product-body h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; color: var(--heading-color); }
@@ -523,6 +526,9 @@
       .btn-card {
           display: block; text-align: center; font-size: 12px; font-weight: 500; padding: 10px;
           border: 1px solid var(--border); border-radius: 4px; color: var(--text-primary); background: transparent; cursor: pointer; width: 100%; transition: all 0.2s;
+      }
+      .btn-card:not(:last-child) {
+          margin-bottom: 16px;
       }
       .btn-card:hover { background: var(--btn-bg); color: var(--white); border-color: var(--btn-bg); }
 
@@ -912,8 +918,8 @@
   <div class="products-section" id="products">
     <div class="products-inner">
       <p class="section-label">Каталог</p>
-      <h2 class="section-title">Популярные модели</h2>
-      <p class="section-sub">Каждая лестница проектируется под конкретный проём. Цена указана от — точная стоимость рассчитывается после замера.</p>
+      <h2 class="section-title">Наши изделия</h2>
+      <p class="section-sub">Каждая лестница проектируется под конкретный проём и высоту, от них зависит её конфигурация - маршевая прямая, П-образная, Г-образная, с площадкой или с забежными ступенями, есть комбинированные варианты. Оптимальную под Ваши условия конфигурацию предложит наш инженер на замере, затем он подготовит подробный проект лестницы. </p>
 
       <div class="swiper products-slider">
         <div class="swiper-wrapper">
@@ -921,28 +927,13 @@
           <div class="swiper-slide">
             <article class="product-card">
               <div class="product-visual" style="background:#f5f0ea;">
-                <span class="product-tag">Хит продаж</span>
-                <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="30" y="170" width="240" height="14" rx="2" fill="#8b6f47"/>
-                  <rect x="60" y="148" width="210" height="14" rx="2" fill="#8b6f47"/>
-                  <rect x="90" y="126" width="180" height="14" rx="2" fill="#8b6f47"/>
-                  <rect x="120" y="104" width="150" height="14" rx="2" fill="#8b6f47"/>
-                  <rect x="150" y="82" width="120" height="14" rx="2" fill="#8b6f47"/>
-                  <rect x="180" y="60" width="90" height="14" rx="2" fill="#8b6f47"/>
-                  <line x1="35" y1="172" x2="184" y2="62" stroke="#5a4535" stroke-width="2.5" opacity="0.5"/>
-                  <line x1="50" y1="172" x2="50" y2="148" stroke="#4a3825" stroke-width="1.5" opacity="0.5"/>
-                  <line x1="80" y1="150" x2="80" y2="126" stroke="#4a3825" stroke-width="1.5" opacity="0.5"/>
-                  <line x1="110" y1="128" x2="110" y2="104" stroke="#4a3825" stroke-width="1.5" opacity="0.5"/>
-                  <line x1="140" y1="106" x2="140" y2="82" stroke="#4a3825" stroke-width="1.5" opacity="0.5"/>
-                  <line x1="170" y1="84" x2="170" y2="60" stroke="#4a3825" stroke-width="1.5" opacity="0.5"/>
-                  <path d="M48 148 Q110 110 168 60" stroke="#6b4f35" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.7"/>
-                </svg>
+                <img src="/assets/images/hero.jpg" alt="Лестницы закрытого типа">
               </div>
               <div class="product-body">
-                <h3>Маршевая прямая</h3>
-                <p>Классическая прямая лестница на металлическом косоуре. Ступени из массива дуба или ясеня. Идеально для прямоугольных проёмов.</p>
-                <span class="product-price">от 185 000 ₽ <span>под ключ</span></span>
-                <button class="btn-card" onclick="openForm('Маршевая прямая')">Рассчитать стоимость</button>
+                <h3>Лестницы закрытого типа</h3>
+                <p>Классические конструкции с подступёнками. Выглядят монолитно и строго, хорошо вписываются в классический, скандинавский и современный интерьер. Обеспечивают дополнительную пространство под лестницей. Косоуры изготавливаются из швеллера, или из листа металла. </p>
+                <button class="btn-card" onclick="openForm(this)">Рассчитать стоимость</button>
+                <button class="btn-card" onclick="openForm('Маршевая прямая')">Примеры работ</button>
               </div>
             </article>
           </div>
@@ -951,28 +942,14 @@
           <div class="swiper-slide">
             <article class="product-card">
               <div class="product-visual" style="background:#f0ede8;">
-                <span class="product-tag">Популярное</span>
-                <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="40" y="160" width="80" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="40" y="138" width="80" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="40" y="116" width="80" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="40" y="94" width="80" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="40" y="72" width="80" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="40" y="52" width="220" height="16" rx="2" fill="#a07850"/>
-                  <rect x="180" y="72" width="80" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="180" y="94" width="80" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="180" y="116" width="80" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="180" y="138" width="80" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="180" y="160" width="80" height="12" rx="2" fill="#8b6f47"/>
-                  <line x1="44" y1="162" x2="44" y2="68" stroke="#5a4535" stroke-width="2" opacity="0.4"/>
-                  <line x1="256" y1="162" x2="256" y2="68" stroke="#5a4535" stroke-width="2" opacity="0.4"/>
-                </svg>
+                <img src="/assets/images/hero.jpg" alt="Лестницы закрытого типа">
               </div>
               <div class="product-body">
-                <h3>П-образная с площадкой</h3>
-                <p>Разворотная лестница с промежуточной площадкой. Оптимальна при ограниченной ширине холла. Комфортный подъём для всей семьи.</p>
-                <span class="product-price">от 260 000 ₽ <span>под ключ</span></span>
-                <button class="btn-card" onclick="openForm('П-образная с площадкой')">Рассчитать стоимость</button>
+                <h3>Лестницы открытого типа</h3>
+                <p>Создают ощущение воздушности и лёгкости в интерьере. Популярный выбор для современных домов в стиле лофт, минимализм, хай-тек.
+                  Пропускают свет, без подступенков, металлокаркас остаётся виден, его можно покрасить в любой цвет. Есть несколько видов лестниц открытого типа с различными косоурами: на монокосоуре, на ломанных косоурах, на тетивах, консольные, винтовые. </p>
+                <button class="btn-card" onclick="openForm(this)">Рассчитать стоимость</button>
+                <button class="btn-card" onclick="openForm('Маршевая прямая')">Примеры работ</button>
               </div>
             </article>
           </div>
@@ -981,28 +958,13 @@
           <div class="swiper-slide">
             <article class="product-card">
               <div class="product-visual" style="background:#ede8e0;">
-                <span class="product-tag">Новинка</span>
-                <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="60" y="50" width="70" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="60" y="72" width="70" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="60" y="94" width="70" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="60" y="116" width="70" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="60" y="138" width="70" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="60" y="155" width="70" height="16" rx="2" fill="#a07850"/>
-                  <rect x="80" y="155" width="160" height="12" rx="2" fill="#8b6f47" transform="rotate(90 80 155) translate(0)"/>
-                  <rect x="104" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
-                  <rect x="124" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
-                  <rect x="144" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
-                  <rect x="164" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
-                  <rect x="184" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
-                  <rect x="204" y="155" width="12" height="50" rx="2" fill="#8b6f47"/>
-                </svg>
+                <img src="/assets/images/hero.jpg" alt="Лестницы закрытого типа">
               </div>
               <div class="product-body">
-                <h3>Г-образная забежная</h3>
-                <p>Лестница с поворотом на 90°. Забежные ступени обеспечивают плавный разворот. Экономит до 30% площади по сравнению с прямой.</p>
-                <span class="product-price">от 220 000 ₽ <span>под ключ</span></span>
-                <button class="btn-card" onclick="openForm('Г-образная забежная')">Рассчитать стоимость</button>
+                <h3>Обшивка бетонных лестниц</h3>
+                <p>Если в вашем доме уже есть бетонная лестница, которая выглядит незаконченно — мы превратим её в стильный элемент интерьера. Полная обшивка: ступени, подступёнки, боковины и ограждение.  </p>
+                <button class="btn-card" onclick="openForm(this)">Рассчитать стоимость</button>
+                <button class="btn-card" onclick="openForm('Маршевая прямая')">Примеры работ</button>
               </div>
             </article>
           </div>
@@ -1011,27 +973,13 @@
           <div class="swiper-slide">
             <article class="product-card">
               <div class="product-visual" style="background:#f0ede8;">
-                <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="40" y="160" width="80" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="40" y="138" width="80" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="40" y="116" width="80" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="40" y="94" width="80" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="40" y="72" width="80" height="12" rx="2" fill="#8b6f47"/>
-                  <path d="M40 52 h120 l100 20 v-20 h-220 z" fill="#a07850"/>
-                  <rect x="180" y="72" width="80" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="180" y="94" width="80" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="180" y="116" width="80" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="180" y="138" width="80" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="180" y="160" width="80" height="12" rx="2" fill="#8b6f47"/>
-                  <line x1="44" y1="162" x2="44" y2="68" stroke="#5a4535" stroke-width="2" opacity="0.4"/>
-                  <line x1="256" y1="162" x2="256" y2="68" stroke="#5a4535" stroke-width="2" opacity="0.4"/>
-                </svg>
+                <img src="/assets/images/hero.jpg" alt="Лестницы закрытого типа">
               </div>
               <div class="product-body">
-                <h3>П-образная забежная</h3>
-                <p>Компактная конструкция с забежными ступенями на развороте вместо площадки. Идеально для небольших квадратных проемов.</p>
-                <span class="product-price">от 280 000 ₽ <span>под ключ</span></span>
-                <button class="btn-card" onclick="openForm('П-образная забежная')">Рассчитать стоимость</button>
+                <h3>Ограждения</h3>
+                <p>Правильно подобранные ограждения — залог безопасности и визитная карточка любой лестницы. Изготавливаем и устанавливаем деревянные, металлические, комбинированные (деревянные с коваными элементами) и стеклянные ограждения. </p>
+                <button class="btn-card" onclick="openForm(this)">Рассчитать стоимость</button>
+                <button class="btn-card" onclick="openForm('Маршевая прямая')">Примеры работ</button>
               </div>
             </article>
           </div>
@@ -1040,24 +988,13 @@
           <div class="swiper-slide">
             <article class="product-card">
               <div class="product-visual" style="background:#ede8e0;">
-                <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="60" y="50" width="70" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="60" y="72" width="70" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="60" y="94" width="70" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="60" y="116" width="70" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="60" y="138" width="70" height="12" rx="2" fill="#8b6f47"/>
-                  <rect x="60" y="155" width="70" height="24" rx="2" fill="#a07850"/>
-                  <rect x="80" y="180" width="160" height="12" rx="2" fill="#8b6f47" transform="rotate(90 80 180) translate(0)"/>
-                  <rect x="104" y="180" width="12" height="50" rx="2" fill="#8b6f47"/>
-                  <rect x="124" y="180" width="12" height="50" rx="2" fill="#8b6f47"/>
-                  <rect x="144" y="180" width="12" height="50" rx="2" fill="#8b6f47"/>
-                </svg>
+                <img src="/assets/images/hero.jpg" alt="Лестницы закрытого типа">
               </div>
               <div class="product-body">
-                <h3>Г-образная с площадкой</h3>
-                <p>Лестница с поворотом на 90° и промежуточной площадкой для комфортного подъема. Подходит для семей с детьми и пожилых людей.</p>
-                <span class="product-price">от 240 000 ₽ <span>под ключ</span></span>
-                <button class="btn-card" onclick="openForm('Г-образная с площадкой')">Рассчитать стоимость</button>
+                <h3>Деревянные изделия</h3>
+                <p>Помимо лестниц, мы производим шкафы, столы, слэбы, стеновые панели, перегородки для зонирования, предметы интерьера</p>
+                <button class="btn-card" onclick="openForm(this)">Рассчитать стоимость</button>
+                <button class="btn-card" onclick="openForm('Маршевая прямая')">Примеры работ</button>
               </div>
             </article>
           </div>
@@ -1208,13 +1145,10 @@
             <input type="text" id="city" name="city" placeholder="Одинцово, Красногорск, Химки…" />
           </div>
           <div class="field full">
-            <label for="type">Тип лестницы</label>
+            <label for="type">Тип изделия</label>
+<!--            Остальные типы генерируются автоматически от карточек в каталоге-->
             <select id="type" name="type">
               <option value="">— Выберите тип —</option>
-              <option>Маршевая прямая</option>
-              <option>П-образная с площадкой</option>
-              <option>Г-образная забежная</option>
-              <option>Лестница на больцах</option>
               <option>Не знаю, нужна консультация</option>
             </select>
           </div>
@@ -1297,8 +1231,9 @@
   sections.forEach(s => observer.observe(s));
 
   // Open form with pre-selected type
-  function openForm(type) {
-    document.getElementById('type').value = type;
+  function openForm(el) {
+    const productCard = el.parentElement;
+    document.getElementById('type').value = productCard.querySelector("h3")?.innerText ?? "";
     document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
   }
 
@@ -1333,6 +1268,16 @@
       ? '0 4px 30px rgba(0,0,0,0.08)'
       : 'none';
   });
+
+  const products = Array.from(document.querySelectorAll(".product-body h3")).map(el => el.innerHTML);
+  const select = document.querySelector("#type");
+  for (const product of products) {
+    const option = document.createElement('option');
+    option.value = product;
+    option.textContent = product;
+    select.appendChild(option);
+  }
+
 </script>
 </body>
 </html>
