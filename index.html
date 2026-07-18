@@ -393,6 +393,98 @@
       .why-item h3 { font-size: 16px; font-weight: 600; color: var(--heading-color); margin-bottom: 10px; }
       .why-item p { font-size: 13px; color: var(--text-secondary); line-height: 1.7}
 
+      /* ── WHY EXTRA BANNER ── */
+      .why-extra {
+          margin-top: 60px;
+          display: flex;
+          background: var(--heading-color);
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+          position: relative;
+      }
+
+      .why-extra-content {
+          flex: 1;
+          padding: 60px 80px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          position: relative;
+          z-index: 2;
+      }
+
+      .why-extra-label {
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: var(--accent-light);
+          margin-bottom: 12px;
+      }
+
+      .why-extra-title {
+          font-family: 'Playfair Display', serif;
+          font-size: 32px;
+          font-weight: 400;
+          color: var(--white);
+          margin-bottom: 30px;
+          line-height: 1.25;
+          max-width: 450px;
+      }
+
+      .why-extra-address {
+          font-style: normal;
+          display: inline-flex;
+          align-items: center;
+          gap: 16px;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 1.5;
+          color: var(--white);
+          background: rgba(255, 255, 255, 0.06);
+          padding: 20px 24px;
+          border-radius: 8px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          max-width: max-content;
+      }
+
+      .why-extra-address svg {
+          flex-shrink: 0;
+          color: var(--accent-light);
+          width: 24px;
+          height: 24px;
+      }
+
+      .why-extra-image {
+          width: 55%;
+          min-width: 350px;
+          position: relative;
+      }
+
+      .why-extra-image img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+      }
+
+      /* Градиентный маскирующий слой */
+      .why-extra-image::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(to right, var(--heading-color) 4%, transparent 70%);
+          z-index: 1;
+      }
+
       /* ── PRODUCTS ── */
       .products-section { background: var(--off-white); max-width: 100%; padding: 100px 0; overflow: hidden; }
       .products-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
@@ -531,6 +623,8 @@
           .header-nav { gap: 4px; }
           .header-nav a { padding: 8px 12px; }
           .header-right { gap: 16px; }
+
+          .why-extra-content { padding: 50px; }
       }
 
       @media (max-width: 1024px) {
@@ -579,6 +673,12 @@
           }
           .stat { text-align: left; }
 
+          .why-extra { flex-direction: column; }
+          .why-extra-image { width: 100%; height: 350px; min-width: auto; }
+          .why-extra-image::after {
+              background: linear-gradient(to bottom, var(--heading-color) 5%, transparent 70%);
+          }
+
           .process-row { grid-template-columns: 1fr; gap: 40px; }
           .process-right { position: static; }
           .form-section { grid-template-columns: 1fr; gap: 40px; }
@@ -609,6 +709,12 @@
               justify-content: space-around;
           }
           .why-grid { grid-template-columns: 1fr; }
+
+          .why-extra-content { padding: 40px 24px; }
+          .why-extra-title { font-size: 26px; }
+          .why-extra-image { height: 260px; }
+          .why-extra-address { gap: 12px; }
+
           .cities-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
           .city-item { padding: 16px; }
           .form-row { grid-template-columns: 1fr; }
@@ -783,10 +889,22 @@
       </div>
     </div>
 
+    <!-- Обновленный блок why-extra -->
     <div class="why-extra">
-      Вы можете посетить наше производство, расположенное по адресу: <br>
-      г. Москва, Новомосковский административный округ, район Коммунарка, дер. Губкино, 78 соор 5.
-      <img src="/assets/images/hero.jpg" alt="">
+      <div class="why-extra-content">
+        <span class="why-extra-label">Собственное производство</span>
+        <h4 class="why-extra-title">Вы можете посетить наше производство, расположенное по адресу:</h4>
+        <address class="why-extra-address">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          г. Москва, НАО, р-н Коммунарка,<br>дер. Губкино, 78 соор 5
+        </address>
+      </div>
+      <div class="why-extra-image">
+        <img src="/assets/images/hero.jpg" alt="Наше производство">
+      </div>
     </div>
   </section>
 
