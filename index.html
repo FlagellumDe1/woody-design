@@ -557,6 +557,65 @@
       .swiper-pagination-bullet { width: 8px; height: 8px; border-radius: 50%; background: var(--border); opacity: 1; margin: 0 !important; cursor: pointer; transition: background 0.2s; }
       .swiper-pagination-bullet-active { background: var(--btn-bg); }
 
+      /* ── MATERIALS ── */
+      .materials-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 24px;
+          margin-top: 40px;
+      }
+
+      .material-card {
+          background: var(--white);
+          border: 1px solid var(--border);
+          border-radius: 4px;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .material-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 16px 32px rgba(0,0,0,0.06);
+      }
+
+      .material-img {
+          height: 200px;
+          overflow: hidden;
+      }
+
+      .material-img img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+      }
+
+      .material-card:hover .material-img img {
+          transform: scale(1.05);
+      }
+
+      .material-content {
+          padding: 24px;
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+      }
+
+      .material-content h3 {
+          font-size: 17px;
+          font-weight: 600;
+          color: var(--heading-color);
+          margin-bottom: 10px;
+      }
+
+      .material-content p {
+          font-size: 13px;
+          color: var(--text-secondary);
+          line-height: 1.6;
+      }
+
       /* ── PROCESS ── */
       .process-row { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 60px; }
       .process-steps { display: flex; flex-direction: column; gap: 0; }
@@ -685,6 +744,11 @@
               background: linear-gradient(to bottom, var(--heading-color) 5%, transparent 70%);
           }
 
+          .materials-grid {
+              grid-template-columns: repeat(2, 1fr);
+              gap: 20px;
+          }
+
           .process-row { grid-template-columns: 1fr; gap: 40px; }
           .process-right { position: static; }
           .form-section { grid-template-columns: 1fr; gap: 40px; }
@@ -721,6 +785,11 @@
           .why-extra-image { height: 260px; }
           .why-extra-address { gap: 12px; }
 
+          .materials-grid {
+              grid-template-columns: 1fr;
+              gap: 16px;
+          }
+
           .cities-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
           .city-item { padding: 16px; }
           .form-row { grid-template-columns: 1fr; }
@@ -740,7 +809,7 @@
     <nav class="header-nav" role="navigation" aria-label="Основная навигация">
       <a href="#why" class="active">О нас</a>
       <a href="#products">Каталог</a>
-      <a href="#products">Материалы</a>
+      <a href="#materials">Материалы</a>
       <a href="#process">Процесс</a>
       <a href="#contact">Контакты</a>
     </nav>
@@ -782,7 +851,7 @@
   <nav class="mobile-nav-links">
     <a href="#why">О нас</a>
     <a href="#products">Каталог</a>
-    <a href="#products">Материалы</a>
+    <a href="#materials">Материалы</a>
     <a href="#process">Процесс</a>
     <a href="#contact">Контакты</a>
   </nav>
@@ -1014,6 +1083,54 @@
     </div>
   </div>
 
+  <!-- MATERIALS -->
+  <section id="materials" aria-labelledby="materials-heading">
+    <h2 class="section-title" id="materials-heading">Материалы</h2>
+    <p class="section-sub">Используем только проверенные материалы, массив разных пород дерева - лиственницы, дуба, ясеня, американского ореха, натуральный шпон, делаем комбинированные решения</p>
+
+    <div class="materials-grid">
+      <article class="material-card">
+        <div class="material-img">
+          <img src="/assets/images/materials/listvennitsa.jpg" alt="Лиственница" loading="lazy">
+        </div>
+        <div class="material-content">
+          <h3>Лиственица</h3>
+          <p>Долговечная древесина с высокой природной устойчивостью к влаге и перепадам температуры. Благодаря содержанию смол отлично подходит для лестниц в частных домах и загородных коттеджах.</p>
+        </div>
+      </article>
+      <article class="material-card">
+        <div class="material-img">
+          <img src="/assets/images/materials/yasen.jpg" alt="Ясень" loading="lazy">
+        </div>
+        <div class="material-content">
+          <h3>Ясень</h3>
+          <p>Премиальная древесина с выразительной текстурой и высокой эластичностью. Хорошо выдерживает интенсивные нагрузки, не боится деформаций и подходит для современных интерьеров.</p>
+        </div>
+      </article>
+      <article class="material-card">
+        <div class="material-img">
+          <img src="/assets/images/materials/oak.jpg" alt="Дуб" loading="lazy">
+        </div>
+        <div class="material-content">
+          <h3>Дуб</h3>
+          <p>
+            Эталон прочности и долговечности.
+            Благородная текстура, высокая износостойкость и срок службы в несколько десятилетий делают дуб лучшим выбором для лестниц премиум-класса.
+          </p>
+        </div>
+      </article>
+      <article class="material-card">
+        <div class="material-img">
+          <img src="/assets/images/hero.jpg" alt="Сосна" loading="lazy">
+        </div>
+        <div class="material-content">
+          <h3>Американский орех.</h3>
+          <p>В отличие от европейских пород, американский орех имеет уникальный, шоколадно-карамельный оттенок с изящными темными прожилками. Он умеренно твердый, стабильный и прекрасно поддается шлифовке. Прямые линии волокон часто переплетаются с волнистыми завитками, создавая сложный, завораживающий узор. Он всегда выглядит дорого и благородно. </p>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <!-- PROCESS -->
   <section id="process" aria-labelledby="process-heading">
     <p class="section-label">Как мы работаем</p>
@@ -1146,7 +1263,7 @@
           </div>
           <div class="field full">
             <label for="type">Тип изделия</label>
-<!--            Остальные типы генерируются автоматически от карточек в каталоге-->
+            <!--            Остальные типы генерируются автоматически от карточек в каталоге-->
             <select id="type" name="type">
               <option value="">— Выберите тип —</option>
               <option>Не знаю, нужна консультация</option>
