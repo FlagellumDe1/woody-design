@@ -2,7 +2,9 @@ import Swiper from 'swiper';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
 import 'photoswipe/style.css';
+import MicroModal from 'micromodal'
 
+MicroModal.init();
 document.addEventListener('DOMContentLoaded', () => {
     new Swiper('.products-slider', {
         modules: [Navigation, Pagination, Autoplay],
@@ -47,7 +49,6 @@ const allImages = import.meta.glob('/src/assets/galleries/*/*.{jpg,jpeg,png,gif,
 
 // 2. Функция для получения всех папок
 function getGalleryFolders() {
-    console.log(2);
     const folders = new Set();
     for (const path of Object.keys(allImages)) {
         const match = path.match(/\/assets\/galleries\/([^/]+)\//);
@@ -60,7 +61,6 @@ function getGalleryFolders() {
 
 // 3. Функция для загрузки изображений из конкретной папки
 async function loadGalleryImages(folderName) {
-    console.log(3);
     const folderImages = {};
     for (const [path, importFn] of Object.entries(allImages)) {
         if (path.includes(`/assets/galleries/${folderName}/`)) {
@@ -89,7 +89,6 @@ async function loadGalleryImages(folderName) {
 
 // 4. Создаем галереи
 async function createGalleries() {
-    console.log(1);
     const folders = getGalleryFolders();
 
     if (!folders.length) {
@@ -133,7 +132,6 @@ async function createGalleries() {
         lightbox.init();
 
         const button = document.querySelector(`#btn-gallery-${folder}`);
-        console.log(button);
         if (!button) {
             console.warn(`Кнопка для галереи "${folder}" не найдена (ожидался селектор #btn-gallery-${folder})`);
             continue;

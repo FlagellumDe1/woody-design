@@ -671,7 +671,7 @@
       footer { border-top: 1px solid var(--border); padding: 40px 60px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
       .footer-brand { font-size: 15px; font-weight: 600; color: var(--text-primary); display: flex; align-items: center; gap: 10px; }
       .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
-      .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+      .footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; cursor: pointer; }
       .footer-links a:hover { color: var(--text-primary); }
       .footer-copy { font-size: 11px; color: var(--text-muted); }
 
@@ -679,6 +679,61 @@
       .success-msg { display: none; text-align: center; padding: 32px; background: var(--off-white); border: 1px solid var(--border); border-radius: 4px; }
       .success-msg h3 { font-size: 18px; margin-bottom: 8px; color: var(--heading-color); }
       .success-msg p { font-size: 13px; color: var(--text-secondary); }
+
+      /* ── MODAL ── */
+      .modal { display: none; }
+      .modal.is-open { display: block; }
+      .modal__overlay {
+          position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+          background: rgba(0, 0, 0, 0.6); display: flex; justify-content: center; align-items: center;
+          z-index: 999; padding: 20px;
+      }
+      .modal__container {
+          background-color: var(--white); padding: 30px; max-width: 700px; width: 100%; max-height: 90vh;
+          border-radius: 8px; display: flex; flex-direction: column; box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      }
+      .modal__header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+      .modal__title { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--heading-color); margin: 0; }
+      .modal__close {
+          background: transparent; border: 0; cursor: pointer; padding: 0; width: 24px; height: 24px;
+          display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: color 0.2s;
+      }
+      .modal__close:hover { color: var(--text-primary); }
+      .modal__close::before, .modal__close::after {
+          content: ''; position: absolute; width: 16px; height: 2px; background: currentColor;
+      }
+      .modal__close::before { transform: rotate(45deg); }
+      .modal__close::after { transform: rotate(-45deg); }
+
+      .modal__content {
+          flex: 1; overflow-y: auto; padding-right: 15px; margin-bottom: 20px;
+          color: var(--text-secondary); font-size: 13px; line-height: 1.6;
+      }
+      .modal__content::-webkit-scrollbar { width: 6px; }
+      .modal__content::-webkit-scrollbar-track { background: var(--off-white); border-radius: 4px; }
+      .modal__content::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+      .modal__content h3 { font-size: 15px; color: var(--text-primary); margin: 24px 0 10px; font-weight: 600; }
+      .modal__content h3:first-child { margin-top: 0; }
+      .modal__content p { margin-bottom: 12px; }
+      .modal__content ul { margin-bottom: 12px; padding-left: 20px; list-style: disc; }
+
+      .modal__footer { display: flex; justify-content: flex-end; }
+      .modal__btn {
+          background: var(--btn-bg); color: var(--white); border: none; padding: 10px 24px;
+          border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: 500; transition: background 0.2s;
+      }
+      .modal__btn:hover { background: #004b32; }
+
+      /* Micromodal Animations */
+      .micromodal-slide[aria-hidden="false"] .modal__overlay { animation: mmfadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1); }
+      .micromodal-slide[aria-hidden="false"] .modal__container { animation: mmslideIn .3s cubic-bezier(0, 0, .2, 1); }
+      .micromodal-slide[aria-hidden="true"] .modal__overlay { animation: mmfadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1); }
+      .micromodal-slide[aria-hidden="true"] .modal__container { animation: mmslideOut .3s cubic-bezier(0, 0, .2, 1); }
+      @keyframes mmfadeIn { from { opacity: 0; } to { opacity: 1; } }
+      @keyframes mmfadeOut { from { opacity: 1; } to { opacity: 0; } }
+      @keyframes mmslideIn { from { transform: translateY(15%); } to { transform: translateY(0); } }
+      @keyframes mmslideOut { from { transform: translateY(0); } to { transform: translateY(-10%); } }
 
       /* ── ADAPTIVE ── */
       @media (max-width: 1250px) {
@@ -793,7 +848,10 @@
           .cities-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
           .city-item { padding: 16px; }
           .form-row { grid-template-columns: 1fr; }
+
+          .modal__container { padding: 20px; }
       }
+
   </style>
 </head>
 <body>
@@ -824,7 +882,7 @@
       <a href="https://t.me/TheWoodPlan" class="social-link" title="Telegram" target="_blank">
         <img src="/src/assets/icons/tg.svg" alt="">
       </a>
-      <a href="#" class="social-link" title="MAX" target="_blank">
+      <a href="http://max.ru/channel_DrevesnyZamysel" class="social-link" title="MAX" target="_blank">
         <img src="/src/assets/icons/max.svg" alt="">
       </a>
     </div>
@@ -1166,7 +1224,7 @@
           <span class="step-num">4</span>
           <div class="step-content">
             <h4>Производство</h4>
-            <p>Подбираем качественные материалы. Изготавливаем металлокаркас и деревянные элементы в нашем цехе.  </p>
+            <p>Подбираем качественные материалы. Изготавливаем металлокаркас и деревянные элементов в нашем цехе.  </p>
             <span class="step-days">День 10–35</span>
           </div>
         </div>
@@ -1189,7 +1247,7 @@
             <div class="meta-row"><span>3D-проект</span><span>Бесплатно</span></div>
             <div class="meta-row"><span>Доставка по МО</span><span>Включена</span></div>
             <div class="meta-row"><span>Монтаж</span><span>Включён</span></div>
-            <div class="meta-row"><span>Гарантия</span><span>5 лет</span></div>
+            <div class="meta-row"><span>Гарантия</span><span>10 лет</span></div>
           </div>
           <a href="#contact" class="btn-primary" style="width:100%; justify-content:center;">
             Заказать замер
@@ -1224,15 +1282,15 @@
       <div class="form-left">
         <p class="section-label">Контакты</p>
         <h2 id="contact-heading">Рассчитайте стоимость<br/>своей лестницы</h2>
-        <p>Оставьте заявку — перезвоним в течение 30 минут в рабочее время. Выезд замерщика бесплатно по всей Московской области.</p>
+        <p>Оставьте заявку — перезвоним в течение 30 минут в рабочее время. Выезд замерщика по всей Московской области.</p>
         <div class="form-contact-row">
           <div class="contact-item">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2h4l1.5 4-2 1.5a10 10 0 004 4L11 9.5l4 1.5v4c0 1-1 1.5-2 1.5C5 16.5 0 10 0 4c0-1 .5-2 2-2z" stroke="currentColor" stroke-width="1.2"/></svg>
-            <span><strong>+7 (495) 123-45-67</strong> — пн–сб, 9:00–20:00</span>
+            <span><strong>+7 (930) 940-33-33</strong> — пн–сб, 9:00–20:00</span>
           </div>
           <div class="contact-item">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M1 5l7 5 7-5" stroke="currentColor" stroke-width="1.2"/></svg>
-            <span>info@stephaus.ru</span>
+            <span>n.ilya2001@yandex.ru</span>
           </div>
           <div class="contact-item">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="7" r="3" stroke="currentColor" stroke-width="1.2"/><path d="M8 1C4.686 1 2 3.686 2 7c0 4 6 9 6 9s6-5 6-9c0-3.314-2.686-6-6-6z" stroke="currentColor" stroke-width="1.2"/></svg>
@@ -1290,22 +1348,89 @@
 <footer>
   <div class="footer-brand">
     <div class="nav-logo-icon">
-      <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path d="M2 8 L2 6 L4 6 L4 4 L6 4 L6 2 L8 2"/>
-      </svg>
+      <a href="#" class="nav-logo" aria-label="СтепХаус - на главную">
+        <img class="nav-logo-img" src="/assets/images/logo.jpg" alt="Древесный замысел"/>
+      </a>
     </div>
-    СтепХаус
+    Древесный замысел
   </div>
   <div class="footer-links">
-    <a href="#why">О компании</a>
+    <a href="#why">О нас</a>
     <a href="#products">Каталог</a>
-    <a href="#process">Процесс</a>
-    <a href="#coverage">Регионы</a>
+    <a href="#process">Материалы</a>
+    <a href="#coverage">Процесс</a>
     <a href="#contact">Контакты</a>
-    <a href="#">Политика конфиденциальности</a>
+    <!-- Добавлен href для нормального курсора с data-атрибутом -->
+    <a id="confPol" href="#confPol" data-micromodal-trigger="modal-1">Политика конфиденциальности</a>
   </div>
-  <p class="footer-copy">© 2026 СтепХаус. Лестницы на металлокаркасе, Московская область.</p>
 </footer>
+
+<!-- POLICY MODAL -->
+<div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
+  <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+      <header class="modal__header">
+        <h2 class="modal__title" id="modal-1-title">Согласие на обработку данных</h2>
+        <button class="modal__close" aria-label="Закрыть окно" data-micromodal-close></button>
+      </header>
+      <main class="modal__content" id="modal-1-content">
+        <p>Настоящий документ определяет политику и порядок обработки персональных данных пользователей сайта и разработан в соответствии с требованиями Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных» (далее – 152-ФЗ) и иными нормативными правовыми актами Российской Федерации в области защиты персональных данных.</p>
+
+        <h3>1. Основные положения</h3>
+        <p>1.1. Настоящее Согласие на обработку персональных данных (далее – Согласие) является публичным и открытым документом.</p>
+        <p>1.2. Используя функционал сайта и оставляя свои данные в веб-формах (регистрация, заказ обратного звонка, подписка, отправка сообщения), Пользователь дает свое добровольное согласие ООО «[Название компании]» (ИНН: [__]), расположенному по адресу: [Адрес], (далее – Оператор) на обработку своих персональных данных на условиях, изложенных в настоящем Согласии.</p>
+        <p>1.3. Согласие действует в отношении всех персональных данных, которые Пользователь предоставляет Оператору.</p>
+        <p>1.4. Настоящее Согласие составлено в соответствии с требованиями ст. 9 152-ФЗ и является отдельным документом, не подлежащим включению в текст договора оферты, пользовательского соглашения или иных документов.</p>
+
+        <h3>2. Состав (перечень) персональных данных</h3>
+        <p>2.1. Согласие дается на обработку следующих персональных данных, не являющихся специальными или биометрическими:</p>
+        <ul>
+          <li>Фамилия, Имя, Отчество;</li>
+          <li>Номер контактного телефона;</li>
+          <li>Адрес электронной почты (e-mail);</li>
+          <li>Данные, получаемые с помощью файлов cookie и счетчиков посещаемости (в том числе: IP-адрес, тип и версия операционной системы и браузера, тип устройства и разрешение экрана, источник перехода на сайт, язык операционной системы и браузера, совершенные клики и переходы по страницам).</li>
+        </ul>
+
+        <h3>3. Цели обработки персональных данных</h3>
+        <p>3.1. Обработка персональных данных осуществляется в следующих целях:</p>
+        <ul>
+          <li>Для обработки обращений, поступивших от Пользователя, с целью предоставления консультаций и ответов на вопросы;</li>
+          <li>Для заключения и исполнения договоров с Пользователем (в том числе по оформлению заказов и оказанию услуг);</li>
+          <li>Для направления уведомлений, информационных и рекламных материалов, а также новостной рассылки (при условии отдельного согласия на маркетинг);</li>
+          <li>Для анализа поведения Пользователя на сайте и улучшения функционала сайта.</li>
+        </ul>
+
+        <h3>4. Перечень действий, совершаемых с персональными данными</h3>
+        <p>4.1. Обработка персональных данных осуществляется с использованием средств автоматизации и без их использования.</p>
+        <p>4.2. Оператор имеет право совершать следующие действия: сбор, запись, систематизация, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, обезличивание, блокирование, удаление, уничтожение персональных данных.</p>
+        <p>4.3. Передача (распространение, предоставление) персональных данных третьим лицам осуществляется только с письменного согласия Пользователя, за исключением случаев, предусмотренных законодательством РФ (например, по запросу суда или уполномоченных органов).</p>
+
+        <h3>5. Сроки обработки и хранения</h3>
+        <p>5.1. Срок обработки персональных данных определяется до момента достижения целей обработки, если иное не предусмотрено договором или законодательством РФ.</p>
+        <p>5.2. Хранение персональных данных осуществляется не дольше, чем этого требуют цели их обработки, либо в течение срока, установленного федеральным законом (в том числе архивным законодательством, согласно № 125-ФЗ).</p>
+        <p>5.3. Обработка персональных данных прекращается в следующих случаях:</p>
+        <ul>
+          <li>По истечении сроков, указанных в п. 5.2;</li>
+          <li>По требованию Пользователя об отзыве согласия;</li>
+          <li>При ликвидации или реорганизации Оператора.</li>
+        </ul>
+
+        <h3>6. Отзыв согласия</h3>
+        <p>6.1. Пользователь (субъект персональных данных) вправе в любой момент отозвать свое согласие на обработку персональных данных, направив письменное заявление в свободной форме по адресу местонахождения Оператора или на электронную почту: [адрес email].</p>
+        <p>6.2. При получении письменного заявления об отзыве согласия Оператор обязан прекратить обработку персональных данных и уничтожить их в срок, не превышающий 30 дней с даты поступления отзыва, если иное не предусмотрено договором или законодательством (п. 2–11 ч. 1 ст. 6 152-ФЗ).</p>
+        <p>6.3. Оператор сохраняет за собой право продолжить обработку персональных данных без согласия Пользователя при наличии оснований, указанных в ч. 2–11 ст. 6, ч. 2 ст. 10 и ч. 2 ст. 11 152-ФЗ (исполнение договора, обязанности по закону, защита жизни и т.д.).</p>
+
+        <h3>7. Заключительные положения</h3>
+        <p>7.1. Пользователь, оставляя данные на Сайте, подтверждает, что он ознакомлен с настоящим Согласием, понимает его положения и согласен с ними.</p>
+        <p>7.2. Оператор вправе вносить изменения в текст Согласия. Актуальная редакция всегда доступна на Сайте.</p>
+        <p>7.3. Во всем остальном, не урегулированном настоящим Согласием, стороны руководствуются действующим законодательством Российской Федерации.</p>
+      </main>
+      <footer class="modal__footer">
+        <button class="modal__btn" data-micromodal-close aria-label="Закрыть окно">Закрыть</button>
+      </footer>
+    </div>
+  </div>
+</div>
 
 <script>
   // Smooth scroll for nav links & mobile menu handling

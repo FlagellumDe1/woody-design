@@ -12,6 +12,7 @@
     "vite": "^8.1.5"
   },
   "dependencies": {
+    "micromodal": "^0.7.0",
     "photoswipe": "^5.4.4",
     "swiper": "^14.0.5"
   }
