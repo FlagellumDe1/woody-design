@@ -60,9 +60,9 @@
           --off-white: #f8f7f5;
           --light: #f0ede8;
           /* RAL Цветовая Палитра */
-          --text-primary: #3b3332; /* RAL 8019 Серо-коричневый */
-          --heading-color: #384337; /* RAL 6020 Хромовый зеленый */
-          --btn-bg: #006442; /* RAL 6016 Бирюзово-зеленый */
+          --text-primary: #3b3332;
+          --heading-color: #384337;
+          --btn-bg: #006442;
           /* Остальные цвета */
           --text-secondary: #6b6560;
           --text-muted: #a09990;
@@ -89,6 +89,7 @@
           width: 100%;
           z-index: 100;
           display: flex;
+          flex-wrap: wrap;
           align-items: center;
           justify-content: space-between;
           background: var(--nav-bg);
@@ -103,8 +104,7 @@
       .header-left {
           display: flex;
           align-items: center;
-          gap: 40px;
-          flex: 1;
+          gap: 20px;
       }
 
       .nav-logo {
@@ -137,9 +137,11 @@
       }
 
       .header-nav {
+          flex: 1;
           display: flex;
           align-items: center;
           gap: 8px;
+          padding-left: 40px;
           overflow: hidden;
       }
 
@@ -738,15 +740,24 @@
       /* ── ADAPTIVE ── */
       @media (max-width: 1250px) {
           .site-header { padding: 16px 32px; }
-          .header-address { display: none; }
           .header-left { gap: 20px; }
-          .header-nav { gap: 4px; }
+          .header-nav { gap: 4px; padding-left: 20px; }
           .header-nav a { padding: 8px 12px; }
           .header-right { gap: 16px; }
 
           .why-extra-content { padding: 50px; }
       }
 
+      @media (max-width: 1408px) {
+          .header-nav {
+              flex-basis: 100%;
+              order: 3;
+              justify-content: center;
+              padding-left: 0;
+              margin-top: 16px;
+              flex: initial;
+          }
+      }
       @media (max-width: 1024px) {
           .hero {
               background:
@@ -758,21 +769,11 @@
                       url('/assets/images/hero.jpg') no-repeat center right / cover;
           }
 
-          .header-nav, .header-socials, .header-contacts { display: none !important; }
+          /* Tablet: навигация на второй строке, контакты остаются */
 
-          .burger-btn {
-              display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
-              width: 44px; height: 44px; background: transparent; border: none; cursor: pointer; z-index: 101;
+          .header-right {
+              flex: 1;
           }
-
-          .burger-btn span {
-              display: block; width: 22px; height: 2px; background: var(--text-primary);
-              transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s; transform-origin: center;
-          }
-
-          .burger-btn.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-          .burger-btn.active span:nth-child(2) { opacity: 0; }
-          .burger-btn.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
           section { padding: 80px 32px; }
           .hero-content { padding: 110px 32px 60px; }
@@ -819,6 +820,23 @@
               background-position: center;
           }
 
+          /* Mobile: прячем навигацию и контакты, включаем бургер */
+          .header-nav, .header-socials, .header-contacts { display: none !important; }
+
+          .burger-btn {
+              display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+              width: 44px; height: 44px; background: transparent; border: none; cursor: pointer; z-index: 101;
+          }
+
+          .burger-btn span {
+              display: block; width: 22px; height: 2px; background: var(--text-primary);
+              transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s; transform-origin: center;
+          }
+
+          .burger-btn.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+          .burger-btn.active span:nth-child(2) { opacity: 0; }
+          .burger-btn.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
           .site-header { padding: 12px 20px; }
           .header-right { gap: 10px; }
           .header-cta { padding: 8px 16px; font-size: 11px; }
@@ -853,6 +871,12 @@
           .modal__container { padding: 20px; }
       }
 
+      @media (max-width: 500px) {
+          .nav-logo-text {
+              display: none;
+          }
+      }
+
   </style>
 </head>
 <body>
@@ -862,17 +886,18 @@
   <div class="header-left">
     <a href="#" class="nav-logo" aria-label="СтепХаус - на главную">
       <img class="nav-logo-img" src="/assets/images/logo.jpg" alt="Древесный замысел"/>
-      Древесный замысел
+      <span class="nav-logo-text">Древесный замысел</span>
     </a>
-
-    <nav class="header-nav" role="navigation" aria-label="Основная навигация">
-      <a href="#why" class="active">О нас</a>
-      <a href="#products">Каталог</a>
-      <a href="#materials">Материалы</a>
-      <a href="#process">Процесс</a>
-      <a href="#contact">Контакты</a>
-    </nav>
   </div>
+
+  <!-- Навигация теперь вне левого блока для удобного переноса на вторую строку -->
+  <nav class="header-nav" role="navigation" aria-label="Основная навигация">
+    <a href="#why" class="active">О нас</a>
+    <a href="#products">Каталог</a>
+    <a href="#materials">Материалы</a>
+    <a href="#process">Процесс</a>
+    <a href="#contact">Контакты</a>
+  </nav>
 
   <div class="header-right">
     <!-- Блок ссылок на соцсети Desktop -->
@@ -1356,10 +1381,10 @@
     Древесный замысел
   </div>
   <div class="footer-links">
-    <a href="#why">О нас</a>
+    <a href="#why" class="active">О нас</a>
     <a href="#products">Каталог</a>
-    <a href="#process">Материалы</a>
-    <a href="#coverage">Процесс</a>
+    <a href="#materials">Материалы</a>
+    <a href="#process">Процесс</a>
     <a href="#contact">Контакты</a>
     <!-- Добавлен href для нормального курсора с data-атрибутом -->
     <a id="confPol" href="#confPol" data-micromodal-trigger="modal-1">Политика конфиденциальности</a>
