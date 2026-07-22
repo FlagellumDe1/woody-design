@@ -364,6 +364,7 @@
       section:not(.pswp__scroll-wrap, .hero) { max-width: 1200px; margin: 0 auto; padding: 100px 60px; }
       .section-label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
 
+
       .section-title {
           font-family: 'Playfair Display', serif;
           font-size: clamp(28px, 3.5vw, 46px);
@@ -811,6 +812,9 @@
       }
 
       @media (max-width: 768px) {
+          section:not(.pswp__scroll-wrap, .hero) {
+              padding: 50px 16px;
+          }
           .hero {
               background:
                       linear-gradient(90deg,
