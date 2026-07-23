@@ -64,24 +64,34 @@ async function loadGalleryImages(folderName) {
     const folderImages = {};
     for (const [path, importFn] of Object.entries(allImages)) {
         if (path.includes(`/assets/galleries/${folderName}/`)) {
+            const fileName = path.split('/').pop();
+            if (fileName && fileName.toLowerCase().startsWith('preview.')) {
+                continue;
+            }
             folderImages[path] = importFn;
         }
     }
 
-    const items = await Promise.all(
-      Object.entries(folderImages).map(async ([path, importFn]) => {
-          const src = await importFn();
-          const img = new Image();
-          img.src = src;
-          await img.decode();
+    const sortedEntries = Object.entries(folderImages).sort(([pathA], [pathB]) => {
+        const nameA = Number(pathA.split('/').pop().replace(/\.[^/.]+$/, ''));
+        const nameB = Number(pathB.split('/').pop().replace(/\.[^/.]+$/, ''));
+        return nameA - nameB;
+    });
 
-          return {
-              src,
-              width: img.naturalWidth,
-              height: img.naturalHeight,
-              title: path.split('/').pop().replace(/\.[^/.]+$/, '')
-          };
-      })
+    const items = await Promise.all(
+        sortedEntries.map(async ([path, importFn]) => {
+            const src = await importFn();
+            const img = new Image();
+            img.src = src;
+            await img.decode();
+
+            return {
+                src,
+                width: img.naturalWidth,
+                height: img.naturalHeight,
+                title: path.split('/').pop().replace(/\.[^/.]+$/, '')
+            };
+        })
     );
 
     return items;
