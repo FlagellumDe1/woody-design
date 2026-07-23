@@ -31,7 +31,7 @@
       "name": "СтепХаус",
       "description": "Изготовление и монтаж лестниц на металлокаркасе с деревянной обшивкой для частных домов в Московской области",
       "url": "https://stephaus.ru",
-      "telephone": "+7 (930) 940-33-33",
+      "telephone": "+7 (495) 532-33-23",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "дер. Губкино, 78 соор 5",
@@ -45,7 +45,7 @@
         "name": "Московская область"
       },
       "priceRange": "₽₽₽",
-      "openingHours": "Mo-Sa 09:00-20:00"
+      "openingHours": "10:00-19:00"
     }
   </script>
 
@@ -274,8 +274,14 @@
                   rgba(255, 255, 255, 1) 0%,
                   rgba(255, 255, 255, 0.98) 15%,
                   rgba(255, 255, 255, 0.6) 40%,
-                  rgba(255, 255, 255, 0) 75%),
-                  url('/assets/images/hero.png') no-repeat center right / cover;
+                  rgba(255, 255, 255, 0) 75%
+                  ),
+                  url('/assets/images/hero.png');
+
+          background-repeat: no-repeat;
+          background-size: auto, cover;
+          background-position: left top, right -100px center;
+
       }
 
       .hero-content {
@@ -390,7 +396,6 @@
           width: 100%;
           text-align: right;
           margin-bottom: 16px;
-          flex-grow: 1;
       }
       .why-icon { width: 40px; height: 40px; margin-bottom: 20px; color: var(--accent); }
       .why-item h3 { font-size: 16px; font-weight: 600; color: var(--heading-color); margin-bottom: 10px; }
@@ -767,7 +772,10 @@
                       rgba(255, 255, 255, 0.95) 20%,
                       rgba(255, 255, 255, 0.6) 50%,
                       rgba(255, 255, 255, 0.2) 85%),
-                      url('/assets/images/hero.png') no-repeat center right / cover;
+                      url('/assets/images/hero.png');
+            background-repeat: no-repeat;
+            background-size: auto, cover;
+            background-position: left top, right -100px center;
           }
 
           /* Tablet: навигация на второй строке, контакты остаются */
@@ -820,12 +828,14 @@
                       linear-gradient(90deg,
                       rgba(255, 255, 255, 0.98) 0%,
                       rgba(255, 255, 255, 0.75) 100%),
-                      url('/assets/images/hero.png') no-repeat center right / cover;
-              background-position: center;
+                      url('/assets/images/hero.png');
+            background-repeat: no-repeat;
+            background-size: auto, cover;
+            background-position: left top, right -100px center;
           }
 
           /* Mobile: прячем навигацию и контакты, включаем бургер */
-          .header-nav, .header-socials, .header-contacts { display: none !important; }
+          .header-nav, .header-socials:not(.mobile-socials), .header-contacts { display: none !important; }
 
           .burger-btn {
               display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
@@ -918,9 +928,9 @@
     </div>
 
     <div class="header-contacts">
-      <a href="tel:+79309403333" class="header-phone">+7 (930) 940-33-33</a>
+      <a href="tel:++74955323323" class="header-phone">+7 (495) 532-33-23</a>
       <span class="header-address">г. Москва, дер. Губкино, 78 соор 5</span>
-      <a href="mailto:n.ilya2001@yandex.ru" class="header-address">n.ilya2001@yandex.ru</a>
+      <a href="mailto:drevesnyzamysel@gmail.com" class="header-address">drevesnyzamysel@gmail.com</a>
     </div>
 
     <a href="#contact" class="header-cta btn-primary">Заказать консультацию</a>
@@ -955,8 +965,8 @@
         <img src="/src/assets/icons/max.svg" alt="">
       </a>
     </div>
-    <a href="tel:+79309403333" class="header-phone">+7 (930) 940-33-33</a>
-    <span class="header-address-mobile">г. Москва, дер. Губкино, 78 соор 5<br>Пн-Сб, 9:00 - 20:00</span>
+    <a href="tel:++74955323323" class="header-phone">+7 (495) 532-33-23</a>
+    <span class="header-address-mobile">г. Москва, дер. Губкино, 78 соор 5<br>10:00 - 19:00</span>
     <a href="#contact" class="btn-primary mobile-cta">Заказать консультацию</a>
   </div>
 </div>
@@ -967,7 +977,7 @@
     <div class="hero-content">
       <p class="hero-label">Лестницы под ключ · Московская область</p>
       <h1 class="hero-title">
-        Лестницы<br/>на <em>металлическом</em><br/>каркасе
+        Лестницы на <em>металлическом</em><br/>каркасе
       </h1>
       <p class="hero-sub hero-sub-1">
         Мы предоставляем возможность людям комфортно и безопасно подниматься выше!
@@ -1047,7 +1057,7 @@
       <div class="why-item">
         <div class="why-num">04</div>
         <h3>Стоимость и сроки</h3>
-        <p>Стоимость рассчитывается индивидуально и зависит от сложности конструкции, высоты и выбранных материалов. Мы предлагаем честные цены без скрытых платежей.Стоимость лестницы складывается из стоимости металлокаркаса, его как правило устанавливают на этапе черновой отделки дома, стоимости деревянной обшивки, которую делают после чистовой отделки в доме и стоимости ограждений. Ограждения можно сразу приварить к каркасу, либо устанавливать после деревянной обшивки.
+        <p>Стоимость рассчитывается индивидуально и зависит от сложности конструкции, высоты и выбранных материалов. Мы предлагаем честные цены без скрытых платежей. Стоимость лестницы складывается из стоимости металлокаркаса, его как правило устанавливают на этапе черновой отделки дома, стоимости деревянной обшивки, которую делают после чистовой отделки в доме и стоимости ограждений. Ограждения можно сразу приварить к каркасу, либо устанавливать после деревянной обшивки.
           Сроки изготовления и установки металлокаркаса 15 - 20 рабочих дней, обшивки лестницы открытого типа 20 - 25 рабочих дней, обшивки лестницы закрытого типа 20 - 30 рабочих дней.</p>
       </div>
     </div>
@@ -1213,7 +1223,7 @@
         </div>
         <div class="material-content">
           <h3>Американский орех</h3>
-          <p>В отличие от европейских пород, американский орех имеет уникальный, шоколадно-карамельный оттенок с изящными темными прожилками. Он умеренно твердый, стабильный и прекрасно поддается шлифовке. Прямые линии волокон часто переплетаются с волнистыми завитками, создавая сложный, завораживающий узор. Он всегда выглядит дорого и благородно. </p>
+          <p>В отличие от европейских пород, американский орех имеет уникальный, шоколадно-карамельный оттенок с изящными темными прожилками. Он всегда выглядит дорого и благородно. </p>
         </div>
       </article>
     </div>
@@ -1254,7 +1264,7 @@
           <span class="step-num">4</span>
           <div class="step-content">
             <h4>Производство</h4>
-            <p>Подбираем качественные материалы. Изготавливаем металлокаркас и деревянные элементов в нашем цехе.  </p>
+            <p>Подбираем качественные материалы. Изготавливаем металлокаркас и деревянные элементы в нашем цехе.  </p>
             <span class="step-days">День 10–35</span>
           </div>
         </div>
@@ -1316,11 +1326,11 @@
         <div class="form-contact-row">
           <div class="contact-item">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2h4l1.5 4-2 1.5a10 10 0 004 4L11 9.5l4 1.5v4c0 1-1 1.5-2 1.5C5 16.5 0 10 0 4c0-1 .5-2 2-2z" stroke="currentColor" stroke-width="1.2"/></svg>
-            <span><strong>+7 (930) 940-33-33</strong> — пн–сб, 9:00–20:00</span>
+            <span><strong>+7 (495) 532-33-23</strong> — 10:00–19:00</span>
           </div>
           <div class="contact-item">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M1 5l7 5 7-5" stroke="currentColor" stroke-width="1.2"/></svg>
-            <span>n.ilya2001@yandex.ru</span>
+            <span>drevesnyzamysel@gmail.com</span>
           </div>
           <div class="contact-item">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="7" r="3" stroke="currentColor" stroke-width="1.2"/><path d="M8 1C4.686 1 2 3.686 2 7c0 4 6 9 6 9s6-5 6-9c0-3.314-2.686-6-6-6z" stroke="currentColor" stroke-width="1.2"/></svg>
@@ -1409,7 +1419,7 @@
 
         <h3>1. Основные положения</h3>
         <p>1.1. Настоящее Согласие на обработку персональных данных (далее – Согласие) является публичным и открытым документом.</p>
-        <p>1.2. Используя функционал сайта и оставляя свои данные в веб-формах (регистрация, заказ обратного звонка, подписка, отправка сообщения), Пользователь дает свое добровольное согласие ООО «[Название компании]» (ИНН: [__]), расположенному по адресу: [Адрес], (далее – Оператор) на обработку своих персональных данных на условиях, изложенных в настоящем Согласии.</p>
+        <p>1.2. Используя функционал сайта и оставляя свои данные в веб-формах (регистрация, заказ обратного звонка, подписка, отправка сообщения), Пользователь дает свое добровольное согласие Индивидуальному предпринимателю Ярошенко Илье Васильевичу, действующему на основании ОГРНИП 325508100048690, (далее – Оператор) на обработку своих персональных данных на условиях, изложенных в настоящем Согласии.</p>
         <p>1.3. Согласие действует в отношении всех персональных данных, которые Пользователь предоставляет Оператору.</p>
         <p>1.4. Настоящее Согласие составлено в соответствии с требованиями ст. 9 152-ФЗ и является отдельным документом, не подлежащим включению в текст договора оферты, пользовательского соглашения или иных документов.</p>
 
